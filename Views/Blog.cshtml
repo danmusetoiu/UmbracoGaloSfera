@@ -1,0 +1,76 @@
+﻿@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Newtonsoft.Json
+@using Umbraco.Extensions;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Blog>;
+
+
+@{
+    Layout = "master.cshtml";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Leaflet Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+          integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+          crossorigin="">
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
+</head>
+@Html.Partial("~/Views/Partials/SectionHeader.cshtml")
+
+<body>
+    <div class="container">
+    <div class="row section">
+        <div class="col-md-12">
+            <h3>Ultimele stiri</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+                @foreach (Blogpost stire in Model.Children<Blogpost>())
+                {
+                    <span><b>@stire.Name </b> : @stire.Excerpt<br /><br /></span>
+                }
+        </div>
+    </div>
+    </div>
+
+
+
+    
+    <div id="map"></div>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+            integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+            crossorigin=""></script>
+  
+    @{
+        var list = Model.Children<Blogpost>().Select(b => new { b.LocalizareGal.Marker.Latitude, b.LocalizareGal.Marker.Longitude, b.WebsiteGal }).ToList();
+    }
+
+  
+    <script>
+        const lista = JSON.parse('@(Html.Raw(JsonConvert.SerializeObject(list, Formatting.None)))');
+        var map = L.map('map').setView([45.121, 25.3321], 7);
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+
+        lista.forEach(o => L.marker([o.Latitude, o.Longitude]).bindPopup("<b>Detalii lansare apel la:</b> <br />" + o.WebsiteGal).openPopup().addTo(map));
+
+    </script>
+
+
+</body>
+</html>

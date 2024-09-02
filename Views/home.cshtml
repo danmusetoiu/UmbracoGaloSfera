@@ -1,0 +1,61 @@
+﻿
+@using Umbraco.Extensions
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Home>
+@{
+    Layout = "master.cshtml";
+    var backgroundImage = Model.HeroBackgroundImage != null ? Model.HeroBackgroundImage.Url() : String.Empty;
+}
+
+
+<section class="section section--full-height background-image-full overlay overlay--dark section--content-center "
+         style="background-image: url('/media/tl1bwsbv/wall-homepage11.jpg?rmode=max&width=500&v=1dad367f5659c79')">
+    <div class="ta-center" style="margin-top:10%">
+       
+        <img src="/media/ih4kqrbz/text-mare-galosfera.svg" style="height:150px" />
+        
+        <br /><br /><br />
+    
+        <div class="ta-center">
+            <font color="white">@Model.HeroDescription</font>
+        </div>
+        <br /><br />
+
+        <a href="register-login">
+            <img src="media/szgjux0j/login3.svg" style="height:200px; width:200px" />
+        </a>
+
+        <div class="button--border--light">
+            <a href="register-login/">
+            Conectează-te sau fă-ți cont!
+            </a>
+        </div>
+    </div>
+
+    
+</section>
+
+
+<section class="section section">
+    @await Html.GetBlockGridHtmlAsync(Model, "bodyText")
+</section>
+
+<section class="section section--themed">
+
+    <div class="container">
+        <div class="row">
+
+            <div class="ta-center">
+                <h2>@Model.FooterHeader</h2>
+                <p class="section__description mw-640 ma-h-auto">@Model.FooterDescription</p>
+
+                <a class="button button--border--light_solid" href="@Model.FooterCtalink.Url()">
+                    @Model.FooterCtacaption
+                </a>
+
+            </div>
+
+        </div>
+    </div>
+
+</section>
