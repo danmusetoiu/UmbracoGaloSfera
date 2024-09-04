@@ -35,8 +35,8 @@
             {
 
                 <div class="employee-grid__item">
-                    <div class="employee-grid__item__image" style="background-image: url('@person.Photo?.Url()')"></div>
-                    <a href="/voluntar-in-romania/@person.Name.Replace(" ", "-")">Vezi profilul</a>
+
+                    <a href="/voluntar-in-romania/@person.Name.Replace(" ", "-")"><div class="employee-grid__item__image" style="background-image: url('@person.Photo?.Url()')"></div></a>
                     <div class="employee-grid__item__details">
                         <h3 class="employee-grid__item__name">@person.Name</h3>
                         
@@ -58,3 +58,4 @@
     </div>
 
 </section>
+

@@ -4,8 +4,12 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
+  <ItemGroup>
+    <Content Remove="_AppStart.cshtml" />
+  </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="microsoft-web-helpers" Version="2.1.20710.2" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.TagHelpers" Version="2.2.0" />
     <PackageReference Include="Our.Umbraco.GMaps" Version="3.0.2" />
     <PackageReference Include="Umbraco.Cms" Version="13.3.1" />
@@ -30,5 +34,17 @@
   </PropertyGroup>
 
   <ProjectExtensions><VisualStudio><UserProperties appsettings-schema_1umbraco_1cms_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="_AppStart.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="_AppStart.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="_AppStart.cshtml" />
+  </ItemGroup>
 
 </Project>

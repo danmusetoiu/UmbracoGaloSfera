@@ -1,18 +1,19 @@
 ﻿
 @using Umbraco.Extensions
-@using Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Web.Common.PublishedModels
+@using Umbraco.Cms.Core.Security;
+@inject IMemberManager _memberManager;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Home>
 @{
     Layout = "master.cshtml";
     var backgroundImage = Model.HeroBackgroundImage != null ? Model.HeroBackgroundImage.Url() : String.Empty;
 }
 
-
 <section class="section section--full-height background-image-full overlay overlay--dark section--content-center "
          style="background-image: url('/media/tl1bwsbv/wall-homepage11.jpg?rmode=max&width=500&v=1dad367f5659c79')">
     <div class="ta-center" style="margin-top:10%">
        
-        <img src="/media/ih4kqrbz/text-mare-galosfera.svg" style="height:150px" />
+        <img src="/media/ih4kqrbz/text-mare-galosfera.svg"  />
         
         <br /><br /><br />
     
@@ -21,15 +22,29 @@
         </div>
         <br /><br />
 
-        <a href="register-login">
-            <img src="media/szgjux0j/login3.svg" style="height:200px; width:200px" />
-        </a>
+        
 
-        <div class="button--border--light">
-            <a href="register-login/">
-            Conectează-te sau fă-ți cont!
-            </a>
+        <div class="container-fluid">
+            <div class="ta-center">
+                @{
+                    var currentMember = await _memberManager.GetCurrentMemberAsync();
+                }
+                @if (currentMember is not null)
+                {
+                    <font color="white">Esti logat ca: @currentMember.UserName</font>
+                }
+                else
+                {
+                    <a href="register-login">
+                        <img src="media/szgjux0j/login3.svg" style="height:100px; width:100px" />
+                    </a>
+                }
+            </div>
         </div>
+
+
+        
+        
     </div>
 
     

@@ -1093,8 +1093,10 @@ body.theme-color-water--active.nav-link:visited, body.theme-color-water .border-
 }
 
 .product-grid__item:hover body.theme-color-sun .product-grid__item__name, .product-grid__item:hover body.theme-color-sun .product-grid__item__price, body.theme-color-sun .bg-main-color, body.theme-color-sun .button--border--solid, body.theme-color-sun .mobile-nav, body.theme-color-sun .product-grid__item:hover .product-grid__item__name, body.theme-color-sun .product-grid__item:hover .product-grid__item__price, body.theme-color-sun .section--themed {
-    background-color: #f8ea88;
+     background-color: #f8ea88;
     color: #000
+    /*background-color: white;
+    color: black;*/
 }
 
 .hamburger.lines:hover.active body.theme-color-sun span:after, .hamburger.lines:hover.active body.theme-color-sun span:before, .hamburger body.theme-color-sun span, .hamburger body.theme-color-sun span:after, .hamburger body.theme-color-sun span:before, body.theme-color-sun .bg-secondary-color, body.theme-color-sun .hamburger.lines:hover.active span:after, body.theme-color-sun .hamburger.lines:hover.active span:before, body.theme-color-sun .hamburger span, body.theme-color-sun .hamburger span:after, body.theme-color-sun .hamburger span:before, body.theme-color-sun .nav-link--home__text:after {
@@ -1509,11 +1511,11 @@ a.nav-link.nav-link--black {
 }
 
 body.frontpage .section__hero-content {
-    color: #fff
+    /*color: #fff*/
 }
 
 .section__hero-content {
-    max-width: 760px;
+    max-width: 360px;
     padding: 0 20px
 }
 
@@ -1582,9 +1584,9 @@ body.frontpage .section__hero-content {
 }
 
 .button--border--light {
-    background: none;
+    background-color: white;
     border-color: #fff;
-    color: #fff
+    color: black;
 }
 
     .button--border--light:hover {

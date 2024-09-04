@@ -6,9 +6,10 @@
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Person>
 
 @{
-	Layout = "";//master.cshtml
+	Layout = "master.cshtml";//master.cshtml
 }
 @Html.Partial("~/Views/Partials/SectionHeader.cshtml", Model.Parent)
+
 
 <head>
 	<meta charset="utf-8">
@@ -24,7 +25,7 @@
 	@* @RenderSection("Header", required: false) *@
 </head>
 
- <div class="container">
+ @* <div class="container">
 	<div class="row">
 		<div class="col-lg-4">
 			@{
@@ -47,12 +48,58 @@
 			@Model.Value("experientaVoluntar")<br />
 		</div>
 	</div>
-</div>
+</div> *@
 	
 	
 	
 	
-</p>
+<section class="section section--full-height background-image-full overlay  section--content-center "
+		 style="background-image: url('/media/1sjdebve/wall-profil-eveniment4.png?rmode=max&width=500&v=1dafdd00d589c09')">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+            </div>
+            <div class="col-sm" style="text-align:center">
+
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+                    <label class="form-check-label" for="flexSwitchCheckChecked">Notificari Email</label>
+
+                </div>
+
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+                    <label class="form-check-label" for="flexSwitchCheckChecked">Notificari portal</label>
+                </div>
+            </div>
+			
+					<div class="col-lg-4">
+						@{
+							var typedMultiMediaPicker = Model.Value<MediaWithCrops>("photo");
+					<img src="@typedMultiMediaPicker.MediaUrl()" class="rounded-circle" style="width: 100px;height: 100px;" />
+							// daca avem mai multe fotografii
+							// foreach (var entry in typedMultiMediaPicker)
+							// {
+							// 	<img src="@entry.MediaUrl()" style="width:200px" />
+							// }
+						}
+						@Model.Value("Nume")&nbsp;@Model.Value("Prenume")
+					
+						@Model.Value("instagramUsername")<br />
+						@Model.Value("email")<br />
+						@Model.Value("activitati")<br />
+						<h3>Despre mine</h3><br />
+						@Model.Value("despreMine")<br />
+						<h3>Experienta voluntariat</h3>
+						@Model.Value("experientaVoluntar")<br />
+					</div>
+				</div>
+			
+    </div>
+
+
+</section>
 
 
 

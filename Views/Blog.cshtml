@@ -40,7 +40,16 @@
         <div class="col-md-4">
                 @foreach (Blogpost stire in Model.Children<Blogpost>())
                 {
-                    <span><b>@stire.Name </b> : @stire.Excerpt<br /><br /></span>
+                    <div class="container">
+                        <h6> @stire.Name </h6>
+                    </div>
+                    <div class="container">
+                        @stire.Excerpt
+                    </div>
+                    <div class="container">
+                        <a href="@stire.Url()">Mai mult....</a>
+                    </div>
+                    <br />
                 }
         </div>
     </div>
