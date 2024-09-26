@@ -2,7 +2,10 @@
 @using Microsoft.AspNetCore.Mvc.Rendering
 @using Umbraco.Extensions
 @using Umbraco.Cms.Core.Models
-
+@using Umbraco.Cms.Core.Models.PublishedContent
+@using Umbraco.Cms.Core.Routing
+@using Umbraco.Cms.Core.Security;
+@inject IMemberManager _memberManager;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Person>
 
 @{
@@ -84,15 +87,46 @@
 							// 	<img src="@entry.MediaUrl()" style="width:200px" />
 							// }
 						}
-						@Model.Value("Nume")&nbsp;@Model.Value("Prenume")
-					
-						@Model.Value("instagramUsername")<br />
-						@Model.Value("email")<br />
-						@Model.Value("activitati")<br />
-						<h3>Despre mine</h3><br />
-						@Model.Value("despreMine")<br />
-						<h3>Experienta voluntariat</h3>
-						@Model.Value("experientaVoluntar")<br />
+				@{
+					var currentMember = await _memberManager.GetCurrentMemberAsync();
+				}
+				@if (currentMember is not null)
+				{
+					<br />
+					@Model.Value("Nume")
+					<br />
+					@Model.Value("Prenume")
+					<br />
+					<h3>Instagram: </h3>
+					@Model.Value("instagramUsername")
+
+					<br />
+					@Model.Value("email")
+
+					<br />
+					@Model.Value("activitati")
+
+					<br />
+					<h3>Despre mine</h3>
+
+					<br />
+					@Model.Value("despreMine")
+
+					<br />
+					<h3>Experienta voluntariat</h3>
+					<br />
+					@Model.Value("experientaVoluntar")
+
+					<br />
+				}
+				@if (currentMember is null)
+				{
+					@Model.Value("Nume")
+					<br />
+					@Model.Value("Prenume")
+					<h3>Experienta voluntariat</h3>
+					@Model.Value("experientaVoluntar")
+				}
 					</div>
 				</div>
 			

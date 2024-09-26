@@ -15,24 +15,31 @@
          style="background-image: url('/media/1sjdebve/wall-profil-eveniment4.png?rmode=max&width=500&v=1dafdd00d589c09')">
 
     <div class="container">
-        <div class="row">
-            <div class="col-sm">
-                
+        <div class="row position-absolute start-50">
+
+          
+            <div class="col-md-4">
+               
+                              
+                    <form action="/action_page.php">
+                        <div class="form-check form-switch">
+
+                            <input class="form-check-input" type="checkbox" id="mySwitch" name="darkmode" value="yes" checked>
+                            <label class="form-check-label" for="mySwitch">Notificări portal</label>
+                       
+                        </div>
+                    <div class="form-check form-switch">
+
+                        <input class="form-check-input" type="checkbox" id="mySwitch" name="darkmode" value="yes" checked>
+                        <label class="form-check-label" for="mySwitch">Notificări email</label>
+
+                    </div>
+                        <button type="submit" class="btn btn-primary mt-3">Activează notificări</button>
+                    </form>
+                       
             </div>
-            <div class="col-sm" style="text-align:center">
-                
-                <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
-                    <label class="form-check-label" for="flexSwitchCheckChecked">Notificari Email</label>
-                    
-                </div>
-                
-                <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
-                    <label class="form-check-label" for="flexSwitchCheckChecked">Notificari portal</label>
-                </div>
-            </div>
-             <div class="col-4">
+
+            <div class="col-6 ">
                
                 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-indicators">
@@ -47,11 +54,14 @@
                             foreach (Product product in Model.Children<Product>())
                             {
                                 <div class="carousel-item active">
-                                    @* @product.ProductName *@
-                                    <img src="@product.Photos?.Url()" style="width:200px;height:150px" class="d-block w-100" alt=" @product.ProductName">
+                                   
+                                    <img src="@product.Photos?.Url()" style="width:40%;height:40%" class="d-block w-100" alt=" @product.ProductName">
+                                    
                                     <div class="carousel-caption d-none d-md-block">
-                                        <h5>@product.ProductName</h5>
-                                        <p>@product.UpdateDate</p>
+                                        <a href="@product.Url()">
+                                            <h5 style="background-color:black"><font color="white">@product.ProductName</font></h5>
+                                        </a>
+                                        
                                     </div>
                                 
                                 </div>
@@ -78,28 +88,5 @@
 
 
 </section>
-
-
-@* <div class="col-4">
-                <div class="product-grid">
-                    @if (Model.FeaturedProducts != null)
-                    {
-                        foreach (Product product in Model.Children<Product>())
-                        {
-                            <div class="container">
-                                <a href="@product.Url()">
-                                @product.ProductName<br />
-                                </a>
-                                <img src="@product.Photos?.Url()" style="width:200px;height:150px" />
-                            </div>
-
-
-
-                            <br />
-                        }
-                    }
-
-                </div>
-            </div>  *@
 
 

@@ -47,7 +47,11 @@ else
                 AutomaticLogIn = registerModel.AutomaticLogIn
             }))
     {
-        <h2>Crează un cont nou.</h2>
+        <div class="container text-center">
+            <h6>Crează un cont nou.</h6>
+        
+        
+       
         <hr />
         <div asp-validation-summary="All" class="text-danger"></div>
         <div class="mb-3">
@@ -85,6 +89,6 @@ else
         }
 
         <button type="submit" class="btn btn-primary">Register</button>
-        
+        </div>
     }
 }

@@ -45,12 +45,12 @@ else
 {
 
 
-<div class="login-form">
+<div class="login-form text-center">
 
     @using (Html.BeginUmbracoForm<UmbLoginController>(
         "HandleLogin", new { RedirectUrl = loginModel.RedirectUrl })) {
 
-            <h4>Loghează-te cu un cont existent.</h4>
+            <h6>Loghează-te cu un cont existent.</h6>
             <hr />
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="mb-3">

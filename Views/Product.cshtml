@@ -21,7 +21,9 @@
                 
                 <div class="product-teaser">@Model.Description</div>
                 <div class="product-button">
-                    <button class="button button--border--solid">Participă</button>
+                    <a href="/contact" class= "button button--border--solid" role="button">
+                        Participă
+                    </a>
                 </div>
                 <div class="product-advantages">
                     @Html.GetBlockListHtml(Model, "features")

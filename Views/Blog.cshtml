@@ -30,18 +30,15 @@
 @Html.Partial("~/Views/Partials/SectionHeader.cshtml")
 
 <body>
-    <div class="container">
-    <div class="row section">
-        <div class="col-md-12">
-            <h3>Ultimele stiri</h3>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-4">
+    <div class="container text-center">
+    
+            @* <h1>Ultimele stiri</h1> *@
+        
+    
                 @foreach (Blogpost stire in Model.Children<Blogpost>())
                 {
                     <div class="container">
-                        <h6> @stire.Name </h6>
+                        <h3> @stire.Name </h3>
                     </div>
                     <div class="container">
                         @stire.Excerpt
@@ -51,12 +48,13 @@
                     </div>
                     <br />
                 }
-        </div>
+
     </div>
+
+
+    <div class="container text-center text-danger">
+        <h3>Localizare sedii Grupuri de Acțiune Locală</h3>
     </div>
-
-
-
     
     <div id="map"></div>
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
