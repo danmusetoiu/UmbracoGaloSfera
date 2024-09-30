@@ -1,0 +1,83 @@
+﻿@using Umbraco.Extensions
+@using Umbraco.Cms.Web.Common.PublishedModels
+@using Umbraco.Cms.Core.Security;
+@inject IMemberManager _memberManager;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<InscriereVoluntari>
+@{
+	Layout = "master.cshtml";
+}
+
+@Html.Partial("~/Views/Partials/SectionHeader.cshtml")
+
+<section class="section">
+
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-3 mx-auto">
+				<h2><font color="red"> implică-te! </font></h2>
+				<br /><br />
+			</div>
+		</div>
+	</div>
+
+
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<input type="text" class="form-control" placeholder="Prenume" aria-label="First name">
+			</div>
+			<div class="col">
+				<input type="text" class="form-control" placeholder="Nume" aria-label="Last name">
+			</div>
+		</div>
+		<form class="row g-3">
+			<div class="col-md-6">
+				<label for="inputEmail4" class="form-label">Email</label>
+				<input type="email" class="form-control" id="inputEmail4">
+			</div>
+			<div class="col-md-6">
+				<label for="inputPassword4" class="form-label">Password</label>
+				<input type="password" class="form-control" id="inputPassword4">
+			</div>
+			<div class="col-12">
+				<label for="inputAddress" class="form-label">Adresa</label>
+				<input type="text" class="form-control" id="inputAddress" placeholder="Strada, număr">
+			</div>
+			<div class="col-12">
+				<label for="inputAddress2" class="form-label">Detalii adresa</label>
+				<input type="text" class="form-control" id="inputAddress2" placeholder="Scară, etaj, nr. apartament">
+			</div>
+			<div class="col-md-6">
+				<label for="inputCity" class="form-label">Oraș</label>
+				<input type="text" class="form-control" id="inputCity">
+			</div>
+			<div class="col-md-4">
+				<label for="inputState" class="form-label">Județ</label>
+				<select id="inputState" class="form-select">
+					<option selected>Alege...</option>
+					<option>ALBA</option>
+					<option>VASLUI</option>
+				</select>
+			</div>
+			<div class="col-md-2">
+				<label for="inputZip" class="form-label">Cod poștal</label>
+				<input type="text" class="form-control" id="inputZip">
+			</div>
+			<div class="mb-3">
+				<label for="formFileMultiple" class="form-label">Încarcă documente relevante</label>
+				<input class="form-control" type="file" id="formFileMultiple" multiple>
+			</div>			<div class="col-12">
+				<div class="form-check">
+					<input class="form-check-input" type="checkbox" id="gridCheck">
+					<label class="form-check-label" for="gridCheck">
+						Verifică înformațiile și bifează căsuța
+					</label>
+				</div>
+			</div>
+			<div class="col-12">
+				<button type="submit" class="btn btn-primary">Trimite</button>
+			</div>
+		</form>
+		
+	</div>
+</section>

@@ -50,6 +50,14 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		// properties
 
 		///<summary>
+		/// Adresa eveniment
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.1+5f24de3")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("adresaEveniment")]
+		public virtual string AdresaEveniment => this.Value<string>(_publishedValueFallback, "adresaEveniment");
+
+		///<summary>
 		/// Content
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.1+5f24de3")]
@@ -64,6 +72,13 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("category")]
 		public virtual global::System.Collections.Generic.IEnumerable<string> Category => this.Value<global::System.Collections.Generic.IEnumerable<string>>(_publishedValueFallback, "category");
+
+		///<summary>
+		/// Data Eveniment
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.1+5f24de3")]
+		[ImplementPropertyType("dataEveniment")]
+		public virtual global::System.DateTime DataEveniment => this.Value<global::System.DateTime>(_publishedValueFallback, "dataEveniment");
 
 		///<summary>
 		/// Descriere Eveniment

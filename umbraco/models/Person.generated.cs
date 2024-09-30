@@ -114,12 +114,28 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual string LinkedInUsername => this.Value<string>(_publishedValueFallback, "linkedInUsername");
 
 		///<summary>
+		/// Nume: nume
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.1+5f24de3")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("nume")]
+		public virtual string Nume => this.Value<string>(_publishedValueFallback, "nume");
+
+		///<summary>
 		/// Photo
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.1+5f24de3")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("photo")]
 		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops Photo => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "photo");
+
+		///<summary>
+		/// Prenume: prenume
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.1+5f24de3")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("prenume")]
+		public virtual string Prenume => this.Value<string>(_publishedValueFallback, "prenume");
 
 		///<summary>
 		/// Twitter username
