@@ -1,0 +1,15 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.PaginaDeStiri>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+	Layout = "master.cshtml";
+}
+
+
+@Html.Partial("~/Views/Partials/SectionHeader.cshtml")
+
+<div class="container container-fluid text-center">
+	<h3>Știri din activitatea Grupurilor de Acțiune Locală</h3>
+</div>
+
+<rssapp-magazine id="0cNKvcUhzWL35hYI"></rssapp-magazine><script src="https://widget.rss.app/v1/magazine.js" type="text/javascript" async></script>

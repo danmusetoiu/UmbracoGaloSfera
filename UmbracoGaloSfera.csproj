@@ -9,6 +9,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Remove="Recaptcha.cshtml" />
+    <Content Remove="Views\Pdf.cshtml" />
     <Content Remove="_AppStart.cshtml" />
   </ItemGroup>
 

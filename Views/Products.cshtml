@@ -1,5 +1,6 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
-@using Umbraco.Extensions
+@using Umbraco.Extensions;
+@using Newtonsoft.Json;
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Products>
@@ -7,6 +8,25 @@
 @{
     Layout = "master.cshtml";
 }
+
+<head>
+    <meta charset="utf-8">
+    <title>Leaflet Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+          integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+          crossorigin="">
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
+</head>
 
 @Html.Partial("~/Views/Partials/SectionHeader.cshtml")
 
@@ -18,7 +38,7 @@
         <div class="row position-absolute start-50">
 
           
-            <div class="col-md-4">
+            @* <div class="col-md-4">
                
                               
                     <form action="/action_page.php">
@@ -37,11 +57,11 @@
                         <button type="submit" class="btn btn-primary mt-3">Activează notificări</button>
                     </form>
                        
-            </div>
+            </div> *@
 
-            <div class="col-6 ">
+            <div class="col-md-4 ">
                
-                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                @* <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-indicators">
                         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -76,7 +96,7 @@
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
                     </button>
-                </div>
+                </div> *@
             </div> 
 
     
@@ -84,9 +104,33 @@
 
         </div>
     </div>
+    <div id="map"></div>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+            integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+            crossorigin=""></script>
 
+    @{
+        var list = Model.Children<Product>().Select(b => new {b.LocalizareEveniment.Marker.Latitude, b.LocalizareEveniment.Marker.Longitude, b.Name}).ToList();
+        
+    }
+
+
+    <script>
+        const lista = JSON.parse('@(Html.Raw(JsonConvert.SerializeObject(list, Formatting.None)))');
+        var map = L.map('map').setView([45.121, 25.3321], 7);
+        
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+        
+        lista.forEach(o => L.marker([o.Latitude, o.Longitude]).bindPopup("Detalii eveniment: " + o.Name ).openPopup().addTo(map));
+        
+
+    </script>
 
 
 </section>
+
 
 

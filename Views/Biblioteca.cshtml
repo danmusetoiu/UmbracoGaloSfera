@@ -2,6 +2,11 @@
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Biblioteca>
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @{
-	Layout = null;
+	Layout ="master.cshtml";
 }
 
+@Html.Partial("~/Views/Partials/SectionHeader.cshtml")
+
+<div class="container text-center">
+	@Model.ContinutulPaginii
+</div>
