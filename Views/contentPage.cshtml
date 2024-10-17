@@ -1,5 +1,7 @@
 ﻿@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels
 @using Umbraco.Extensions
+@using Umbraco.Cms.Core.Security;
+@inject IMemberManager _memberManager;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.ContentPage>
 @{
     Layout = "master.cshtml";
@@ -8,11 +10,23 @@
 @Html.Partial("~/Views/Partials/SectionHeader.cshtml")
 
 <div class="container container-fluid text-center">
+    <div class="form-group">
+        <div class="col-md-10">
+            Descarca formularul 230<br />
+            <a href="/media/rr3dhlzm/formular230.pdf" target="_blank"><button>Download!</button></a>
+        </div>
+    </div>
+    
+</div>
+
+
+<div class="container container-fluid text-center">
     <form method="post" enctype="multipart/form-data" asp-controller="FileUpload" asp-action="Index">
         <div class="form-group">
             <div class="col-md-10">
-                <p>Încarcă unul sau mai multe fișiere:</p>
+                Încarcă formularul 230
                 <input type="file" name="files" multiple />
+                
             </div>
         </div>
         <div class="form-group">
@@ -22,3 +36,11 @@
         </div>
     </form>
 </div>
+
+<section class="section section--content-center">
+    <div class="container container-fluid">
+        VIZIBILA DOAR PENTRU ADMIN>>>>
+        <a href="mailto:@_memberManager.GetCurrentMemberAsync()" target="_blank">Plateste-ti cotizatia!</a>
+
+    </div>
+</section>

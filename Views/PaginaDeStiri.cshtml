@@ -1,6 +1,8 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.PaginaDeStiri>
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using System.Xml.XPath;
+@using System.Xml;
 @{
 	Layout = "master.cshtml";
 }
@@ -10,6 +12,35 @@
 
 <div class="container container-fluid text-center">
 	<h3>Știri din activitatea Grupurilor de Acțiune Locală</h3>
+	<link rel="alternate" type="application/rss+xml" href="/url/to/feedpage" title="RSS Feed for x">
 </div>
 
-<rssapp-magazine id="0cNKvcUhzWL35hYI"></rssapp-magazine><script src="https://widget.rss.app/v1/magazine.js" type="text/javascript" async></script>
+
+
+
+@{
+    //Fetch RSS XML
+    XmlTextReader udBrudRSS = new XmlTextReader("https://news.google.com/rss/search?q=gal&hl=ro-RO");
+
+    //Create new XML document
+    XmlDocument doc = new XmlDocument();
+
+    //Load in our remote XML into our XML document
+    doc.Load(udBrudRSS);
+
+    //Select our nodes we want with some xPath
+    XmlNodeList rssItems = doc.SelectNodes("//item");
+
+}
+<ul>
+    @{
+        //For each item node we can then ouput what we want
+        foreach (XmlNode node in rssItems)
+        {
+            <li>
+                <div class="date">@node["pubDate"].InnerText</div>
+                <a href="@node["link"].InnerText">@node["title"].InnerText</a>
+            </li>
+        }
+    }
+</ul>

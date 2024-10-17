@@ -110,7 +110,7 @@
             crossorigin=""></script>
 
     @{
-        var list = Model.Children<Product>().Select(b => new {b.LocalizareEveniment.Marker.Latitude, b.LocalizareEveniment.Marker.Longitude, b.Name}).ToList();
+        var list = Model.Children<Product>().Select(b => new {b.LocalizareEveniment.Marker.Latitude, b.LocalizareEveniment.Marker.Longitude, b.Name, b.WebsiteEveniment}).ToList();
         
     }
 
@@ -124,7 +124,7 @@
             attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         }).addTo(map);
         
-        lista.forEach(o => L.marker([o.Latitude, o.Longitude]).bindPopup("Detalii eveniment: " + o.Name ).openPopup().addTo(map));
+        lista.forEach(o => L.marker([o.Latitude, o.Longitude]).bindPopup("Detalii eveniment: " + o.Name + "<a href={{o.WebsiteEveniment}}>LINK</a>").openPopup().addTo(map));
         
 
     </script>

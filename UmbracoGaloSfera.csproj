@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
@@ -17,6 +17,7 @@
     <PackageReference Include="microsoft-web-helpers" Version="2.1.20710.2" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.TagHelpers" Version="2.2.0" />
     <PackageReference Include="Our.Umbraco.GMaps" Version="3.0.2" />
+    <PackageReference Include="Our.Umbraco.SuperEasyRss" Version="1.0.0" />
     <PackageReference Include="Umbraco.Cms" Version="13.3.1" />
   </ItemGroup>
 
