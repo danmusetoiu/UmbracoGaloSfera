@@ -20,7 +20,7 @@
 
 @{
     //Fetch RSS XML
-    XmlTextReader udBrudRSS = new XmlTextReader("https://news.google.com/rss/search?q=gal&hl=ro-RO");
+    XmlTextReader udBrudRSS = new XmlTextReader("https://news.google.com/rss/search?q=gal,dezvoltare,locala&hl=ro-RO");
 
     //Create new XML document
     XmlDocument doc = new XmlDocument();
@@ -39,7 +39,9 @@
         {
             <li>
                 <div class="date">@node["pubDate"].InnerText</div>
-                <a href="@node["link"].InnerText">@node["title"].InnerText</a>
+                @node["title"].InnerText<br />
+                <a href="@node["link"].InnerText">DETALII</a>
+                
             </li>
         }
     }
