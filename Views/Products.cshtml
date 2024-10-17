@@ -118,13 +118,21 @@
     <script>
         const lista = JSON.parse('@(Html.Raw(JsonConvert.SerializeObject(list, Formatting.None)))');
         var map = L.map('map').setView([45.121, 25.3321], 7);
+        let smile = String.fromCodePoint(0x27A1);
         
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
             attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         }).addTo(map);
         
-        lista.forEach(o => L.marker([o.Latitude, o.Longitude]).bindPopup("Detalii eveniment: " + o.Name + "<a href={{o.WebsiteEveniment}}>LINK</a>").openPopup().addTo(map));
+        lista.forEach(o => {
+            L.marker([o.Latitude, o.Longitude])
+                .bindPopup(o.Name + " " + smile + " " + "<a href='" + o.WebsiteEveniment + "' target='_blank'>Detalii aici</a>")
+                .openPopup()
+                .addTo(map);
+        });
+
+
         
 
     </script>
