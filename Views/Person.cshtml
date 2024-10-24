@@ -36,133 +36,34 @@
 	@* @RenderSection("Header", required: false) *@
 </head>
 
- @* <div class="container">
-	<div class="row">
-		<div class="col-lg-4">
-			@{
-				var typedMultiMediaPicker = Model.Value<MediaWithCrops>("photo");
-				<img src="@typedMultiMediaPicker.MediaUrl()" style="width:200px" />
-				// daca avem mai multe fotografii
-				// foreach (var entry in typedMultiMediaPicker)
-				// {
-				// 	<img src="@entry.MediaUrl()" style="width:200px" />
-				// }
-			}
-		</div>
-		<div class="col-lg-4">
-			@Model.Value("instagramUsername")<br />
-			@Model.Value("email")<br />
-			@Model.Value("activitati")<br />
-			<h3>Despre mine</h3><br />
-			@Model.Value("despreMine")<br />
-			<h3>Experienta voluntariat</h3>
-			@Model.Value("experientaVoluntar")<br />
-		</div>
-	</div>
-</div> *@
+
 	
 	
 	
 	
 <section class="section section--full-height background-image-full overlay  section--content-center "
-		 style="background-image: url('/media/1sjdebve/wall-profil-eveniment4.png?rmode=max&width=500&v=1dafdd00d589c09')">
+		 style="background-image: url('/media/tkslekng/wall-profil-voluntar3.png?rmode=max&width=500&v=1db23adcef4098d)">
 
-    <div class="container">
-        <div class="row">
-            <div class="col-sm">
-            </div>
-            <div class="col-sm" style="text-align:center">
 
-                <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
-                    <label class="form-check-label" for="flexSwitchCheckChecked">Notificari Email</label>
-
-                </div>
-
-                <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
-                    <label class="form-check-label" for="flexSwitchCheckChecked">Notificari portal</label>
-                </div>
-            </div>
-			
-					<div class="col-lg-4">
-						@{
+						@* @{
 							var typedMultiMediaPicker = Model.Value<MediaWithCrops>("photo");
-					<img src="@typedMultiMediaPicker.MediaUrl()" class="rounded-circle" style="width: 100px;height: 100px;" />
+					<img src="@typedMultiMediaPicker.MediaUrl()" class="rounded-circle" style="width: 250px;height: 250px;" />
+					} *@
+							
+						@* <span class="fa fa-star checked"></span>
+						<span class="fa fa-star checked"></span>
+						<span class="fa fa-star checked"></span>
+						<span class="fa fa-star"></span>
+						<span class="fa fa-star"></span> *@
+							
+		@*
+		@{
+		var currentMember = await _memberManager.GetCurrentMemberAsync();
+		} *@
 
-					// <div class="container">
-					// 	<h5>Apreciere</h5>
-					// </div>
-
-					<br />
-					<h5>Apreciere</h5>
-					<br />
-					<span class="fa fa-star checked"></span>
-					<span class="fa fa-star checked"></span>
-					<span class="fa fa-star checked"></span>
-					<span class="fa fa-star"></span>
-					<span class="fa fa-star"></span>
-					<br />
-
-							// daca avem mai multe fotografii
-							// foreach (var entry in typedMultiMediaPicker)
-							// {
-							// 	<img src="@entry.MediaUrl()" style="width:200px" />
-							// }
-						}
-				@{
-					var currentMember = await _memberManager.GetCurrentMemberAsync();
-				}
-				<br />
-				@if (currentMember is not null)
-				{
-					<br />
-					@Model.Value("Nume")
-					<br />
-					@Model.Value("Prenume")
-					<br />
-					<h3>Instagram: </h3>
-					@Model.Value("instagramUsername")
-
-					<br />
-					@Model.Value("email")
-
-					<br />
-					@Model.Value("activitati")
-
-					<br />
-					<h3>Despre mine</h3>
-
-					<br />
-					@Model.Value("despreMine")
-
-					<br />
-					<h3>Experienta voluntariat</h3>
-					<br />
-					@Model.Value("experientaVoluntar")
-
-					<br />
-				}
-				@if (currentMember is null)
-				{
-					@Model.Value("Nume")
-					<br />
-					@Model.Value("Prenume")
-					<br />
-					<h3>Experienta voluntariat</h3>
-					@Model.Value("experientaVoluntar")
-				}
-					</div>
-				</div>
-			
-    </div>
+<div class="container-fluid">
+	aaaa
+</div>
 
 
 </section>
-
-<div class="d-flex align-items-center">
-	<div id="myRatingCustomFeedbackStart" class="text-body-secondary me-3">3 / 5</div>
-	<div id="myRatingCustomFeedback"></div>
-	<div id="myRatingCustomFeedbackEnd" class="badge text-bg-dark ms-3">Meh</div>
-</div>
-

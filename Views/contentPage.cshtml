@@ -9,38 +9,57 @@
 
 @Html.Partial("~/Views/Partials/SectionHeader.cshtml")
 
-<div class="container container-fluid text-center">
-    <div class="form-group">
-        <div class="col-md-10">
-            Descarca formularul 230<br />
-            <a href="/media/rr3dhlzm/formular230.pdf" target="_blank"><button>Download!</button></a>
-        </div>
+<section class="section--content-center">
+    <div>
+        <br />
+        <p class="fs-2 mt-0 mb-0">GENERAREA FORMULARULUI</p><br />
+        <p class="mt-0 mb-0" style="font-size:6.475em;"><b>ANAF 230</b></p>
+    </div>
+    <div>
+
     </div>
     
-</div>
+</section>
 
-
-<div class="container container-fluid text-center">
-    <form method="post" enctype="multipart/form-data" asp-controller="FileUpload" asp-action="Index">
-        <div class="form-group">
-            <div class="col-md-10">
-                Încarcă formularul 230
-                <input type="file" name="files" multiple />
-                
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-10">
-                <input type="submit" value="Upload" />
-            </div>
-        </div>
-    </form>
-</div>
-
-<section class="section section--content-center">
-    <div class="container container-fluid">
-        VIZIBILA DOAR PENTRU ADMIN>>>>
-        <a href="mailto:@_memberManager.GetCurrentMemberAsync()" target="_blank">Plateste-ti cotizatia!</a>
+<section class="section--content-center">
+    <div>
+    <p class="fs-4"><b>Despre formular</b></p><br />
+    <p class="fs-5" style="margin-inline:600px">Acest formular permite contribuabililor sa redirectioneze până la 3,5% din impozitul pe venit datorat statului către o organizație neguvernamentală</p>
+        <button type="button" class="btn btn-primary rounded-pill btn-lg" style="margin-top:20px; margin-bottom:20px">Incarca formularul</button><br />
+        <button type="button" class="btn btn-primary rounded-pill btn-lg" style="margin-top:20px; margin-bottom:20px">Descarca formularul</button><br />
 
     </div>
 </section>
+
+
+
+@* <section class="section-content-center">
+    <div class="container container-fluid text-center">
+        <h3 class="form-group">
+            <h5>
+                Descarca formularul 230<br />
+            </h5>
+                <a href="/media/rr3dhlzm/formular230.pdf" target="_blank"><button>Download!</button></a>
+           
+        </div>
+
+    </div>
+    <div class="container container-fluid text-center">
+        <form method="post" enctype="multipart/form-data" asp-controller="FileUpload" asp-action="Index">
+            <div class="form-group">
+                <div class="col-md-10">
+                    Încarcă formularul 230
+                    <input type="file" name="files" multiple />
+
+                </div>
+            </div>
+            <h5>Incarca formularul 230</h5>
+            <div class="form-group">
+                <div class="col-md-10">
+                    <button><input type="submit" value="Upload" /></button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+ *@

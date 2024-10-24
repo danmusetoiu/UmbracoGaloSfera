@@ -14,20 +14,22 @@
         }
     }
 }
-
+<link rel="stylesheet" href="@Url.Content("~/css/umbraco-starterkit-style.css")" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    .checked {
+        color: orange;
+    }
+</style>
 @Html.Partial("~/Views/Partials/SectionHeader.cshtml")
 
-<section class="section">
+<section class="section section--full-height background-image-full overlay  section--content-center "
+         style="background-image: url('/media/tkslekng/wall-profil-voluntar3.png?rmode=max&width=500&v=1db23adcef4098d')">
 
-<div class="container">
-        <div class="row">
-            <div class="col-sm-1 mx-auto">
-                <a href="~/fii-voluntar/"><text-danger>Inscrie-te! Fii voluntar!</text-danger></a>
-            </div>
-        </div>
-</div>
+
 
     <div class="container">
+
         <!-- todo: implement department filter -->
         <!--
         <nav class="nav-bar nav-bar--center nav-bar--air-bottom">
@@ -39,32 +41,44 @@
         </nav>
         -->
 
+        
+        <div class="container container-fluid text-center">
+            <div class="row p-2">
+               
+                    @foreach (Person person in Model.Children<Person>())
+                    {
+
+                <div class="col-5 p-2 ">
+
+                        <img src="@person.Photo.Url()" style="width:100px; height:100px; object-fit: cover; " class="rounded-circle" alt="Circular Image">
+                </div>
+                    <div class="col-3 p-2 ">
+                        <a href="@person.Url()"> <b>@person.Name.Split()[0]</b></a><br />
+                       
+                        @person.Name.Split()[1]<br />
+                        @person.Email<br />
+
+                    
+                </div>
+                    <div class="col-4 p-2 ">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+
+
+                    
+                    </div>
+                }
+            </div>
+        
+        </div>
+
 
 
                
 
-        <div class="employee-grid">
-            @foreach (Person person in Model.Children<Person>())
-            {
-
-                <div class="employee-grid__item">
-
-                    <a href="/voluntar-in-romania/@person.Name.Replace(" ", "-")"><div class="employee-grid__item__image" style="background-image: url('@person.Photo?.Url()')"></div></a>
-                    <div class="employee-grid__item__details">
-                        <h3 class="employee-grid__item__name">@person.Name</h3>
-                        
-                        
-                        @if (!string.IsNullOrEmpty(person.Email))
-                        {
-                            // <a href="mailto:@person.Email" class="employee-grid__item__email">@person.Email</a>
-                        }
-                         <div class="employee-grid__item__contact">
-                      
-                         </div>
-                    </div>
-                </div>
-            }
-        </div>
     </div>
 
 </section>

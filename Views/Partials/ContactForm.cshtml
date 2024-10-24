@@ -8,19 +8,19 @@
 <div class="form-group">
 @using (Html.BeginUmbracoForm<ContactFormController>(nameof(ContactFormController.Submit)))
 {
-    <div>
+    <div><h6>Nume prenume</h6>
         @Html.TextBoxFor(m => m.Name, new {@class="form-control", placeholder = Html.DisplayNameFor(m => m.Name)})
         @Html.ValidationMessageFor(m => m.Name)
     </div>
-    <div>
+    <div><h6>Email</h6>
         @Html.TextBoxFor(m => m.Email, new {@class="form-control", placeholder = Html.DisplayNameFor(m => m.Email)})
         @Html.ValidationMessageFor(m => m.Email)
     </div>
-    <div>
+    <div><h6>Mesajul</h6>
         @Html.TextAreaFor(m => m.Message, new {@class="form-control", placeholder = Html.DisplayNameFor(m => m.Message)})
         @Html.ValidationMessageFor(m => m.Message)
     </div>
-    <input type="submit" name="Submit" value="Submit"/>
+    <button type="button" class="btn btn-primary rounded-pill btn-lg" style="margin-top:20px; margin-bottom:20px">Trimite</button><br />
    @if (!string.IsNullOrEmpty(message))
    {
        @message

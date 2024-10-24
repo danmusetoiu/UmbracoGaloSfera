@@ -6,7 +6,7 @@
     Layout = null;
     // Get basic design settings from the homepage
     var home = (Home)Model.Root();
-    var font = home.Font;
+    var font =home.Font;
     var colorTheme = home.ColorTheme;
 }
 
@@ -43,11 +43,7 @@
 </head>
 
 <body class="frontpage theme-font-@font theme-color-@colorTheme">
-    <div class="mobile-nav">
-        <nav class="nav-bar">
-            @await Html.PartialAsync("~/Views/Partials/Navigation/TopNavigation.cshtml")
-        </nav>
-    </div>
+
 
     <header class="header">
 
@@ -55,7 +51,7 @@
             @if (home.SiteLogo != null && !string.IsNullOrEmpty(home.SiteLogo.Url()))
             {
                 <div class="nav-link--home">
-                    <img class="logo-image" src="@home.SiteLogo.Url()" alt="@home.Sitename">
+                    <img class="logo-image" src="@home.SiteLogo.Url()" style="background-color:black !important" alt="@home.Sitename">
                 </div>
             }
             else

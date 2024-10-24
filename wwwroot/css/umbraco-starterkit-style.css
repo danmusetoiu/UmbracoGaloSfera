@@ -595,7 +595,7 @@ output {
     width: 100%;
     height: 34px;
     padding: 6px 12px;
-    background-color: #fff;
+    /*background-color: #fff;*/
     background-image: none;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -1184,8 +1184,8 @@ body.theme-color-sun--active.nav-link:visited, body.theme-color-sun .border-main
 }
 
 .hamburger.lines:hover.active body.theme-color-earth span:after, .hamburger.lines:hover.active body.theme-color-earth span:before, .hamburger body.theme-color-earth span, .hamburger body.theme-color-earth span:after, .hamburger body.theme-color-earth span:before, body.theme-color-earth .bg-secondary-color, body.theme-color-earth .hamburger.lines:hover.active span:after, body.theme-color-earth .hamburger.lines:hover.active span:before, body.theme-color-earth .hamburger span, body.theme-color-earth .hamburger span:after, body.theme-color-earth .hamburger span:before, body.theme-color-earth .nav-link--home__text:after {
-    background-color: #000;
-    color: #e7afa3
+    background-color: #e7afa3;
+    color: #000
 }
 
 .blogposts-centered body.theme-color-earth .blogpost-title, body.theme-color-earth .blogposts-centered .blogpost-title, body.theme-color-earth .button--border, body.theme-color-earth .font-main-color, body.theme-color-earth .nav-link, body.theme-color-earth .section__hero-content, body.theme-color-earth footer a, footer body.theme-color-earth a {
@@ -1372,8 +1372,8 @@ body.theme-font-mono {
 }
 
 .header {
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-align: center;

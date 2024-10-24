@@ -32,78 +32,8 @@
 
 
 <section class="section section--full-height background-image-full overlay  section--content-center "
-         style="background-image: url('/media/1sjdebve/wall-profil-eveniment4.png?rmode=max&width=500&v=1dafdd00d589c09')">
+         @* style="background-image: url('/media/1sjdebve/wall-profil-eveniment4.png?rmode=max&width=500&v=1dafdd00d589c09')" *@>
 
-    <div class="container">
-        <div class="row position-absolute start-50">
-
-          
-            @* <div class="col-md-4">
-               
-                              
-                    <form action="/action_page.php">
-                        <div class="form-check form-switch">
-
-                            <input class="form-check-input" type="checkbox" id="mySwitch" name="darkmode" value="yes" checked>
-                            <label class="form-check-label" for="mySwitch">Notificări portal</label>
-                       
-                        </div>
-                    <div class="form-check form-switch">
-
-                        <input class="form-check-input" type="checkbox" id="mySwitch" name="darkmode" value="yes" checked>
-                        <label class="form-check-label" for="mySwitch">Notificări email</label>
-
-                    </div>
-                        <button type="submit" class="btn btn-primary mt-3">Activează notificări</button>
-                    </form>
-                       
-            </div> *@
-
-            <div class="col-md-4 ">
-               
-                @* <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                        
-                    </div>
-                    <div class="carousel-inner">
-                        @if (Model.FeaturedProducts != null)
-                        {
-                            foreach (Product product in Model.Children<Product>())
-                            {
-                                <div class="carousel-item active">
-                                   
-                                    <img src="@product.Photos?.Url()" style="width:40%;height:40%" class="d-block w-100" alt=" @product.ProductName">
-                                    
-                                    <div class="carousel-caption d-none d-md-block">
-                                        <a href="@product.Url()">
-                                            <h5 style="background-color:black"><font color="white">@product.ProductName</font></h5>
-                                        </a>
-                                        
-                                    </div>
-                                
-                                </div>
-                            }
-                        }
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-                </div> *@
-            </div> 
-
-    
-
-
-        </div>
-    </div>
     <div id="map"></div>
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
             integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
@@ -117,7 +47,7 @@
 
     <script>
         const lista = JSON.parse('@(Html.Raw(JsonConvert.SerializeObject(list, Formatting.None)))');
-        var map = L.map('map').setView([45.121, 25.3321], 7);
+        var map = L.map('map').setView([45.121, 25.3321], 8);
         let smile = String.fromCodePoint(0x27A1);
         
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -136,9 +66,39 @@
         
 
     </script>
-
+    
 
 </section>
+<div class="section--content-center">
+    <div class="container text-center">
+       
+        <div class="container container-fluid text-center">
+            <h1><strong>Listă evenimente</strong></h1><br />
+        </div>
 
+        
+
+
+        @foreach (Product eveniment in Model.Children<Product>())
+        {
+            <div class="container">
+                @eveniment.DataEveniment
+            </div>
+
+            <div class="container">
+                <h3> @eveniment.Name </h3>
+            </div>
+            <div class="container">
+                @eveniment.Description
+            </div>
+            <div class="container">
+                <a href="@eveniment.Url()">Mai mult....</a>
+            </div>
+            <br />
+        }
+
+    </div>
+
+</div>
 
 
