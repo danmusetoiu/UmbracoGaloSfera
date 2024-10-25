@@ -15,7 +15,8 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
           integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
           crossorigin="">
-        <link rel="stylesheet" href="~/css/Noutati.css">
+    <link rel="stylesheet" href="~/css/Layout.css">
+    <link rel="stylesheet" href="~/css/Noutati.css">
     <style type="text/css">
         body {
             margin: 0;
@@ -31,6 +32,26 @@
 @Html.Partial("~/Views/Partials/SectionHeader.cshtml")
 
 <body>
+    <div class="right-menu">
+        <div class="top-icon">
+            <div class="icon-circle">
+                <span class="icon"><a href="../"><img src="/media/" alt="Galosfera" /></a></span>
+            </div>
+        </div>
+
+        <div class="icon-button">
+            <span class="icon"><a href="/Contact"><img src="/media/qypfvt0b/mesaje1.svg" alt="Mesaje" /></a></span>
+        </div>
+        <div class="icon-button icon-albastru">
+            <span class="icon"><a href="/Noutati"><img src="/media/pvybdmh2/stiri1.svg" alt="Știri" /></a></span>
+        </div>
+        <div class="icon-button">
+            <span class="icon"><a href="/Biblioteca"><img src="/media/55tfebgb/notificari1.svg" alt="Notificări" /></a></span>
+        </div>
+        <div class="icon-button">
+            <span class="icon"><a href="/Evenimente"><img src="/media/o5plgneg/calendar1.svg" alt="Calendar" /></a></span>
+        </div>
+    </div>
     <div class="container text-center">
     
             @* <h1>Ultimele stiri</h1> *@

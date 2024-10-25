@@ -5,3 +5,60 @@
     background-position: center;
     background-repeat: no-repeat;
 }
+.right-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent; 
+}
+
+.top-icon {
+    position: absolute;
+    top: 25%;
+    right: 0;
+    margin-left: 0;
+    background-color: var(--culoare-albastra);
+    width: 80px;
+    height: 60px;
+    border-radius: 60px 0 0 60px;
+    display: flex;
+    align-items: center;
+}
+
+    .top-icon .icon-circle {
+        background-color: white;
+        margin-left: 20px;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+.icon-button {
+    background-color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 15px 0; 
+}
+
+.icon {
+    font-size: 24px; 
+}
+.icon img{
+    height:3rem; 
+}
+.icon-albastru {
+    background-color: var(--culoare-albastra);
+}
