@@ -65,16 +65,15 @@
                     <div class="row d-none stire-@stire.Id">
 
                         <div class="col-4">
-                            <img src="/media/vaahbacz/notificari2.svg" alt="Notificări" />
+                            @if (stire.FotoStire != null)
+                            {
+                                <img src="@stire.FotoStire.Url()" alt="@stire.Name" class="blog-image" />
+                            }
                         </div>
                         <div class="col-8">
                             <div class="container d-flex">
                                 <h3 class="text-albastru"> @stire.Name </h3>
                             </div>
-                            @if (stire.FotoStire != null)
-                            {
-                                <img src="@stire.FotoStire.Url()" alt="@stire.Name" class="blog-image" />
-                            }
                             <div class="container text-justify-interword">
                                 @stire.Excerpt
                             </div>
@@ -92,7 +91,10 @@
                 {
                     <div class="row stire-@stire.Id">
                         <div class="col-4">
-                            <img src="/media/vaahbacz/notificari2.svg" alt="Notificări" />
+                            @if (stire.FotoStire != null)
+                            {
+                                <img src="@stire.FotoStire.Url()" alt="@stire.Name" class="blog-image" />
+                            }
                         </div>
                         <div class="col-8 d-flex">
                             <div class="container row text-align-start">
