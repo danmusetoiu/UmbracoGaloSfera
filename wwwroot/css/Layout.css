@@ -1,3 +1,22 @@
 ﻿:root {
     --culoare-albastra: #042eb7;
 }
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+@media (min-width: 1500px) {
+    .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl, .container-3xl {
+        max-width: 1420px;
+    }
+}
+@media (min-width: 1700px) {
+    .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl, .container-3xl, .container-4xl {
+        max-width: 1620px;
+    }
+}
+@media (min-width: 1900px) {
+    .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl, .container-3xl, .container-4xl, .container-5xl {
+        max-width: 1800px;
+    }
+}

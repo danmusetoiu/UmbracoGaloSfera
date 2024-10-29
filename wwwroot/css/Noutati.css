@@ -23,7 +23,7 @@
     top: 25%;
     right: 0;
     margin-left: 0;
-    margin-bottom:40%;
+    margin-bottom: 40%;
     background-color: var(--culoare-albastra);
     width: 140px;
     height: 80px;
@@ -77,3 +77,45 @@
     .icon-albastru img {
         filter: invert(1);
     }
+
+.text-albastru {
+    color: var(--culoare-albastra);
+    font-weight: bold;
+}
+
+.text-align-start {
+    text-align: start;
+}
+
+.text-justify-interword {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.col-4 img, .col8 img {
+    border-radius: 1rem;
+}
+.coloana-noutati-stanga, .coloana-noutati-dreapta {
+    height: 30rem;
+    overflow-y: scroll;
+}
+
+    .coloana-noutati-stanga::-webkit-scrollbar,.coloana-noutati-dreapta::-webkit-scrollbar {
+        width: 14px;
+    }
+
+    /* Track */
+    .coloana-noutati-stanga::-webkit-scrollbar-track, .coloana-noutati-dreapta::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    /* Handle */
+    .coloana-noutati-stanga::-webkit-scrollbar-thumb,.coloana-noutati-dreapta::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius:10px;
+    }
+
+        /* Handle on hover */
+        .coloana-noutati-stanga::-webkit-scrollbar-thumb:hover, .coloana-noutati-dreapta::-webkit-scrollbar-thumb:hover {
+            background: #666;
+        }
