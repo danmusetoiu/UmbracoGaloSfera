@@ -35,29 +35,71 @@
     <div class="right-menu">
         <div class="top-icon">
             <div class="icon-circle">
-                <span class="icon"><a href="../"><img src="/media/" alt="Galosfera" /></a></span>
-            </div>
+                <span class="icon"><a href="../"><img src="/media/ftfn2ljm/icon-galosfera-circle.svg" alt="Galosfera" /></a></span>
+            </div>            
         </div>
 
         <div class="icon-button">
-            <span class="icon"><a href="/Contact"><img src="/media/qypfvt0b/mesaje1.svg" alt="Mesaje" /></a></span>
+            <span class="icon"><a href="/Contact"><img src="/media/rhhnndxi/mesaje2.svg" alt="Mesaje" /></a></span>
         </div>
         <div class="icon-button icon-albastru">
-            <span class="icon"><a href="/Noutati"><img src="/media/pvybdmh2/stiri1.svg" alt="Știri" /></a></span>
+            <span class="icon"><a href="/Noutati"><img src="/media/vz4lddxh/stiri2.svg" alt="Știri" /></a></span>
         </div>
         <div class="icon-button">
-            <span class="icon"><a href="/Biblioteca"><img src="/media/55tfebgb/notificari1.svg" alt="Notificări" /></a></span>
+            <span class="icon"><a href="/Biblioteca"><img src="/media/vaahbacz/notificari2.svg" alt="Notificări" /></a></span>
         </div>
         <div class="icon-button">
-            <span class="icon"><a href="/Evenimente"><img src="/media/o5plgneg/calendar1.svg" alt="Calendar" /></a></span>
+            <span class="icon"><a href="/Evenimente"><img src="/media/ja1d354d/calendar2.svg" alt="Calendar" /></a></span>
         </div>
     </div>
     <div class="container text-center">
     
             @* <h1>Ultimele stiri</h1> *@
-        
-    
+
+
+        <div class="row">
+
+            <div class="col-lg-8 col-md-6 coloana-noutati-stanga">
                 @foreach (Blogpost stire in Model.Children<Blogpost>())
+                {
+                    <div class="row d-none stire-@stire.Id">
+
+                        <div class="col-4">
+                            <img src="/media/vaahbacz/notificari2.svg" alt="Notificări" />
+                        </div>
+                        <div class="col-8">
+                            <div class="container d-flex">
+                                <h3> @stire.Name </h3>
+                            </div>
+                            <div class="container">
+                                @stire.Excerpt
+                            </div>
+                            <div class="container">
+                                <a href="@stire.Url()">Mai mult....</a>
+                            </div>
+                        </div>
+                        <br />
+                    </div>
+                }
+            </div>
+            <div class="col-lg-4 col-md-6 coloana-noutati-dreapta">
+                @foreach (Blogpost stire in Model.Children<Blogpost>())
+                {
+                    <div class="row stire-@stire.Id">
+                        <div class="col-4">
+                            <img src="/media/vaahbacz/notificari2.svg" alt="Notificări" />
+                        </div>
+                        <div class="col-8">
+                            <div class="container">
+                                <h3> @stire.Name </h3>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                }
+            </div>
+        </div>  
+@*                 @foreach (Blogpost stire in Model.Children<Blogpost>())
                 {
                     <div class="container">
                         <h3> @stire.Name </h3>
@@ -69,7 +111,7 @@
                         <a href="@stire.Url()">Mai mult....</a>
                     </div>
                     <br />
-                }
+                } *@
 
     </div>
 
@@ -98,6 +140,28 @@
 
         lista.forEach(o => L.marker([o.Latitude, o.Longitude]).bindPopup("<b>Detalii lansare apel la:</b> <br />" + o.WebsiteGal).openPopup().addTo(map));
 
+    </script>
+    <script>
+            function AfiseazaStireaSelectata(elementApasat){
+                if (elementApasat === undefined) { 
+                    return;
+                }
+                const coloanaStanga = document.querySelector('.coloana-noutati-stanga');
+                const randuriStanga = coloanaStanga.querySelectorAll('.row');
+                const stireAfisata = coloanaStanga.querySelectorAll('.row:not(.d-none)')[0];
+                stireAfisata.classList.add('d-none');
+                const identificatorStire = Array.from(elementApasat.classList).find(classname => classname.startsWith('stire-'));
+                const stireDeAfisat = coloanaStanga.querySelectorAll('.row.' + identificatorStire)[0];
+                stireDeAfisat.classList.remove('d-none');
+            }
+            window.addEventListener("load", (event) => {
+                const coloanaStanga = document.querySelector('.coloana-noutati-stanga');
+                const randuriStanga = coloanaStanga.querySelectorAll('.row');
+                randuriStanga[0].classList.remove('d-none');
+                const coloanaDreapta = document.querySelector('.coloana-noutati-dreapta');
+                const randuriDreapta = coloanaDreapta.querySelectorAll('.row');
+                randuriDreapta.forEach((element) => element.addEventListener('click', () => AfiseazaStireaSelectata(element)));
+            });
     </script>
     </div>
     
