@@ -77,3 +77,14 @@
     .icon-albastru img {
         filter: invert(1);
     }
+.text-albastru {
+    color: var(--culoare-albastra);
+    font-weight:bold;
+}
+.text-align-start{
+    text-align:start;
+}
+.text-justify-interword {
+    text-align: justify;
+    text-justify: inter-word;
+}

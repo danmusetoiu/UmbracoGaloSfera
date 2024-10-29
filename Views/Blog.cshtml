@@ -69,9 +69,9 @@
                         </div>
                         <div class="col-8">
                             <div class="container d-flex">
-                                <h3> @stire.Name </h3>
+                                <h3 class="text-albastru"> @stire.Name </h3>
                             </div>
-                            <div class="container">
+                            <div class="container text-justify-interword">
                                 @stire.Excerpt
                             </div>
                             <div class="container">
@@ -89,9 +89,10 @@
                         <div class="col-4">
                             <img src="/media/vaahbacz/notificari2.svg" alt="Notificări" />
                         </div>
-                        <div class="col-8">
-                            <div class="container">
-                                <h3> @stire.Name </h3>
+                        <div class="col-8 d-flex">
+                            <div class="container row text-align-start">
+                                <h3 class="text-albastru col-12"> @stire.Name </h3>
+                                <span class="col-12">@stire.UpdateDate.ToString("dd.MM.yyyy") | @stire.UpdateDate.ToString("HH:mm")</span>
                             </div>
                         </div>
                     </div>
