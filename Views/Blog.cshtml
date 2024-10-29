@@ -71,9 +71,14 @@
                             <div class="container d-flex">
                                 <h3> @stire.Name </h3>
                             </div>
+                            @if (stire.FotoStire != null)
+                            {
+                                <img src="@stire.FotoStire.Url()" alt="@stire.Name" class="blog-image" />
+                            }
                             <div class="container">
                                 @stire.Excerpt
                             </div>
+                            
                             <div class="container">
                                 <a href="@stire.Url()">Mai mult....</a>
                             </div>
