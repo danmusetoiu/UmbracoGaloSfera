@@ -139,6 +139,9 @@
 .mt-42px{
     margin-top:42px;
 }
+.d-block{
+    display:block;
+}
 
 
 @media (min-height: 630px) {
