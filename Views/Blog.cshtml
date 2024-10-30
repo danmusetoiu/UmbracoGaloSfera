@@ -69,11 +69,6 @@
                                 <h3 class="text-albastru"> @stire.Name </h3>
                             </div>
                         </div>
-@*                         <div class="col-12">
-                            <div class="container text-justify-interword">
-                                @stire.Excerpt
-                            </div>
-                    </div>*@
                         <div class="col-12">
                             @if (stire.FotoStire != null)
                             {
@@ -113,73 +108,8 @@
             </div>
             <div class="col-lg-1"></div>
         </div>  
-@*                 @foreach (Blogpost stire in Model.Children<Blogpost>())
-                {
-                    <div class="container">
-                        <h3> @stire.Name </h3>
-                    </div>
-                    <div class="container">
-                        @stire.Excerpt
-                    </div>
-                    <div class="container">
-                        <a href="@stire.Url()">Mai mult....</a>
-                    </div>
-                    <br />
-                } *@
 
     </div>
-
-
-    <div class="container text-center text-danger">
-        <h3>Localizare sedii Grupuri de Acțiune Locală</h3>
-    </div>
-    
-    <div id="map" class="container text-center">
-    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
-            integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
-            crossorigin=""></script>
-  
-    @{
-        var list = Model.Children<Blogpost>().Select(b => new { b.LocalizareGal.Marker.Latitude, b.LocalizareGal.Marker.Longitude, b.WebsiteGal }).ToList();
-    }
-
-  
-    <script>
-        const lista = JSON.parse('@(Html.Raw(JsonConvert.SerializeObject(list, Formatting.None)))');
-        var map = L.map('map').setView([45.121, 25.3321], 7);
-        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19,
-            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-        }).addTo(map);
-
-        lista.forEach(o => L.marker([o.Latitude, o.Longitude]).bindPopup("<b>Detalii lansare apel la:</b> <br />" + o.WebsiteGal).openPopup().addTo(map));
-
-    </script>
-    <script>
-            function AfiseazaStireaSelectata(elementApasat){
-                if (elementApasat === undefined) { 
-                    return;
-                }
-                const coloanaStanga = document.querySelector('.coloana-noutati-stanga');
-                coloanaStanga.scrollTop = 0;
-                const randuriStanga = coloanaStanga.querySelectorAll('.row');
-                const stireAfisata = coloanaStanga.querySelectorAll('.row:not(.d-none)')[0];
-                stireAfisata.classList.add('d-none');
-                const identificatorStire = Array.from(elementApasat.classList).find(classname => classname.startsWith('stire-'));
-                const stireDeAfisat = coloanaStanga.querySelectorAll('.row.' + identificatorStire)[0];
-                stireDeAfisat.classList.remove('d-none');
-            }
-            window.addEventListener("load", (event) => {
-                const coloanaStanga = document.querySelector('.coloana-noutati-stanga');
-                const randuriStanga = coloanaStanga.querySelectorAll('.row');
-                randuriStanga[0].classList.remove('d-none');
-                const coloanaDreapta = document.querySelector('.coloana-noutati-dreapta');
-                const randuriDreapta = coloanaDreapta.querySelectorAll('.row');
-                randuriDreapta.forEach((element) => element.addEventListener('click', () => AfiseazaStireaSelectata(element)));
-            });
-    </script>
-    </div>
-    
 
 </body>
 </html>
