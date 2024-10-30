@@ -139,3 +139,50 @@
 .mt-42px{
     margin-top:42px;
 }
+
+
+@media (min-height: 630px) {
+    .coloana-noutati-stanga, .coloana-noutati-dreapta {
+        height: 20rem;
+    }
+}
+@media (min-height: 740px) {
+    .coloana-noutati-stanga, .coloana-noutati-dreapta {
+        height: 29rem;
+    }
+}
+@media (min-height: 840px) {
+    .coloana-noutati-stanga, .coloana-noutati-dreapta {
+        height: 35rem;
+    }
+}
+@media (min-height: 940px) {
+    .coloana-noutati-stanga, .coloana-noutati-dreapta {
+        height: 40rem;
+    }
+}
+@media (min-height: 1050px) {
+    .coloana-noutati-stanga, .coloana-noutati-dreapta {
+        height: 44rem;
+    }
+}
+@media (min-height: 1180px) {
+    .coloana-noutati-stanga, .coloana-noutati-dreapta {
+        height: 54rem;
+    }
+}
+@media (min-height: 1300px) {
+    .coloana-noutati-stanga, .coloana-noutati-dreapta {
+        height: 63rem;
+    }
+}
+@media (min-height: 1460px) {
+    .coloana-noutati-stanga, .coloana-noutati-dreapta {
+        height: 72rem;
+    }
+}
+@media (min-height: 1600px) {
+    .coloana-noutati-stanga, .coloana-noutati-dreapta {
+        height: 82rem;
+    }
+}
