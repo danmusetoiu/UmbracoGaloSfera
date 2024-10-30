@@ -58,35 +58,39 @@
 
 
         <div class="row">
-
-            <div class="col-lg-8 col-md-6 coloana-noutati-stanga">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-5 col-md-6 coloana-noutati-stanga">
                 @foreach (Blogpost stire in Model.Children<Blogpost>())
                 {
                     <div class="row d-none stire-@stire.Id">
 
-                        <div class="col-4">
-                            @if (stire.FotoStire != null)
-                            {
-                                <img src="@stire.FotoStire.Url()" alt="@stire.Name" class="blog-image" />
-                            }
-                        </div>
-                        <div class="col-8">
-                            <div class="container d-flex">
+                        <div class="col-12">
+                            <div class="container d-flex ph-20px">
                                 <h3 class="text-albastru"> @stire.Name </h3>
                             </div>
+                        </div>
+@*                         <div class="col-12">
                             <div class="container text-justify-interword">
                                 @stire.Excerpt
                             </div>
-                            
-                            <div class="container">
-                                <a href="@stire.Url()">Mai mult....</a>
+                    </div>*@
+                        <div class="col-12">
+                            @if (stire.FotoStire != null)
+                            {
+                                <img src="@stire.FotoStire.Url()" alt="@stire.Name" class="blog-image mh-20px" />
+                            }
+                        </div> 
+                            <div class="container text-justify-interword">
+                                @await Html.GetBlockGridHtmlAsync(stire, "bodyText")
                             </div>
-                        </div>
                         <br />
                     </div>
                 }
             </div>
+            <div class="col-lg-1"></div>
             <div class="col-lg-4 col-md-6 coloana-noutati-dreapta">
+                <br />
+                <br />
                 @foreach (Blogpost stire in Model.Children<Blogpost>())
                 {
                     <div class="row stire-@stire.Id">
@@ -99,6 +103,7 @@
                         <div class="col-8 d-flex">
                             <div class="container text-align-start">
                                 <h3 class="text-albastru col-12"> @stire.Name </h3>
+                                <span class="col-12 text-justify-interword">@stire.Excerpt</span>
                                 <span class="col-12">@stire.UpdateDate.ToString("dd.MM.yyyy") | @stire.UpdateDate.ToString("HH:mm")</span>
                             </div>
                         </div>
@@ -106,6 +111,7 @@
                     <br />
                 }
             </div>
+            <div class="col-lg-1"></div>
         </div>  
 @*                 @foreach (Blogpost stire in Model.Children<Blogpost>())
                 {
@@ -155,6 +161,7 @@
                     return;
                 }
                 const coloanaStanga = document.querySelector('.coloana-noutati-stanga');
+                coloanaStanga.scrollTop = 0;
                 const randuriStanga = coloanaStanga.querySelectorAll('.row');
                 const stireAfisata = coloanaStanga.querySelectorAll('.row:not(.d-none)')[0];
                 stireAfisata.classList.add('d-none');

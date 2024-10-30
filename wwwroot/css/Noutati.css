@@ -92,8 +92,16 @@
     text-justify: inter-word;
 }
 
-.col-4 img, .col8 img {
+.col-4 img, .col-12 img {
     border-radius: 1rem;
+}
+.col-12 img{
+    max-width: 90%;
+    height:auto;
+}
+.col-4 img{
+    max-width: 100%;
+    height:auto;
 }
 .coloana-noutati-stanga, .coloana-noutati-dreapta {
     height: 30rem;
@@ -119,3 +127,12 @@
         .coloana-noutati-stanga::-webkit-scrollbar-thumb:hover, .coloana-noutati-dreapta::-webkit-scrollbar-thumb:hover {
             background: #666;
         }
+
+.ph-20px{
+    padding-left:20px;
+    padding-right:20px;
+}
+.mh-20px{
+    margin-left:20px;
+    margin-right:20px;
+}
