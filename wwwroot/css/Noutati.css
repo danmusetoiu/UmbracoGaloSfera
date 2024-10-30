@@ -104,12 +104,12 @@
     height:auto;
 }
 .coloana-noutati-stanga, .coloana-noutati-dreapta {
-    height: 30rem;
+    height: 40rem;
     overflow-y: scroll;
 }
 
     .coloana-noutati-stanga::-webkit-scrollbar,.coloana-noutati-dreapta::-webkit-scrollbar {
-        width: 14px;
+        width: 10px;
     }
 
     /* Track */
@@ -135,4 +135,7 @@
 .mh-20px{
     margin-left:20px;
     margin-right:20px;
+}
+.mt-42px{
+    margin-top:42px;
 }

@@ -1,5 +1,5 @@
 ﻿:root {
-    --culoare-albastra: #042eb7;
+    --culoare-albastra: #0047BA;
 }
 
 body {
@@ -19,4 +19,8 @@ body {
     .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl, .container-3xl, .container-4xl, .container-5xl {
         max-width: 1800px;
     }
+}
+.footer-container-fixed-bottom {
+    bottom: 0;
+    position: fixed;
 }

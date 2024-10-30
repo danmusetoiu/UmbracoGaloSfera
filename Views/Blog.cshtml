@@ -69,6 +69,11 @@
                                 <h3 class="text-albastru"> @stire.Name </h3>
                             </div>
                         </div>
+@*                         <div class="col-12">
+                            <div class="container text-justify-interword">
+                                @stire.Excerpt
+                            </div>
+                    </div>*@
                         <div class="col-12">
                             @if (stire.FotoStire != null)
                             {
@@ -84,11 +89,9 @@
             </div>
             <div class="col-lg-1"></div>
             <div class="col-lg-4 col-md-6 coloana-noutati-dreapta">
-                <br />
-                <br />
                 @foreach (Blogpost stire in Model.Children<Blogpost>())
                 {
-                    <div class="row stire-@stire.Id">
+                    <div class="row stire-@stire.Id mt-42px">
                         <div class="col-4">
                             @if (stire.FotoStire != null)
                             {
@@ -103,13 +106,38 @@
                             </div>
                         </div>
                     </div>
-                    <br />
                 }
             </div>
             <div class="col-lg-1"></div>
         </div>  
 
+
     </div>
+
+    <script>
+            function AfiseazaStireaSelectata(elementApasat){
+                if (elementApasat === undefined) { 
+                    return;
+                }
+                const coloanaStanga = document.querySelector('.coloana-noutati-stanga');
+                coloanaStanga.scrollTop = 0;
+                const randuriStanga = coloanaStanga.querySelectorAll('.row');
+                const stireAfisata = coloanaStanga.querySelectorAll('.row:not(.d-none)')[0];
+                stireAfisata.classList.add('d-none');
+                const identificatorStire = Array.from(elementApasat.classList).find(classname => classname.startsWith('stire-'));
+                const stireDeAfisat = coloanaStanga.querySelectorAll('.row.' + identificatorStire)[0];
+                stireDeAfisat.classList.remove('d-none');
+            }
+            window.addEventListener("load", (event) => {
+                const coloanaStanga = document.querySelector('.coloana-noutati-stanga');
+                const randuriStanga = coloanaStanga.querySelectorAll('.row');
+                randuriStanga[0].classList.remove('d-none');
+                const coloanaDreapta = document.querySelector('.coloana-noutati-dreapta');
+                const randuriDreapta = coloanaDreapta.querySelectorAll('.row');
+                randuriDreapta.forEach((element) => element.addEventListener('click', () => AfiseazaStireaSelectata(element)));
+            });
+    </script>
+    
 
 </body>
 </html>
