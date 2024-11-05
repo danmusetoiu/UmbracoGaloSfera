@@ -31,10 +31,10 @@
 @Html.Partial("~/Views/Partials/SectionHeader.cshtml")
 
 
-<section class="section section--full-height background-image-full overlay  section--content-center "
+@* <section class="section section--full-height background-image-full overlay  section--content-center "
          @* style="background-image: url('/media/1sjdebve/wall-profil-eveniment4.png?rmode=max&width=500&v=1dafdd00d589c09')" *@>
 
-    <div id="map"></div>
+   @*  <div id="map"></div> *@
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
             integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
             crossorigin=""></script>
@@ -68,8 +68,8 @@
     </script>
     
 
-</section>
-<div class="section--content-center">
+
+@*  <div class="section--content-center">
     <div class="container text-center">
        
         <div class="container container-fluid text-center">
@@ -99,6 +99,92 @@
 
     </div>
 
-</div>
+</div> *@
+
+<section>
+    <div class="container text-center">
+
+        @* <h1>Ultimele stiri</h1> *@
 
 
+        <div class="row">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-5 col-md-6 coloana-noutati-stanga">
+                @foreach (Product stire in Model.Children<Product>())
+                {
+                    <div class="row d-none stire-@stire.Id">
+
+                        <div class="col-12">
+                            <div class="container d-flex ph-20px">
+                                <h3 class="text-albastru">@stire.ProductName </h3>
+                            </div>
+                        </div>
+                                                <div class="col-12">
+                    <div class="container text-justify-interword">
+                    @stire.Description
+                    </div>
+                    </div>
+                        @* <div class="col-12">
+                            @if (stire.FotoStire != null)
+                            {
+                                <img src="@stire.FotoStire.Url()" alt="@stire.Name" class="blog-image mh-20px" />
+                            }
+                        </div> *@
+                        <div class="container text-justify-interword">
+                            @await Html.GetBlockGridHtmlAsync(stire, "bodyText")
+                        </div>
+                        <br />
+                    </div>
+                }
+            </div>
+            <div class="col-lg-1"></div>
+            <div class="col-lg-4 col-md-6 coloana-noutati-dreapta">
+                @foreach (Product stire in Model.Children<Product>())
+                {
+                    <div class="row stire-@stire.Id mt-42px">
+                        <div class="col-4">
+                           @*  @if (stire.FotoStire != null)
+                            {
+                                <img src="@stire.FotoStire.Url()" alt="@stire.Name" class="blog-image" />
+                            } *@
+                        </div>
+                        <div class="col-8 d-flex">
+                            <div class="container text-align-start">
+                                <h3 class="text-albastru col-12"> @stire.ProductName </h3>
+                                <span class="col-12 text-justify-interword">@stire.AdresaEveniment</span>
+                                <span class="col-12">@stire.UpdateDate.ToString("dd.MM.yyyy") | @stire.UpdateDate.ToString("HH:mm")</span>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="col-lg-1"></div>
+        </div>
+
+
+    </div>
+</section>
+
+<script>
+    function AfiseazaStireaSelectata(elementApasat) {
+        if (elementApasat === undefined) {
+            return;
+        }
+        const coloanaStanga = document.querySelector('.coloana-noutati-stanga');
+        coloanaStanga.scrollTop = 0;
+        const randuriStanga = coloanaStanga.querySelectorAll('.row');
+        const stireAfisata = coloanaStanga.querySelectorAll('.row:not(.d-none)')[0];
+        stireAfisata.classList.add('d-none');
+        const identificatorStire = Array.from(elementApasat.classList).find(classname => classname.startsWith('stire-'));
+        const stireDeAfisat = coloanaStanga.querySelectorAll('.row.' + identificatorStire)[0];
+        stireDeAfisat.classList.remove('d-none');
+    }
+    window.addEventListener("load", (event) => {
+        const coloanaStanga = document.querySelector('.coloana-noutati-stanga');
+        const randuriStanga = coloanaStanga.querySelectorAll('.row');
+        randuriStanga[0].classList.remove('d-none');
+        const coloanaDreapta = document.querySelector('.coloana-noutati-dreapta');
+        const randuriDreapta = coloanaDreapta.querySelectorAll('.row');
+        randuriDreapta.forEach((element) => element.addEventListener('click', () => AfiseazaStireaSelectata(element)));
+    });
+</script>

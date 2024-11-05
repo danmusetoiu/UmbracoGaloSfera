@@ -10,7 +10,7 @@
 
 }
 <!-- comment out the following line if you want to remove the root node name from the top navigation -->
-@* <img src="/media/sl3kohpb/galosfera-logo.svg" style="height:180px; width:180px" /> *@
+<img src="/media/sl3kohpb/galosfera-logo.svg" style="height:180px; width:180px" />
 
 
 <a class="nav-link @Html.Raw(Model.Id == site.Id ? "navi-link--active" : "")" href="@site.Url()"><font color="black !important">@site.Name</font></a>
@@ -18,7 +18,7 @@
 
 @foreach (var item in selection)
 {
-    if (item.Name != "Doneaza!" && item.Name != "GALURI" && item.Name != "Fii voluntar!")
+    if (item.Name != "Doneaza!")@*  && item.Name != "GALURI" && item.Name != "Fii voluntar!" *@
     {
         <a class="nav-link @(item.IsAncestorOrSelf(Model) ? "nav-link--active" : null)" href="@item.Url()"><font color="black !important">@item.Name</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
     }

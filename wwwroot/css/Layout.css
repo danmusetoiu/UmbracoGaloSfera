@@ -24,3 +24,204 @@ body {
     bottom: 0;
     position: fixed;
 }
+body {
+    background-image: url("/media/yszb0eek/wall-pagina-de-stiri.png");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.right-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+}
+
+.top-icon {
+    top: 25%;
+    right: 0;
+    margin-left: 0;
+    margin-bottom: 40%;
+    background-color: var(--culoare-albastra);
+    width: 140px;
+    height: 80px;
+    border-radius: 80px 0 0 80px;
+    display: flex;
+    align-items: center;
+}
+
+    .top-icon .icon-circle {
+        margin-left: 30px;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+        .top-icon .icon-circle img {
+            height: 2.5rem;
+            margin: 0;
+        }
+
+.icon-button {
+    background-color: white;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 15px;
+    margin-right: 100px;
+}
+
+.icon {
+    font-size: 24px;
+}
+
+    .icon img {
+        display: flex;
+        justify-self: center;
+        align-self: center;
+        height: 1.2rem;
+    }
+
+.icon-albastru {
+    background-color: var(--culoare-albastra);
+}
+
+    .icon-albastru img {
+        filter: invert(1);
+    }
+
+.text-albastru {
+    color: var(--culoare-albastra);
+    font-weight: bold;
+}
+
+.text-align-start {
+    text-align: start;
+}
+
+.text-justify-interword {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.col-4 img, .col-12 img {
+    border-radius: 1rem;
+}
+
+.col-12 img {
+    max-width: 90%;
+    height: auto;
+}
+
+.col-4 img {
+    max-width: 100%;
+    height: auto;
+}
+
+.coloana-noutati-stanga, .coloana-noutati-dreapta {
+    height: 40rem;
+    overflow-y: scroll;
+}
+
+    .coloana-noutati-stanga::-webkit-scrollbar, .coloana-noutati-dreapta::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    /* Track */
+    .coloana-noutati-stanga::-webkit-scrollbar-track, .coloana-noutati-dreapta::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    /* Handle */
+    .coloana-noutati-stanga::-webkit-scrollbar-thumb, .coloana-noutati-dreapta::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 10px;
+    }
+
+        /* Handle on hover */
+        .coloana-noutati-stanga::-webkit-scrollbar-thumb:hover, .coloana-noutati-dreapta::-webkit-scrollbar-thumb:hover {
+            background: #666;
+        }
+
+.ph-20px {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.mh-20px {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.mt-42px {
+    margin-top: 42px;
+}
+
+
+@media (min-height: 630px) {
+    .coloana-noutati-stanga, .coloana-noutati-dreapta {
+        height: 20rem;
+    }
+}
+
+@media (min-height: 740px) {
+    .coloana-noutati-stanga, .coloana-noutati-dreapta {
+        height: 29rem;
+    }
+}
+
+@media (min-height: 840px) {
+    .coloana-noutati-stanga, .coloana-noutati-dreapta {
+        height: 35rem;
+    }
+}
+
+@media (min-height: 940px) {
+    .coloana-noutati-stanga, .coloana-noutati-dreapta {
+        height: 40rem;
+    }
+}
+
+@media (min-height: 1050px) {
+    .coloana-noutati-stanga, .coloana-noutati-dreapta {
+        height: 44rem;
+    }
+}
+
+@media (min-height: 1180px) {
+    .coloana-noutati-stanga, .coloana-noutati-dreapta {
+        height: 54rem;
+    }
+}
+
+@media (min-height: 1300px) {
+    .coloana-noutati-stanga, .coloana-noutati-dreapta {
+        height: 63rem;
+    }
+}
+
+@media (min-height: 1460px) {
+    .coloana-noutati-stanga, .coloana-noutati-dreapta {
+        height: 72rem;
+    }
+}
+
+@media (min-height: 1600px) {
+    .coloana-noutati-stanga, .coloana-noutati-dreapta {
+        height: 82rem;
+    }
+}

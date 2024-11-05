@@ -2,6 +2,7 @@
 @using Umbraco.Extensions
 @using Umbraco.Cms.Core.Security;
 @inject IMemberManager _memberManager;
+@inject Microsoft.Extensions.Configuration.IConfiguration Configuration;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.ContentPage>
 @{
     Layout = "master.cshtml";
@@ -26,40 +27,33 @@
     <p class="fs-4"><b>Despre formular</b></p><br />
     <p class="fs-5" style="margin-inline:600px">Acest formular permite contribuabililor sa redirectioneze până la 3,5% din impozitul pe venit datorat statului către o organizație neguvernamentală</p>
         <button type="button" class="btn btn-primary rounded-pill btn-lg" style="margin-top:20px; margin-bottom:20px">Incarca formularul</button><br />
-        <button type="button" class="btn btn-primary rounded-pill btn-lg" style="margin-top:20px; margin-bottom:20px">Descarca formularul</button><br />
+        <button type="button" class="btn btn-primary rounded-pill btn-lg" style="margin-top:20px; margin-bottom:20px" onclick="downloadPDF()">Descarcă PDF</button>
 
     </div>
 </section>
 
+@* <script>
+    // Obține valoarea configurată din appsettings.json
+    const documentePath = '@Configuration["Media:DocumentePath"]';
 
+    function downloadPDF() {
+        const link = document.createElement('a');
+        link.href = `media/ibeh0jph/230-var1.pdf`; // Numele fișierului
+        link.download = 'document.pdf'; // Numele fișierului la descărcare
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+</script> *@
+<script>
+    const documentePath = '@Configuration["Media:DocumentePath"]' || ''; // Valoarea configurată
 
-@* <section class="section-content-center">
-    <div class="container container-fluid text-center">
-        <h3 class="form-group">
-            <h5>
-                Descarca formularul 230<br />
-            </h5>
-                <a href="/media/rr3dhlzm/formular230.pdf" target="_blank"><button>Download!</button></a>
-           
-        </div>
-
-    </div>
-    <div class="container container-fluid text-center">
-        <form method="post" enctype="multipart/form-data" asp-controller="FileUpload" asp-action="Index">
-            <div class="form-group">
-                <div class="col-md-10">
-                    Încarcă formularul 230
-                    <input type="file" name="files" multiple />
-
-                </div>
-            </div>
-            <h5>Incarca formularul 230</h5>
-            <div class="form-group">
-                <div class="col-md-10">
-                    <button><input type="submit" value="Upload" /></button>
-                </div>
-            </div>
-        </form>
-    </div>
-</section>
- *@
+    function downloadPDF() {
+        const link = document.createElement('a');
+        link.href = 'https://localhost:44323/media/ibeh0jph/230-var1.pdf'   //`${documentePath}/ibeh0jph/230-var1.pdf`; // URL complet
+        link.download = 'document.pdf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+</script>
