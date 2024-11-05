@@ -6,8 +6,8 @@
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
 @{
     var site = Model.Root();
-    var selection = site.Children.Where(x => x.IsVisible()); //IsVisible()
-
+    var selection = site.Children.Where(x => x.IsVisible()); 
+    var currentMember = await _memberManager.GetCurrentMemberAsync();
 }
 <!-- comment out the following line if you want to remove the root node name from the top navigation -->
 <img src="/media/sl3kohpb/galosfera-logo.svg" style="height:180px; width:180px" />
@@ -16,26 +16,23 @@
 <a class="nav-link @Html.Raw(Model.Id == site.Id ? "navi-link--active" : "")" href="@site.Url()"><font color="black !important">@site.Name</font></a>
  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-@foreach (var item in selection)
-{
-    if (item.Name != "Doneaza!")@*  && item.Name != "GALURI" && item.Name != "Fii voluntar!" *@
-    {
-        <a class="nav-link @(item.IsAncestorOrSelf(Model) ? "nav-link--active" : null)" href="@item.Url()"><font color="black !important">@item.Name</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
-    }
-}
-
-
-@{
-    var currentMember = await _memberManager.GetCurrentMemberAsync();
-}
 @if (currentMember is not null)
 {
+    foreach (var item in selection)
+    {
+        if (item.Name != "Doneaza!")@*  && item.Name != "GALURI" && item.Name != "Fii voluntar!" *@
+        {
+            <a class="nav-link @(item.IsAncestorOrSelf(Model) ? "nav-link--active" : null)" href="@item.Url()"><font color="black !important">@item.Name</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        }
+    }
+
+
 
     <img src="~/media/gw5lsq4a/iconita_profil.svg" style="width:30px; height:30px">
 }
 else
 {
-   
+
 }
 
 @* <img src="~/media/mwanpbnk/avatar-icon.svg" style="width:50px; height:50px"> *@
