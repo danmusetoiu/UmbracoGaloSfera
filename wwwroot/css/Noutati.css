@@ -139,6 +139,9 @@
 .mt-42px{
     margin-top:42px;
 }
+.d-block{
+    display:block;
+}
 
 
 @media (min-height: 630px) {
@@ -184,5 +187,10 @@
 @media (min-height: 1600px) {
     .coloana-noutati-stanga, .coloana-noutati-dreapta {
         height: 82rem;
+    }
+}
+@media (min-height: 2000px) {
+    .coloana-noutati-stanga, .coloana-noutati-dreapta {
+        height: 100%;
     }
 }
