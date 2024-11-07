@@ -28,13 +28,13 @@
                 @{
                     var currentMember = await _memberManager.GetCurrentMemberAsync();
                 }
-                @if (currentMember is null)
+                @if (currentMember is not null)
                 {
 
                 }
                 else
                 {
-                        <a href="register-login">
+                        <a href="logare">
                             <img src="/media/eiqb5ero/login_bun.svg" style="height:200px; width:200px" />
                         </a>
                 }

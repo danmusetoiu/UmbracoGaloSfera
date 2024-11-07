@@ -73,14 +73,13 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[ImplementPropertyType("excerpt")]
 		public virtual string Excerpt => this.Value<string>(_publishedValueFallback, "excerpt");
 
-  		///<summary>
+		///<summary>
 		/// foto stire
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.1+5f24de3")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("fotoStire")]
 		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops FotoStire => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "fotoStire");
-
 
 		///<summary>
 		/// LocalizareGal
