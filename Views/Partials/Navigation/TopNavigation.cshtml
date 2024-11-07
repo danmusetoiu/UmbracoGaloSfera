@@ -8,21 +8,35 @@
     var site = Model.Root();
     var selection = site.Children.Where(x => x.IsVisible()); 
     var currentMember = await _memberManager.GetCurrentMemberAsync();
+    var hrefLogoAlb = "/media/nahmze0n/galosfera-logo.svg";
+    var hrefLogoNegru = "/media/wwin4eeq/galosfera-logo-negru.svg";
+    var hrefLogoStiri = "/media/altlysil/galosfera-logo-stiri.svg";
+
 }
 <!-- comment out the following line if you want to remove the root node name from the top navigation -->
-<img src="/media/sl3kohpb/galosfera-logo.svg" style="height:180px; width:180px" />
+@if (Model.Name == "Noutăți")
+{
+    <img src="@hrefLogoStiri" style="height:180px; width:180px" />
+}
+else if (Model.Name == "")
+{
+    <img src="@hrefLogoNegru" style="height:180px; width:180px" />
+}
+else
+{
+    <img src="@hrefLogoAlb" style="height:180px; width:180px" />
+}
 
-
-<a class="nav-link @Html.Raw(Model.Id == site.Id ? "navi-link--active" : "")" href="@site.Url()"><font color="black !important">@site.Name</font></a>
+@* <a class="nav-link @Html.Raw(Model.Id == site.Id ? "navi-link--active" : "")" href="@site.Url()"><font color="black !important">@site.Name</font></a> *@
  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 @if (currentMember is not null)
 {
     foreach (var item in selection)
     {
-        if (item.Name != "Doneaza!")@*  && item.Name != "GALURI" && item.Name != "Fii voluntar!" *@
+        if (item.Name != "Doneaza!" && item.Name != "Pagina de stiri" && item.Name != "Noutăți" && item.Name != "Evenimente")@*  && item.Name != "GALURI" && item.Name != "Fii voluntar!" *@
         {
-            <a class="nav-link @(item.IsAncestorOrSelf(Model) ? "nav-link--active" : null)" href="@item.Url()"><font color="black !important">@item.Name</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+            <a class="@(Model.Name == "Noutăți"?"text-negru":"text-alb") nav-link @(item.IsAncestorOrSelf(Model) ? "nav-link--active" : null)" href="@item.Url()">@item.Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
         }
     }
 
@@ -32,7 +46,17 @@
 }
 else
 {
+    foreach (var item in selection)
+    {
+        if (item.Name != "Doneaza!" && item.Name != "Pagina de stiri" && item.Name != "Noutăți" && item.Name != "Evenimente")@*  && item.Name != "GALURI" && item.Name != "Fii voluntar!" *@
+        {
+            <a class="@(Model.Name == "Noutăți"?"text-negru":"text-alb") nav-link @(item.IsAncestorOrSelf(Model) ? "nav-link--active" : null)" href="@item.Url()">@item.Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        }
+    }
 
+
+
+    <img src="~/media/gw5lsq4a/iconita_profil.svg" style="width:30px; height:30px">
 }
 
 @* <img src="~/media/mwanpbnk/avatar-icon.svg" style="width:50px; height:50px"> *@

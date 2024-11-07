@@ -5,6 +5,16 @@
 body {
     font-family: 'Inter', sans-serif;
 }
+
+.text-alb {
+    color: white !important;
+}
+.text-negru {
+    color: black !important;
+}
+.text-negru img{
+    filter: invert(1);
+}
 @media (min-width: 1500px) {
     .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl, .container-3xl {
         max-width: 1420px;
@@ -20,19 +30,9 @@ body {
         max-width: 1800px;
     }
 }
-.footer-container-fixed-bottom {
-    bottom: 0;
-    position: fixed;
-}
-body {
-    background-image: url("/media/yszb0eek/wall-pagina-de-stiri.png");
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-}
 
 .right-menu {
+    z-index:1;
     position: fixed;
     top: 0;
     right: 0;
@@ -43,6 +43,9 @@ body {
     align-items: center;
     justify-content: center;
     background-color: transparent;
+}
+.v-hidden {
+    visibility:hidden;
 }
 
 .top-icon {
@@ -171,6 +174,23 @@ body {
     margin-top: 42px;
 }
 
+.d-block {
+    display: block;
+}
+
+.footer-container-fixed-bottom {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    padding-bottom: 1rem;
+}
+    .footer-container-fixed-bottom .logo-contact img {
+        height:1rem;
+        width:1rem;
+    }
 
 @media (min-height: 630px) {
     .coloana-noutati-stanga, .coloana-noutati-dreapta {
@@ -223,5 +243,11 @@ body {
 @media (min-height: 1600px) {
     .coloana-noutati-stanga, .coloana-noutati-dreapta {
         height: 82rem;
+    }
+}
+
+@media (min-height: 2000px) {
+    .coloana-noutati-stanga, .coloana-noutati-dreapta {
+        height: 100%;
     }
 }
