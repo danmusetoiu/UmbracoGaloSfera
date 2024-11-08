@@ -5,8 +5,7 @@
     Layout = "master.cshtml";
 }
 @Html.Partial("~/Views/Partials/SectionHeader.cshtml")
-<section class="section section--full-height background-image-full overlay  section--content-center "
-         style="background-image: url('/media/j5zf2kvx/wall-pagina-contact4.png?rmode=max&width=500&v=1db23ba00f88758')">
+<div>
 
     <div class="container container-fluid text-center">
 
@@ -16,15 +15,29 @@
                 @Model.MapCoordinates
 
             </div> *@
-
-            <div class="col-md-6">
-                <h2>@Model.ContactFormHeader</h2>
-                @Model.ContactIntro
+            <div class="col-2 col-lg-4 d-flex align-items-center">
+                <div class="row ta-start">
+                    <h1 class="fs-4_5rem fw-bold">
+                        Contact
+                    </h1>
+                    <div class="pe-5">
+                        <span>
+                            Pagina de contact îti oferă multiple avantaje. Îți permite să comunici rapid și direct cu noi, punându-ți la dispoziție un mod simplu de a adresa întrebări sau de a cere informații. Îti oferim transparență și încredere, deschidere și accesibilitate
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-8 col-lg-4">
+@*                 <h2>@Model.ContactFormHeader</h2>
+                @Model.ContactIntro *@
                 @{
                    await Html.RenderPartialAsync("Partials/ContactForm", new ContactFormViewModel());
                 }
             </div>
+            <div class="col-2 col-lg-4">
+
+            </div>
 
         </div>
     </div>
-</section>
+</div>

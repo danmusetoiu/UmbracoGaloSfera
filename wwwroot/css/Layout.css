@@ -192,6 +192,13 @@ body {
         width:1rem;
     }
 
+.ta-start{
+    text-align:start;
+}
+.fs-4_5rem{
+    font-size:4.5rem;
+}
+
 @media (min-height: 630px) {
     .coloana-noutati-stanga, .coloana-noutati-dreapta {
         height: 20rem;

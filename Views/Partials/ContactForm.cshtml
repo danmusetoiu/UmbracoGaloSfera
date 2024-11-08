@@ -6,24 +6,29 @@
     var message = TempData["Message"]?.ToString();
 }
 <div class="form-group">
-@using (Html.BeginUmbracoForm<ContactFormController>(nameof(ContactFormController.Submit)))
-{
-    <div><h6>Nume prenume</h6>
-        @Html.TextBoxFor(m => m.Name, new {@class="form-control", placeholder = Html.DisplayNameFor(m => m.Name)})
-        @Html.ValidationMessageFor(m => m.Name)
-    </div>
-    <div><h6>Email</h6>
-        @Html.TextBoxFor(m => m.Email, new {@class="form-control", placeholder = Html.DisplayNameFor(m => m.Email)})
-        @Html.ValidationMessageFor(m => m.Email)
-    </div>
-    <div><h6>Mesajul</h6>
-        @Html.TextAreaFor(m => m.Message, new {@class="form-control", placeholder = Html.DisplayNameFor(m => m.Message)})
-        @Html.ValidationMessageFor(m => m.Message)
-    </div>
-    <button type="button" class="btn btn-primary rounded-pill btn-lg" style="margin-top:20px; margin-bottom:20px">Trimite</button><br />
-   @if (!string.IsNullOrEmpty(message))
-   {
-       @message
-   }
-}
+    @using (Html.BeginUmbracoForm<ContactFormController>(nameof(ContactFormController.Submit)))
+    {
+        <div class="mb-4">
+            <h4 class="d-flex fw-bold">Nume prenume</h4>
+            @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = Html.DisplayNameFor(m => m.Name) })
+            @Html.ValidationMessageFor(m => m.Name)
+        </div>
+        <div class="mb-4">
+            <h4 class="d-flex fw-bold">Email</h4>
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = Html.DisplayNameFor(m => m.Email) })
+            @Html.ValidationMessageFor(m => m.Email)
+        </div>
+        <div class="mb-4">
+            <h4 class="d-flex fw-bold">Mesajul</h4>
+            @Html.TextAreaFor(m => m.Message, new { @class = "form-control", placeholder = Html.DisplayNameFor(m => m.Message) })
+            @Html.ValidationMessageFor(m => m.Message)
+        </div>
+        <button type="button" class="btn rounded-pill btn-lg text-alb" style="margin-top:20px; margin-bottom:20px; width:80%; height:4rem; background-color:var(--culoare-albastra)">Trimite mesajul!</button>
+
+        <br />
+        @if (!string.IsNullOrEmpty(message))
+        {
+            @message
+        }
+    }
 </div>
