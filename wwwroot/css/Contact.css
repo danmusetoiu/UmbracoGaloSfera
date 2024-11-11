@@ -5,3 +5,16 @@
     background-position: center;
     background-repeat: no-repeat;
 }
+input[type="text"] {
+    background: rgba(255,255,255,0.3);
+    border: none !important;
+/*    border-bottom: solid !important;
+    border-color: rgba(255,255,255,0.3) !important;*/
+}
+textarea {
+    background: rgba(255,255,255,0.3) !important;
+    border: none !important;
+/*    border-top: solid !important;
+    border-bottom: solid !important;
+    border-color: rgba(255,255,255,0.3) !important;*/
+}

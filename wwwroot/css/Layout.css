@@ -198,6 +198,22 @@ body {
 .fs-4_5rem{
     font-size:4.5rem;
 }
+.bolder {
+    font-weight: 900;
+    text-shadow: 2px 2px 0px #000, 2px -2px 0px #000, -2px 2px 0px #000, -2px -2px 0px #000;
+}
+.pe-6{
+    padding-right:4.5rem;
+}
+.pe-7{
+    padding-right:6rem;
+}
+.ps-6{
+    padding-left:4.5rem;
+}
+.ps-7{
+    padding-left:6rem;
+}
 
 @media (min-height: 630px) {
     .coloana-noutati-stanga, .coloana-noutati-dreapta {

@@ -102,8 +102,8 @@
         @RenderBody()
     </main>
     
-    <footer class="footer-container-fixed-bottom ph-20px @("Noutăți,Contact".Contains(Model.Name)?"text-negru":"text-alb")">
-        <span>
+    <footer class="footer-container-fixed-bottom ph-20px @("Noutăți".Contains(Model.Name)?"text-negru":"text-alb") @("Contact,Biblioteca".Contains(Model.Name)?"d-none":"")">
+        <span class="ms-4">
             Contact 
             <a href="" class="logo-contact"><img src="/media/k5ejw3wk/fb1.svg" alt="Link facebook" /></a>
             <a href="" class="logo-contact"><img src="/media/f5qjtpld/ig1.svg" alt="Link instagram" /></a>
@@ -113,7 +113,7 @@
         <span>
             TOATE DREPTURILE REZERVATE @home.FooterAddress.ToUpper()
         </span>
-        <span>
+        <span class="me-4">
             <a href="" class="logo-contact"><img src="/media/gzell3g0/info1.svg" alt="Link Termene Și Condiții" /></a>
             Termene și condiții
         </span>
