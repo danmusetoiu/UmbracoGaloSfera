@@ -1,11 +1,25 @@
 ﻿:root {
     --culoare-albastra: #0047BA;
 }
+/* <uniquifier > : Use a unique and descriptive class name
+ <weight > : Use a value from 100 to 900*/
 
+.inter-<uniquifier > {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+}
 body {
     font-family: 'Inter', sans-serif;
+    font-weight:200;
 }
-
+.nav-link{
+    font-weight:600;
+}
+nav a{
+    border-bottom:none !important;
+}
 .text-alb {
     color: white !important;
 }
@@ -213,6 +227,9 @@ body {
 }
 .ps-7{
     padding-left:6rem;
+}
+nav a{
+    text-decoration:none;
 }
 
 @media (min-height: 630px) {
