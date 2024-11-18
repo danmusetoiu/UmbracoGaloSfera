@@ -100,7 +100,7 @@ body {
     }
 
 .icon-albastru {
-    background-color: var(--culoare-albastra);
+    background-color: var(--culoare-albastra) !important;
 }
 
     .icon-albastru img {

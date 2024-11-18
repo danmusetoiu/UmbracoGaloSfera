@@ -40,7 +40,7 @@ else
     {
         if (item.Name != "Doneaza!" && item.Name != "Pagina de stiri" && item.Name != "Noutăți" && item.Name != "Evenimente")@*  && item.Name != "GALURI" && item.Name != "Fii voluntar!" *@
         {
-            <a class="@(Model.Name == "Noutăți"?"text-negru":"text-alb") nav-link @(item.IsAncestorOrSelf(Model) ? "nav-link--active" : null)" href="@item.Url()">@item.Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+            <a class="@("Noutăți,Contact,Biblioteca".Contains(Model.Name)?"text-negru":"text-alb") nav-link @(item.IsAncestorOrSelf(Model) ? "nav-link--active" : null)" href="@item.Url()">@item.Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
         }
     }
 
@@ -54,7 +54,7 @@ else
     {
         if (item.Name != "Doneaza!" && item.Name != "Pagina de stiri" && item.Name != "Noutăți" && item.Name != "Evenimente")@*  && item.Name != "GALURI" && item.Name != "Fii voluntar!" *@
         {
-            <a class="@("Noutăți,Contact".Contains(Model.Name)?"text-negru":"text-alb") nav-link @(item.IsAncestorOrSelf(Model) ? "nav-link--active" : null)" href="@item.Url()">@item.Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+            <a class="@("Noutăți,Contact,Biblioteca".Contains(Model.Name)?"text-negru":"text-alb") nav-link @(item.IsAncestorOrSelf(Model) ? "nav-link--active" : null)" href="@item.Url()">@item.Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
         }
     }
 
