@@ -1,0 +1,30 @@
+﻿body {
+    background-image: url("/media/qpijoslh/wall-pagina-login1.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+button,input[type=text],input[type=password] {
+    height: var(--inaltime-butane-login) !important;
+    border-radius: calc(var(--inaltime-butane-login) / 2) !important;
+    border-style:solid;
+    border-color:black;
+    border-width:0.25rem;
+    text-align: center !important;
+    width:100% !important;
+    color:white;
+    font-weight:600;
+}
+input[type=text]{
+    background:transparent !important;
+}
+button{
+    border-style: none !important;
+    background-color:gray;
+}
+.textTineMinte{
+    font-weight:600 !important;
+    font-size:1rem !important;
+    text-transform:none;
+}

@@ -1,5 +1,6 @@
 ﻿:root {
     --culoare-albastra: #0047BA;
+    --inaltime-butane-login:4rem;
 }
 /* <uniquifier > : Use a unique and descriptive class name
  <weight > : Use a value from 100 to 900*/
@@ -10,9 +11,16 @@
     font-weight: 200;
     font-style: normal;
 }
+html{
+    height:100% !important;
+}
 body {
+    height:100% !important;
     font-family: 'Inter', sans-serif;
     font-weight:200;
+}
+main{
+    height:100% !important;
 }
 .nav-link{
     font-weight:600;
@@ -25,6 +33,9 @@ nav a{
 }
 .text-negru {
     color: black !important;
+}
+.text-nedecorat{
+    text-decoration:none;
 }
 .text-negru img{
     filter: invert(1);
@@ -200,6 +211,7 @@ nav a{
     width: 100%;
     bottom: 0;
     padding-bottom: 1rem;
+    font-weight:400;
 }
     .footer-container-fixed-bottom .logo-contact img {
         height:1rem;
@@ -214,7 +226,7 @@ nav a{
 }
 .bolder {
     font-weight: 900;
-    text-shadow: 2px 2px 0px #000, 2px -2px 0px #000, -2px 2px 0px #000, -2px -2px 0px #000;
+    /*text-shadow: 2px 2px 0px #000, 2px -2px 0px #000, -2px 2px 0px #000, -2px -2px 0px #000;*/
 }
 .pe-6{
     padding-right:4.5rem;
@@ -230,6 +242,12 @@ nav a{
 }
 nav a{
     text-decoration:none;
+}
+.big-text{
+    font-size:7rem !important;
+}
+.justify-text{
+    text-align:justify !important;
 }
 
 @media (min-height: 630px) {

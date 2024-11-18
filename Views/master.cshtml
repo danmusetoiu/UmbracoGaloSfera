@@ -51,6 +51,8 @@
 <body class="frontpage theme-font-@font theme-color-@colorTheme">
 
 
+   
+    <main>
     <header class="header">
 
         <div class="logo">
@@ -65,10 +67,12 @@
                 <a class="nav-link nav-link--home nav-link--home__text logo-text" href="/">@home.Sitename</a>
             }
         </div>
-
+        @if(!"Logare".Contains(Model.Name))
+        {
         <nav class="nav-bar top-nav">
             @await Html.PartialAsync("~/Views/Partials/Navigation/TopNavigation.cshtml")
         </nav>
+        }
         <div class="mobile-nav-handler">
             <div class="hamburger lines" id="toggle-nav">
                 <span></span>
@@ -76,8 +80,6 @@
         </div>
 
     </header>
-   
-    <main>
 
         <div class="right-menu">
             <div class="top-icon @(Model.Name=="Home"?"v-hidden":"")">
@@ -104,7 +106,7 @@
         @RenderBody()
     </main>
     
-    <footer class="footer-container-fixed-bottom ph-20px @("Noutăți".Contains(Model.Name)?"text-negru":"text-alb") @("Contact,Biblioteca".Contains(Model.Name)?"d-none":"")">
+    <footer class="footer-container-fixed-bottom ph-20px @("Noutăți,Logare".Contains(Model.Name)?"text-negru":"text-alb") @("Contact,Biblioteca".Contains(Model.Name)?"d-none":"")">
         <span class="ms-4">
             Contact 
             <a href="" class="logo-contact"><img src="/media/k5ejw3wk/fb1.svg" alt="Link facebook" /></a>

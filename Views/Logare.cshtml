@@ -2,7 +2,32 @@
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Logare>
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @{
-	Layout = null;
+    Layout = "master.cshtml";
 }
-
-@Model.Value("continutPagina")
+<div class="row m-0 h-100">
+    <div class="col-1"></div>
+    <div class="col-10">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-5">
+                <h1 class="bolder big-text lh-1">Bine <br/> ai venit!</h1>
+                <p class="justify-text lh-1">
+                    Acest site se angajează să asigure siguranța datelor dumneavoastră cu caracter personal. Utilizăm tehnologii avansate de securitate și măsuri stricte de protecție pentru a preveni accesul neautorizat, utilizarea necorespunzătoare sau divulgarea informațiilor personale. Prin respectarea reglementărilor legale și prin adoptarea celor mai bune practici în domeniul protecției datelor, vă garantăm că informațiile dumneavoastră sunt în siguranță pe platforma noastră.
+                </p>
+                <div class="d-flex">
+                <span style="width:1rem; height:1rem;margin-right:1rem;background-color:black;border-radius:50%;"></span>
+                <span style="width:1rem; height:1rem;margin-right:1rem;background-color:orange;border-radius:50%;"></span>
+                <span style="width:1rem; height:1rem;margin-right:1rem;background-color:darkred;border-radius:50%;"></span>
+                <span style="width:1rem; height:1rem;margin-right:1rem;background-color:var(--culoare-albastra);border-radius:50%;"></span>
+                <br/>
+                </div>
+            </div>
+            <div class="col-lg-1"></div>
+            <div class="col-lg-4">
+                @Model.Value("continutPagina")
+            </div>
+            <div class="col-lg-1"></div>
+        </div>
+    </div>
+    <div class="col-1"></div>
+</div>
