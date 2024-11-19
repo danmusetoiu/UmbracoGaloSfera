@@ -25,3 +25,7 @@
 .col-12 img{
     border-radius:0;
 }
+
+.active {
+    background-color: var(--culoare-albastra) !important;
+}

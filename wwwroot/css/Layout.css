@@ -276,6 +276,9 @@ nav a{
 .justify-text{
     text-align:justify !important;
 }
+.h-99{
+    height:99% !important;
+}
 
 @media (min-height: 630px) {
     .coloana-noutati-stanga, .coloana-noutati-dreapta {

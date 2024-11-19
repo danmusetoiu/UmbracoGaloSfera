@@ -8,27 +8,28 @@
 @Html.Partial("~/Views/Partials/SectionHeader.cshtml")
 
 
-<div class="container">
-    <div class="row ">
+<div class="container h-99">
+    <div class="row h-100">
         <div class="col-1 col-lg-1">
         </div>
         <div class="col-12 col-lg-5">
-                @*
+            @*
             <div class="d-flex justify-content-around" style="text-align:end; flex-direction:column;">
-                    <div>
-                <h1 style="font-size:80px;"><strong>BIBLIOTECA</strong></h1><br />
-                </div>
-                <div>
-                <h5 style="align-content:end">DOCUMENTE DE INTERES</h5>
-                </div> 
+            <div>
+            <h1 style="font-size:80px;"><strong>BIBLIOTECA</strong></h1><br />
+            </div>
+            <div>
+            <h5 style="align-content:end">DOCUMENTE DE INTERES</h5>
+            </div>
 
             </div>
-                *@
-            <img src="/media/ef2fxsln/biblioteca.svg" style="width:80%; position:absolute; bottom:4.6rem;" />
-            <br />
-            <br />
+            *@
+            <div class="h-100 d-flex align-items-center">
+                <img src="/media/ef2fxsln/biblioteca.svg" style="width:80%;" />
+            </div>
         </div>
-        <div class="col-12 col-lg-5 lh-15 fw-bold" id="item-container">
+        <div class="col-12 col-lg-5 lh-15 fw-bold h-100  d-flex flex-column justify-content-between pb-5" id="item-container">
+            <div>
             @foreach (var item in Model.Children.ToList())
             {
                 <div class="row item" style="display: none;">
@@ -43,12 +44,13 @@
                     </div>
                 </div>
             }
+            </div>
 
             <br />
 
             <!-- Navigare paginare -->
             <div class="d-flex justify-content-center align-items-center" id="pagination-controls">
-                <span class="icon-albastru buton-schimbare-pagina active" data-page="1">1</span>
+                <span class="buton-schimbare-pagina active" data-page="1">1</span>
                 @for (int i = 2; i <= Math.Ceiling((double)(Model.Children.Count()) / 3); i++)
                 {
                     <span class="buton-schimbare-pagina" data-page="@i">@i</span>
@@ -56,52 +58,52 @@
             </div>
         </div>
 
-            @* <br />
-            <br />
-            <div class="row">
-                <div class="col-1 p-2 pt-1">
-                    <img src="/media/asxdhspf/iconita-carte4.svg" />
-                </div>
-                <div class="col-11">
-                    <h5 style="font-weight:900;" class="pb-1">LOREM IPSUM DOLOR SIT AMET 2</h5>
-                    <span>
-                        Lorem ipsum dolor sit amet. consectetuer adipiscing elit, sed diam nonummy
-                        nibh euismod tincidunt ut laoreet d010re magna aliquam. Lorem ipsum d010r sit
-                        amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
-                        ut laoreet dolore magna aliquam. Lorern ipsum dolor sit amet, consectetuer
-                        adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore
-                        magna aliquam.
-                    </span>
-                </div>
-            </div>
-            <br/>
-            <br/>
-            <div class="row">
-                <div class="col-1 p-2 pt-1">
-                    <img src="/media/asxdhspf/iconita-carte4.svg" />
-                </div>
-                <div class="col-11">
-                    <h5 style="font-weight:900;" class="pb-1">LOREM IPSUM DOLOR SIT AMET 3</h5>
-                    <span>
-                        Lorem ipsum dolor sit amet. consectetuer adipiscing elit, sed diam nonummy
-                        nibh euismod tincidunt ut laoreet d010re magna aliquam. Lorem ipsum d010r sit
-                        amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
-                        ut laoreet dolore magna aliquam. Lorern ipsum dolor sit amet, consectetuer
-                        adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore
-                        magna aliquam.
-                    </span>
-                </div>
-            </div>
-            <br />
-            <br />
-            <div class="d-flex justify-content-center align-items-center">
-                <span class="icon-albastru buton-schimbare-pagina">1</span>
-                <span class="buton-schimbare-pagina">2</span>
-                <span class="buton-schimbare-pagina">3</span>
-            </div> *@
+        @* <br />
+        <br />
+        <div class="row">
+        <div class="col-1 p-2 pt-1">
+        <img src="/media/asxdhspf/iconita-carte4.svg" />
         </div>
-        <div class="col-1 col-lg-1"> </div>
+        <div class="col-11">
+        <h5 style="font-weight:900;" class="pb-1">LOREM IPSUM DOLOR SIT AMET 2</h5>
+        <span>
+        Lorem ipsum dolor sit amet. consectetuer adipiscing elit, sed diam nonummy
+        nibh euismod tincidunt ut laoreet d010re magna aliquam. Lorem ipsum d010r sit
+        amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+        ut laoreet dolore magna aliquam. Lorern ipsum dolor sit amet, consectetuer
+        adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore
+        magna aliquam.
+        </span>
+        </div>
+        </div>
+        <br/>
+        <br/>
+        <div class="row">
+        <div class="col-1 p-2 pt-1">
+        <img src="/media/asxdhspf/iconita-carte4.svg" />
+        </div>
+        <div class="col-11">
+        <h5 style="font-weight:900;" class="pb-1">LOREM IPSUM DOLOR SIT AMET 3</h5>
+        <span>
+        Lorem ipsum dolor sit amet. consectetuer adipiscing elit, sed diam nonummy
+        nibh euismod tincidunt ut laoreet d010re magna aliquam. Lorem ipsum d010r sit
+        amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+        ut laoreet dolore magna aliquam. Lorern ipsum dolor sit amet, consectetuer
+        adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore
+        magna aliquam.
+        </span>
+        </div>
+        </div>
+        <br />
+        <br />
+        <div class="d-flex justify-content-center align-items-center">
+        <span class="icon-albastru buton-schimbare-pagina">1</span>
+        <span class="buton-schimbare-pagina">2</span>
+        <span class="buton-schimbare-pagina">3</span>
+        </div> *@
     </div>
+    <div class="col-1 col-lg-1"> </div>
+</div>
 </div>
 
 @* <div class="container text-center">
