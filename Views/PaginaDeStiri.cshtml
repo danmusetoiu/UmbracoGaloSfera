@@ -4,16 +4,16 @@
 @using System.Xml.XPath;
 @using System.Xml;
 @{
-	Layout = "master.cshtml";
+    Layout = "master.cshtml";
 }
 
 
 @Html.Partial("~/Views/Partials/SectionHeader.cshtml")
 
-<div class="container container-fluid text-center">
+@* <div class="container container-fluid text-center">
 	<h3>Știri din activitatea Grupurilor de Acțiune Locală</h3>
 	<link rel="alternate" type="application/rss+xml" href="/url/to/feedpage" title="RSS Feed for x">
-</div>
+</div> *@
 
 
 
@@ -32,17 +32,42 @@
     XmlNodeList rssItems = doc.SelectNodes("//item");
 
 }
-<ul>
-    @{
-        //For each item node we can then ouput what we want
-        foreach (XmlNode node in rssItems)
-        {
-            <li>
-                <div class="date">@node["pubDate"].InnerText</div>
-                @node["title"].InnerText<br />
-                <a href="@node["link"].InnerText">DETALII</a>
-                
-            </li>
-        }
-    }
-</ul>
+<section>
+    <div class="container text-center">
+
+        @* <h1>Ultimele stiri</h1> *@
+
+
+        <div class="row">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-10 coloana-noutati-stanga">
+                <div class="row">
+                        @foreach (XmlNode node in rssItems)
+                    {
+                        <div class="col-6">
+                            <div class="row">
+
+                                <div class="col-12">
+                                    <div class="container d-flex ph-20px date">
+                                        <h3 class="text-albastru">@node["pubDate"].InnerText</h3>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="container text-justify-interword">
+                                        @node["title"].InnerText
+                                    </div>
+                                </div>
+                                <div class="container">
+                                    <a href="@node["link"].InnerText">DETALII</a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="col-lg-1"></div>
+        </div>
+
+
+    </div>
+</section>
