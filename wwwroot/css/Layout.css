@@ -158,6 +158,18 @@ nav a{
     .icon-albastru img {
         filter: invert(1);
     }
+.container-initiala-profil{
+    position:fixed;
+    top:80px;
+    margin-top:0;
+    height:40px;
+    width:40px;
+}
+.initiala-profil{
+    color:var(--culoare-albastra);
+    font-size:1.7rem;
+    font-weight: 900;
+}
 
 .text-albastru {
     color: var(--culoare-albastra);
