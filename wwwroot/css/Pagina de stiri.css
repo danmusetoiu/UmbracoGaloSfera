@@ -1,0 +1,20 @@
+﻿body {
+    background-image: url("/media/yszb0eek/wall-pagina-de-stiri.png");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+section {
+    font-weight: 400;
+}
+
+    section a {
+        font-weight: 700 !important;
+        display: flex;
+        justify-content: start;
+        padding-left: var(--bs-gutter-x, .75rem);
+        text-decoration: none;
+        color: var(--culoare-albastra)
+    }

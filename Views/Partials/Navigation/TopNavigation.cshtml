@@ -12,7 +12,7 @@
     const string hrefLogoNegru = "/media/wwin4eeq/galosfera-logo-negru.svg";
     const string hrefLogoStiri = "/media/altlysil/galosfera-logo-stiri.svg";
     const string hrefLogoEvenimente = "/media/0ufmca1o/logo-evenimente.svg";
-
+    const string hrefLogoRSS = "/media/od3dmbfs/rss-logo.svg";
 }
 <!-- comment out the following line if you want to remove the root node name from the top navigation -->
 @if (Model.Name == "Noutăți")
@@ -22,6 +22,10 @@
 else if (Model.Name == "Evenimente")
 {
     <img src="@hrefLogoEvenimente" style="height:180px; width:180px" />
+}
+else if (Model.Name == "Pagina de stiri")
+{
+    <img src="@hrefLogoRSS" style="height:180px; width:180px" />
 }
 else if ("Contact,Biblioteca".Contains(Model.Name))
 {
@@ -41,7 +45,7 @@ else
     {
         if (item.Name != "Doneaza!" && item.Name != "Pagina de stiri" && item.Name != "Noutăți" && item.Name != "Evenimente")@*  && item.Name != "GALURI" && item.Name != "Fii voluntar!" *@
         {
-            <a class="@("Noutăți,Evenimente,Contact,Biblioteca".Contains(Model.Name)?"text-negru":"text-alb") nav-link @(item.IsAncestorOrSelf(Model) ? "nav-link--active" : null)" href="@item.Url()">@item.Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+            <a class="@("Noutăți,Evenimente,Contact,Pagina de stiri,Biblioteca".Contains(Model.Name)?"text-negru":"text-alb") nav-link @(item.IsAncestorOrSelf(Model) ? "nav-link--active" : null)" href="@item.Url()">@item.Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
         }
     }
 
@@ -55,7 +59,7 @@ else
     {
         if (item.Name != "Doneaza!" && item.Name != "Pagina de stiri" && item.Name != "Noutăți" && item.Name != "Evenimente")@*  && item.Name != "GALURI" && item.Name != "Fii voluntar!" *@
         {
-            <a class="@("Noutăți,Evenimente,Contact,Biblioteca".Contains(Model.Name)?"text-negru":"text-alb") nav-link @(item.IsAncestorOrSelf(Model) ? "nav-link--active" : null)" href="@item.Url()">@item.Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+            <a class="@("Noutăți,Evenimente,Contact,Pagina de stiri,Biblioteca".Contains(Model.Name)?"text-negru":"text-alb") nav-link @(item.IsAncestorOrSelf(Model) ? "nav-link--active" : null)" href="@item.Url()">@item.Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
         }
     }
 
