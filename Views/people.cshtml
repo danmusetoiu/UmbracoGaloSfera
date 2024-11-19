@@ -23,63 +23,49 @@
 </style>
 @Html.Partial("~/Views/Partials/SectionHeader.cshtml")
 
-<section class="section section--full-height background-image-full overlay  section--content-center "
-         style="background-image: url('/media/tkslekng/wall-profil-voluntar3.png?rmode=max&width=500&v=1db23adcef4098d')">
+
+<section class="w-100 d-flex justify-content-center">
+    <div class="container text-center m-0 w-100">
 
 
-
-    <div class="container">
-
-        <!-- todo: implement department filter -->
-        <!--
-        <nav class="nav-bar nav-bar--center nav-bar--air-bottom">
-            <a class="nav-link nav-link--black nav-link--active" href="">All</a>
-            <a class="nav-link nav-link--black" href="">Marketing</a>
-            <a class="nav-link nav-link--black" href="">Package People</a>
-            <a class="nav-link nav-link--black" href="">Designers</a>
-            <a class="nav-link nav-link--black" href="">Other</a>
-        </nav>
-        -->
-
-        
-        <div class="container container-fluid text-center">
-            <div class="row p-2">
-               
-                    @foreach (Person person in Model.Children<Person>())
-                    {
-
-                <div class="col-5 p-2 ">
-
-                        <img src="@person.Photo.Url()" style="width:100px; height:100px; object-fit: cover; " class="rounded-circle" alt="Circular Image">
-                </div>
-                    <div class="col-3 p-2 ">
-                        <a href="@person.Url()"> <b>@person.Name.Split()[0]</b></a><br />
-                       
-                        @person.Name.Split()[1]<br />
-                        @person.Email<br />
-
-                    
-                </div>
-                    <div class="col-4 p-2 ">
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-
-
-                    
+        <div class="row w-100">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-10">
+                <div class="row">
+                    <div class="col-3 d-flex justify-content-start align-items-end">
+                        <span class="textProfilVoluntar">
+                            Profil voluntar
+                        </span>
                     </div>
-                }
+                    <div class="col-6 coloana-noutati-stanga">
+                        @foreach (Person person in Model.Children<Person>())
+                        {
+                            <div class="d-flex justify-content-between align-items-center mb-5">
+                                <img src="@person.Photo.Url()" style="width:100px; height:100px; object-fit: cover; " class="rounded-circle" alt="Circular Image">
+                                <a href="@person.Url()"> <b>@person.Name.Split()[0]</b></a><br />
+                                <span>
+                                    @person.Name.Split()[1]<br />
+                                    @person.Email
+                                </span>
+                                <span class="me-5">
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                </span>
+
+
+                            </div>
+                        }
+                    </div>
+                    <div class="col-3">
+                    </div>
+                </div>
             </div>
-        
+            <div class="col-lg-1"></div>
         </div>
 
 
-
-               
-
     </div>
-
 </section>
-

@@ -27,7 +27,7 @@ else if (Model.Name == "Pagina de stiri")
 {
     <img src="@hrefLogoRSS" style="height:180px; width:180px" />
 }
-else if ("Contact,Biblioteca".Contains(Model.Name))
+else if ("Contact,Voluntar în România,Biblioteca".Contains(Model.Name))
 {
     <img src="@hrefLogoNegru" style="height:180px; width:180px; visibility:hidden;" />
 }
@@ -45,7 +45,7 @@ else
     {
         if (item.Name != "Doneaza!" && item.Name != "Pagina de stiri" && item.Name != "Noutăți" && item.Name != "Evenimente")@*  && item.Name != "GALURI" && item.Name != "Fii voluntar!" *@
         {
-            <a class="@("Noutăți,Evenimente,Contact,Pagina de stiri,Biblioteca".Contains(Model.Name)?"text-negru":"text-alb") nav-link @(item.IsAncestorOrSelf(Model) ? "nav-link--active" : null)" href="@item.Url()">@item.Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+            <a class="@("Noutăți,Evenimente,Contact,Pagina de stiri,Biblioteca,Voluntar în România".Contains(Model.Name)?"text-negru":"text-alb") nav-link @(item.IsAncestorOrSelf(Model) ? "nav-link--active" : null)" href="@item.Url()">@item.Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
         }
     }
 
@@ -59,7 +59,7 @@ else
     {
         if (item.Name != "Doneaza!" && item.Name != "Pagina de stiri" && item.Name != "Noutăți" && item.Name != "Evenimente")@*  && item.Name != "GALURI" && item.Name != "Fii voluntar!" *@
         {
-            <a class="@("Noutăți,Evenimente,Contact,Pagina de stiri,Biblioteca".Contains(Model.Name)?"text-negru":"text-alb") nav-link @(item.IsAncestorOrSelf(Model) ? "nav-link--active" : null)" href="@item.Url()">@item.Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+            <a class="@("Noutăți,Evenimente,Contact,Pagina de stiri,Biblioteca,Voluntar în România".Contains(Model.Name)?"text-negru":"text-alb") nav-link @(item.IsAncestorOrSelf(Model) ? "nav-link--active" : null)" href="@item.Url()">@item.Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
         }
     }
 
