@@ -5,6 +5,16 @@
     Layout = "master.cshtml";
 }
 <div class="row m-0 h-100">
+
+    <div class="top-icon-logare d-flex justify-content-center">
+        <div class="icon-circle-logare">
+            <span class="icon">
+                <a href="../">
+                    <img src="/media/ftfn2ljm/icon-galosfera-circle.svg" alt="Galosfera" />
+                </a>
+            </span>
+        </div>
+    </div>
     <div class="col-1"></div>
     <div class="col-10">
         <div class="row d-flex justify-content-center align-items-center h-100">
@@ -31,3 +41,9 @@
     </div>
     <div class="col-1"></div>
 </div>
+<script>
+    function AscundeSiAfiseazaDivuri() {
+        document.getElementById("divLogin").classList.toggle("d-none");
+        document.getElementById("divInregistrare").classList.toggle("d-none");
+    }
+</script>

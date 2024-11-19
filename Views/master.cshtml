@@ -81,6 +81,8 @@
 
     </header>
 
+    @if(Model.Name != "Logare")
+        {
         <div class="right-menu">
             <div class="top-icon @(Model.Name=="Home"?"v-hidden":"")">
                 <div class="icon-circle">
@@ -103,6 +105,7 @@
                 <span class="icon"><a href="/Evenimente"><img src="/media/ja1d354d/calendar2.svg" alt="Calendar" /></a></span>
             </div>
         </div>
+        }
         @RenderBody()
     </main>
     

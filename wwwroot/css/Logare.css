@@ -5,26 +5,30 @@
     background-position: center;
     background-repeat: no-repeat;
 }
-button,input[type=text],input[type=password] {
+
+button, input[type=text], input[type=email], input[type=password] {
     height: var(--inaltime-butane-login) !important;
     border-radius: calc(var(--inaltime-butane-login) / 2) !important;
-    border-style:solid;
-    border-color:black;
-    border-width:0.25rem;
+    border-style: solid;
+    border-color: black;
+    border-width: 0.25rem;
     text-align: center !important;
-    width:100% !important;
-    color:white;
-    font-weight:600;
+    width: 100% !important;
+    color: white;
+    font-weight: 600;
 }
-input[type=text]{
-    background:transparent !important;
+
+input[type=text], input[type=email] {
+    background: transparent !important;
 }
-button{
+
+button {
     border-style: none !important;
-    background-color:gray;
+    background-color: gray;
 }
-.textTineMinte{
-    font-weight:600 !important;
-    font-size:1rem !important;
-    text-transform:none;
+
+.textTineMinte {
+    font-weight: 600 !important;
+    font-size: 1rem !important;
+    text-transform: none;
 }
