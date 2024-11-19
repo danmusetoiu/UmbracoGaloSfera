@@ -31,75 +31,13 @@
 @Html.Partial("~/Views/Partials/SectionHeader.cshtml")
 
 
-@* <section class="section section--full-height background-image-full overlay  section--content-center "
-         @* style="background-image: url('/media/1sjdebve/wall-profil-eveniment4.png?rmode=max&width=500&v=1dafdd00d589c09')" *@>
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+        integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+        crossorigin=""></script>
 
-   @*  <div id="map"></div> *@
-    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
-            integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
-            crossorigin=""></script>
-
-    @{
-        var list = Model.Children<Product>().Select(b => new {b.LocalizareEveniment.Marker.Latitude, b.LocalizareEveniment.Marker.Longitude, b.Name, b.WebsiteEveniment}).ToList();
-        
-    }
-
-
-    <script>
-        const lista = JSON.parse('@(Html.Raw(JsonConvert.SerializeObject(list, Formatting.None)))');
-        var map = L.map('map').setView([45.121, 25.3321], 8);
-        let smile = String.fromCodePoint(0x27A1);
-        
-        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19,
-            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-        }).addTo(map);
-        
-        lista.forEach(o => {
-            L.marker([o.Latitude, o.Longitude])
-                .bindPopup(o.Name + " " + smile + " " + "<a href='" + o.WebsiteEveniment + "' target='_blank'>Detalii aici</a>")
-                .openPopup()
-                .addTo(map);
-        });
-
-
-        
-
-    </script>
-    
-
-
-@*  <div class="section--content-center">
-    <div class="container text-center">
-       
-        <div class="container container-fluid text-center">
-            <h1><strong>Listă evenimente</strong></h1><br />
-        </div>
-
-        
-
-
-        @foreach (Product eveniment in Model.Children<Product>())
-        {
-            <div class="container">
-                @eveniment.DataEveniment
-            </div>
-
-            <div class="container">
-                <h3> @eveniment.Name </h3>
-            </div>
-            <div class="container">
-                @eveniment.Description
-            </div>
-            <div class="container">
-                <a href="@eveniment.Url()">Mai mult....</a>
-            </div>
-            <br />
-        }
-
-    </div>
-
-</div> *@
+@{
+    var list = Model.Children<Product>().Select(b => new { b.LocalizareEveniment.Marker.Latitude, b.LocalizareEveniment.Marker.Longitude, b.Name, b.WebsiteEveniment }).ToList();
+}
 
 <section>
     <div class="container text-center">
@@ -119,17 +57,17 @@
                                 <h3 class="text-albastru">@stire.ProductName </h3>
                             </div>
                         </div>
-                                                <div class="col-12">
-                    <div class="container text-justify-interword">
-                    @stire.Description
-                    </div>
-                    </div>
+                        <div class="col-12">
+                            <div class="container text-justify-interword">
+                                @stire.Description
+                            </div>
+                        </div>
                         @* <div class="col-12">
-                            @if (stire.FotoStire != null)
-                            {
-                                <img src="@stire.FotoStire.Url()" alt="@stire.Name" class="blog-image mh-20px" />
-                            }
-                        </div> *@
+                    @if (stire.FotoStire != null)
+                    {
+                    <img src="@stire.FotoStire.Url()" alt="@stire.Name" class="blog-image mh-20px" />
+                    }
+                    </div> *@
                         <div class="container text-justify-interword">
                             @await Html.GetBlockGridHtmlAsync(stire, "bodyText")
                         </div>
@@ -142,17 +80,11 @@
                 @foreach (Product stire in Model.Children<Product>())
                 {
                     <div class="row stire-@stire.Id mt-42px">
-                        <div class="col-4">
-                           @*  @if (stire.FotoStire != null)
-                            {
-                                <img src="@stire.FotoStire.Url()" alt="@stire.Name" class="blog-image" />
-                            } *@
-                        </div>
-                        <div class="col-8 d-flex">
+                        <div class="col-12  d-flex">
                             <div class="container text-align-start">
                                 <h3 class="text-albastru col-12"> @stire.ProductName </h3>
-                                <span class="col-12 text-justify-interword">@stire.AdresaEveniment</span>
-                                <span class="col-12">@stire.UpdateDate.ToString("dd.MM.yyyy") | @stire.UpdateDate.ToString("HH:mm")</span>
+                                    <div class="col-12 text-justify-interword">@stire.AdresaEveniment</div>
+                                    <div class="col-12">@stire.UpdateDate.ToString("dd.MM.yyyy") | @stire.UpdateDate.ToString("HH:mm")</div>
                             </div>
                         </div>
                     </div>

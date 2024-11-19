@@ -8,9 +8,10 @@
     var site = Model.Root();
     var selection = site.Children.Where(x => x.IsVisible()); 
     var currentMember = await _memberManager.GetCurrentMemberAsync();
-    var hrefLogoAlb = "/media/nahmze0n/galosfera-logo.svg";
-    var hrefLogoNegru = "/media/wwin4eeq/galosfera-logo-negru.svg";
-    var hrefLogoStiri = "/media/altlysil/galosfera-logo-stiri.svg";
+    const string hrefLogoAlb = "/media/nahmze0n/galosfera-logo.svg";
+    const string hrefLogoNegru = "/media/wwin4eeq/galosfera-logo-negru.svg";
+    const string hrefLogoStiri = "/media/altlysil/galosfera-logo-stiri.svg";
+    const string hrefLogoEvenimente = "/media/0ufmca1o/logo-evenimente.svg";
 
 }
 <!-- comment out the following line if you want to remove the root node name from the top navigation -->
@@ -18,9 +19,9 @@
 {
     <img src="@hrefLogoStiri" style="height:180px; width:180px" />
 }
-else if (Model.Name == "")
+else if (Model.Name == "Evenimente")
 {
-    <img src="@hrefLogoNegru" style="height:180px; width:180px" />
+    <img src="@hrefLogoEvenimente" style="height:180px; width:180px" />
 }
 else if ("Contact,Biblioteca".Contains(Model.Name))
 {
@@ -40,7 +41,7 @@ else
     {
         if (item.Name != "Doneaza!" && item.Name != "Pagina de stiri" && item.Name != "Noutăți" && item.Name != "Evenimente")@*  && item.Name != "GALURI" && item.Name != "Fii voluntar!" *@
         {
-            <a class="@("Noutăți,Contact,Biblioteca".Contains(Model.Name)?"text-negru":"text-alb") nav-link @(item.IsAncestorOrSelf(Model) ? "nav-link--active" : null)" href="@item.Url()">@item.Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+            <a class="@("Noutăți,Evenimente,Contact,Biblioteca".Contains(Model.Name)?"text-negru":"text-alb") nav-link @(item.IsAncestorOrSelf(Model) ? "nav-link--active" : null)" href="@item.Url()">@item.Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
         }
     }
 
@@ -54,7 +55,7 @@ else
     {
         if (item.Name != "Doneaza!" && item.Name != "Pagina de stiri" && item.Name != "Noutăți" && item.Name != "Evenimente")@*  && item.Name != "GALURI" && item.Name != "Fii voluntar!" *@
         {
-            <a class="@("Noutăți,Contact,Biblioteca".Contains(Model.Name)?"text-negru":"text-alb") nav-link @(item.IsAncestorOrSelf(Model) ? "nav-link--active" : null)" href="@item.Url()">@item.Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+            <a class="@("Noutăți,Evenimente,Contact,Biblioteca".Contains(Model.Name)?"text-negru":"text-alb") nav-link @(item.IsAncestorOrSelf(Model) ? "nav-link--active" : null)" href="@item.Url()">@item.Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
         }
     }
 
