@@ -32,3 +32,6 @@
 .section{
     padding:0 !important;
 }
+#item-container{
+    padding-top:15%;
+}
