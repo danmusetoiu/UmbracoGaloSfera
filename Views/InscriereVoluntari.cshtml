@@ -4,81 +4,149 @@
 @inject IMemberManager _memberManager;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<InscriereVoluntari>
 @{
-	Layout = "master.cshtml";
+    Layout = "master.cshtml";
 }
 
 @Html.Partial("~/Views/Partials/SectionHeader.cshtml")
 
-<section class="section">
+<div class="row">
+    <div class="col-1"></div>
+    <div class="col-10  coloana-noutati-stanga">
+        <section class="section">
 
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-3 mx-auto">
-				<h2><font color="red"> implică-te! </font></h2>
-				<br /><br />
-			</div>
-		</div>
-	</div>
+            <div class="container">
+                <div class="row mb-3">
+                    <div class="col-8">
+                        <h3 class="text-negru lh-1 mb-0">EȘTI PREGĂTIT</h3>
+                        <h1 class="text-albastru lh-1 ">să faci diferența?</h1>
+                        <div class="justify-text">
+                            Te invităm să te alături echipei noastre de voluntari și să contribui la crearea unei comunități mai puternice și mai unite. Prin acțiunile tale, poți transforma vieți, poți inspira schimbarea și poți lăsa o amprentă pozitivă în lume.
+                        </div>
+                    </div>
+                    <div class="col-4 d-flex justify-content-end">
+                        <img src="/media/dnmkvy2e/smile-hai.svg" alt="Hai!" style="max-height:15rem;" />
+                    </div>
+                    <div class="col-6 pe-5">
+                        <p>
+                            Voluntariatul nu doar că oferă satisfacția de a ajuta comunitatea, dar aduce și numeroase beneficii educaționale și profesionale:
+                        </p>
+                        <p>
+                            <b>1. Dezvoltarea abilităților practice:<br /></b>
+                            Vei avea ocazia să îți dezvolți competențe esențiale precum comunicarea, organizarea, leadershipul, gestionarea timpului și lucrul în echipă. Aceste abilități sunt valoroase în orice domeniu profesional.
+                        </p>
+                        <p>
+                            <b>2. Experiență practică:<br /></b>
+                            Participarea la proiecte reale, unde vei avea responsabilități, te ajută să dobândești experiență practică, pe care o poți include în CV și discuta la interviuri.
+                        </p>
+                        <p>
+                            <b>3. Networking:<br /></b>
+                            Vei întâlni oameni din diverse domenii și vei construi conexiuni importante care îți pot deschide uși în viitorul profesional.
+                        </p>
+                    </div>
+                    <div class="col-6 ps-5">
+                        <p>
+                            <b>4. Cunoaștere în domenii noi:<br /></b>
+                            Implicarea în diferite proiecte îți poate oferi cunoștințe noi în domenii pe care poate nu le-ai studiat formal, dar care sunt relevante pentru cariera ta.
+                        </p>
+                        <p><b>5. Îmbunătățirea profilului profesional:<br /></b>Voluntariatul este apreciat de angajatori, demonstrând că ești o persoană proactivă, empatică și dispusă să înveți și să te implici în proiecte din pasiune.</p>
+                        <p><b>6. Încredere în sine și adaptabilitate:<br /></b>Lucrând într-un mediu dinamic și provocator, îți vei dezvolta încrederea în sine și capacitatea de a te adapta rapid la situații noi.</p>
+                        <p><b>Prin voluntariat, nu doar contribui la binele comunității, dar îți construiești și viitorul personal și profesional.</b></p>
+                    </div>
+                </div>
+            </div>
 
 
-	<div class="container">
-		<div class="row">
-			<div class="col">
-				<input type="text" class="form-control" placeholder="Prenume" aria-label="First name">
-			</div>
-			<div class="col">
-				<input type="text" class="form-control" placeholder="Nume" aria-label="Last name">
-			</div>
-		</div>
-		<form class="row g-3">
-			<div class="col-md-6">
-				<label for="inputEmail4" class="form-label">Email</label>
-				<input type="email" class="form-control" id="inputEmail4">
-			</div>
-			<div class="col-md-6">
-				<label for="inputPassword4" class="form-label">Password</label>
-				<input type="password" class="form-control" id="inputPassword4">
-			</div>
-			<div class="col-12">
-				<label for="inputAddress" class="form-label">Adresa</label>
-				<input type="text" class="form-control" id="inputAddress" placeholder="Strada, număr">
-			</div>
-			<div class="col-12">
-				<label for="inputAddress2" class="form-label">Detalii adresa</label>
-				<input type="text" class="form-control" id="inputAddress2" placeholder="Scară, etaj, nr. apartament">
-			</div>
-			<div class="col-md-6">
-				<label for="inputCity" class="form-label">Oraș</label>
-				<input type="text" class="form-control" id="inputCity">
-			</div>
-			<div class="col-md-4">
-				<label for="inputState" class="form-label">Județ</label>
-				<select id="inputState" class="form-select">
-					<option selected>Alege...</option>
-					<option>ALBA</option>
-					<option>VASLUI</option>
-				</select>
-			</div>
-			<div class="col-md-2">
-				<label for="inputZip" class="form-label">Cod poștal</label>
-				<input type="text" class="form-control" id="inputZip">
-			</div>
-			<div class="mb-3">
-				<label for="formFileMultiple" class="form-label">Încarcă documente relevante</label>
-				<input class="form-control" type="file" id="formFileMultiple" multiple>
-			</div>			<div class="col-12">
-				<div class="form-check">
-					<input class="form-check-input" type="checkbox" id="gridCheck">
-					<label class="form-check-label" for="gridCheck">
-						Verifică înformațiile și bifează căsuța
-					</label>
-				</div>
-			</div>
-			<div class="col-12">
-				<button type="submit" class="btn btn-primary">Trimite</button>
-			</div>
-		</form>
-		
-	</div>
-</section>
+            <div class="container mt-5">
+                <div class="row">
+                    <div class="col-6">
+                        <h3 class="text-negru lh-1 mb-0">FORMULAR DE ÎNSCRIERI</h3>
+                        <h1 class="text-albastru lh-1 mb-0">voluntar</h1>
+                    </div>
+                    <div class="col-6 d-flex justify-content-start">
+                        <img src="/media/hgbfspmz/sageata-voluntar.svg" alt="Înscrie-te!" style="max-height:13rem; margin-top: -6rem; z-index: -1;" />
+                    </div>
+                    <div class="col-12 mb-3">
+                        Cămpurile marcate cu * sunt obligatorii
+                    </div>
+                </div>
+                <div class="row">
+                    <form class="row">
+                        <div class="col-4 d-flex flex-column gap-3">
+                            <div>
+                                <input type="text" class="form-control input-mic" placeholder="Prenume" aria-label="First name">
+                            </div>
+                            <div>
+                                <input type="text" class="form-control input-mic" placeholder="Nume" aria-label="Last name">
+                            </div>
+                            <div>
+                                @* <label for="inputEmail4" class="form-label">Email</label> *@
+                                <input type="email" class="form-control input-mic" id="inputEmail4" placeholder="Email">
+                            </div>
+                            <div>
+                                @* <label for="inputPassword4" class="form-label">Password</label> *@
+                                <input type="password" class="form-control input-mic" id="inputPassword4" placeholder="Parola">
+                            </div>
+                            <div>
+                                @* <label for="inputAddress" class="form-label">Adresa</label> *@
+                                <input type="text" class="form-control input-mic" id="inputAddress" placeholder="Strada, număr">
+                            </div>
+                            <div>
+                                @* <label for="inputAddress2" class="form-label">Detalii adresa</label> *@
+                                <input type="text" class="form-control input-mic" id="inputAddress2" placeholder="Scară, etaj, nr. apartament">
+                            </div>
+                            <div>
+                                @* <label for="inputCity" class="form-label">Oraș</label> *@
+                                <input type="text" class="form-control input-mic" id="inputCity" placeholder="Oraș">
+                            </div>
+                            <div>
+                                @* <label for="inputState" class="form-label">Județ</label> *@
+                                <select id="inputState" class="form-select input-mic">
+                                    <option selected>Alege...</option>
+                                    <option>ALBA</option>
+                                    <option>VASLUI</option>
+                                </select>
+                            </div>
+                            <div>
+                                @* <label for="inputZip" class="form-label">Cod poștal</label> *@
+                                <input type="text" class="form-control input-mic" id="inputZip" placeholder="Cod poștal">
+                            </div>
+                        </div>
+                        <div class="col-8 d-flex flex-wrap gap-4">
+                            <textarea class="form-control input-mare" id="inputCity" placeholder="Ce te determină sa îți dorești să devii voluntar?"></textarea>
+                            <textarea class="form-control input-mare" id="inputCity" placeholder="Experiența profesională:"></textarea>
+                            <textarea class="form-control input-mare" id="inputCity" placeholder="Ai mai desfășurat activități de voluntariat? Unde?"></textarea>
+                            <textarea class="form-control input-mare" id="inputCity" placeholder="Ai mai desfășurat activități de voluntariat? Unde?"></textarea>
+                        </div>
+@*                         <div class="col-12">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="gridCheck">
+                                <label class="form-check-label" for="gridCheck">
+                                    Verifică înformațiile și bifează căsuța
+                                </label>
+                            </div>
+                        </div> *@
+                        <div class="col-12 d-flex justify-content-center mt-5 pt-5">
+                            <div class="row d-flex flex-column align-items-center">
+                                <div class="justify-content-center mb-3 justify-text col-8">
+                                    Prin apăsarea butonului "Trimite spre aprobare", confirmi că ai citit și ești de acord cu <a class="text-nedecorat text-albastru" href="../">Politica de confidențialitate</a> și <a class="text-nedecorat text-albastru" href="../">Termeni și condițiile</a> site-ului nostru, precum și cu <a class="text-nedecorat text-albastru" href="../">prelucrarea datelor tale personale</a> în conformitate cu legislația în vigoare.
+                                </div>
+                                <div class="d-flex justify-content-center mb-3 col-4">
+                                    <button type="submit" class="btn btn-primary">Trimite spre aprobare</button>
+                                </div>
+                                <div class="d-flex justify-content-center col-4">
+                                    <button type="button" class="btn btn-secondary">Renunță</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="col-6">
+                    </div>
+                </div>
+
+
+            </div>
+        </section>
+    </div>
+    <div class="col-1"></div>
+</div>
 

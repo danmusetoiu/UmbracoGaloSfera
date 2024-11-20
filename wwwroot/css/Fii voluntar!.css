@@ -1,0 +1,62 @@
+﻿body {
+    background-image: url("/media/j3batdhc/fundal-voluntar.png");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-weight: 400;
+}
+h3{
+    font-weight:900;
+}
+h1{
+    font-weight:800 !important;
+    font-size:3.5rem;
+}
+p{
+    text-align:justify;
+    text-justify:inter-word;
+}
+div.row{
+    margin-left:0;
+    margin-right:0;
+}
+.input-mic {
+    height: var(--inaltime-butane-voluntar) !important;
+    border-radius: calc(var(--inaltime-butane-voluntar) / 2) !important;
+    border-style: solid;
+    border-color: black;
+    border-width: 0.1rem;
+    text-align: center !important;
+    width: 100% !important;
+    font-weight: 500;
+    text-align:left !important;
+}
+.input-mare {
+    margin-left:15%;
+    border-radius: calc(var(--inaltime-butane-voluntar) / 2) !important;
+    border-style: solid;
+    border-color: black;
+    border-width: 0.1rem;
+    text-align: center !important;
+    width: 100% !important;
+    font-weight: 500;
+    text-align:left !important;
+}
+
+button {
+    height: var(--inaltime-butane-voluntar) !important;
+    border-radius: calc(var(--inaltime-butane-voluntar) / 2) !important;
+    border-style: solid;
+    border-color: black;
+    border-width:0.1rem;
+    text-align: center !important;
+    width: 100% !important;
+    color: white;
+    font-weight: 600;
+}
+
+button {
+    border-style: none !important;
+    background-color: gray;
+}

@@ -1,6 +1,7 @@
 ﻿:root {
     --culoare-albastra: #0047BA;
     --inaltime-butane-login:4rem;
+    --inaltime-butane-voluntar:3rem;
 }
 /* <uniquifier > : Use a unique and descriptive class name
  <weight > : Use a value from 100 to 900*/
@@ -287,6 +288,7 @@ nav a{
 }
 .justify-text{
     text-align:justify !important;
+    text-justify:inter-word;
 }
 .h-99{
     height:99% !important;
