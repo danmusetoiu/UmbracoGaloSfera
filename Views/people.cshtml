@@ -40,21 +40,29 @@
                     <div class="col-6 coloana-noutati-stanga">
                         @foreach (Person person in Model.Children<Person>())
                         {
-                            <div class="d-flex justify-content-between align-items-center mb-5">
-                                <img src="@person.Photo.Url()" style="width:100px; height:100px; object-fit: cover; " class="rounded-circle" alt="Circular Image">
-                                <a href="@person.Url()"> <b>@person.Name.Split()[0]</b></a><br />
-                                <span>
-                                    @person.Name.Split()[1]<br />
-                                    @person.Email
-                                </span>
-                                <span class="me-5">
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
-                                </span>
-
+                            <div class="d-flex justify-content-between align-items-start mb-5 row">
+                                <div class="col-4 d-flex justify-content-end">
+                                    <img src="@person.Photo.Url()" style="width:100px; height:100px; object-fit: cover; " class="rounded-circle" alt="Circular Image">
+                                </div>
+                                <div class="col-4">
+                                    <div class="d-flex flex-column justify-content-between">
+                                        <a class="linkPersoana d-flex flex-row justify-content-start" href="@person.Url()">
+                                            <b>@person.Name.Split()[0]</b>
+                                        </a><br />
+                                        <span class="d-flex flex-row justify-content-start ta-start">@person.Name.Split()[1]<br />
+                                            @person.Email
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="col-4 d-flex align-items-start">
+                                    <span class="me-5 ms-3">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                    </span>
+                                </div>
 
                             </div>
                         }

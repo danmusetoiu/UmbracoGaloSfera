@@ -18,3 +18,7 @@
     margin-left:0 !important;
     margin-right:0 !important;
 }
+.linkPersoana{
+    text-decoration:none;
+    color:var(--culoare-albastra);
+}
