@@ -1,0 +1,22 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.GDpr>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+	Layout = null;
+}
+
+
+@{
+	var selection = Umbraco.Content(Guid.Parse("0c5a631b-2376-41f2-833e-4e4650c2526e"))
+    .Children()
+    .Where(x => x.IsVisible());
+}
+<ul>
+	@foreach (var item in selection)
+	{
+		<li>
+			<a href="@item.Url()">@item.Name()</a>
+		</li>
+	}
+</ul>
+
