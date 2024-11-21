@@ -1,0 +1,41 @@
+﻿body {
+    background-image: url("/media/2plpso2k/fundal-termene-si-conditii.png");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.text-termene-mare {
+    display: flex;
+    font-size: 5rem;
+    text-align: start;
+    font-weight: 900;
+    margin-left: -10rem;
+    color: black;
+    line-height: 1;
+}
+.text-termene-mic {
+    display: flex;
+    font-size: 2rem;
+    text-align: start;
+    font-weight: 600;
+    margin-left: -10rem;
+    color: black;
+    line-height: 1;
+}
+
+.col-6 .row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+.linkPersoana {
+    text-decoration: none;
+    color: var(--culoare-albastra);
+}
+.coloana-noutati-stanga{
+    text-align:justify;
+    text-justify:inter-word;
+    font-weight:500;
+    line-height:1.2;
+}

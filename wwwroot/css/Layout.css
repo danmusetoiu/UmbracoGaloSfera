@@ -1,7 +1,8 @@
 ﻿:root {
     --culoare-albastra: #0047BA;
-    --inaltime-butane-login:4rem;
-    --inaltime-butane-voluntar:3rem;
+    --inaltime-butoane-login:4rem;
+    --inaltime-butoane-voluntar:3rem;
+    --inaltime-coloana-noutati:40rem;
 }
 /* <uniquifier > : Use a unique and descriptive class name
  <weight > : Use a value from 100 to 900*/
@@ -22,6 +23,12 @@ body {
 }
 main{
     height:100% !important;
+}
+header{
+    top:0;
+}
+.nav-bar{
+    margin-right:15%;
 }
 .nav-link{
     font-weight:600;
@@ -200,30 +207,34 @@ nav a{
     height: auto;
 }
 
+.coloana-GDPR {
+    height: calc(var(--inaltime-coloana-noutati)/2);
+    overflow-y: scroll;
+}
 .coloana-noutati-stanga, .coloana-noutati-dreapta {
-    height: 40rem;
+    height: var(--inaltime-coloana-noutati);
     overflow-y: scroll;
 }
 
-    .coloana-noutati-stanga::-webkit-scrollbar, .coloana-noutati-dreapta::-webkit-scrollbar {
+    .coloana-noutati-stanga::-webkit-scrollbar, .coloana-noutati-dreapta::-webkit-scrollbar, .coloana-GDPR::-webkit-scrollbar {
         width: 10px;
     }
 
     /* Track */
-    .coloana-noutati-stanga::-webkit-scrollbar-track, .coloana-noutati-dreapta::-webkit-scrollbar-track {
-        background: transparent;
-    }
+        .coloana-noutati-stanga::-webkit-scrollbar-track, .coloana-noutati-dreapta::-webkit-scrollbar-track, .coloana-GDPR::-webkit-scrollbar-track {
+            background: transparent;
+        }
 
     /* Handle */
-    .coloana-noutati-stanga::-webkit-scrollbar-thumb, .coloana-noutati-dreapta::-webkit-scrollbar-thumb {
-        background: #888;
-        border-radius: 10px;
-    }
+        .coloana-noutati-stanga::-webkit-scrollbar-thumb, .coloana-noutati-dreapta::-webkit-scrollbar-thumb, .coloana-GDPR::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
 
         /* Handle on hover */
-        .coloana-noutati-stanga::-webkit-scrollbar-thumb:hover, .coloana-noutati-dreapta::-webkit-scrollbar-thumb:hover {
-            background: #666;
-        }
+            .coloana-noutati-stanga::-webkit-scrollbar-thumb:hover, .coloana-noutati-dreapta::-webkit-scrollbar-thumb:hover, .coloana-GDPR::-webkit-scrollbar-thumb:hover {
+                background: #666;
+            }
 
 .ph-20px {
     padding-left: 20px;
@@ -294,62 +305,73 @@ nav a{
     height:99% !important;
 }
 
+@media (min-height: 490px) {
+    .coloana-noutati-stanga, .coloana-noutati-dreapta, .coloana-GDPR {
+        --inaltime-coloana-noutati: 8rem;
+    }
+}
+
+@media (min-height: 550px) {
+    .coloana-noutati-stanga, .coloana-noutati-dreapta, .coloana-GDPR {
+        --inaltime-coloana-noutati: 14rem;
+    }
+}
 @media (min-height: 630px) {
-    .coloana-noutati-stanga, .coloana-noutati-dreapta {
-        height: 20rem;
+    .coloana-noutati-stanga, .coloana-noutati-dreapta, .coloana-GDPR {
+        --inaltime-coloana-noutati: 20rem;
     }
 }
 
 @media (min-height: 740px) {
-    .coloana-noutati-stanga, .coloana-noutati-dreapta {
-        height: 29rem;
+    .coloana-noutati-stanga, .coloana-noutati-dreapta, .coloana-GDPR {
+        --inaltime-coloana-noutati: 29rem;
     }
 }
 
 @media (min-height: 840px) {
-    .coloana-noutati-stanga, .coloana-noutati-dreapta {
-        height: 35rem;
+    .coloana-noutati-stanga, .coloana-noutati-dreapta, .coloana-GDPR {
+        --inaltime-coloana-noutati: 35rem;
     }
 }
 
 @media (min-height: 940px) {
-    .coloana-noutati-stanga, .coloana-noutati-dreapta {
-        height: 40rem;
+    .coloana-noutati-stanga, .coloana-noutati-dreapta, .coloana-GDPR {
+        --inaltime-coloana-noutati: 40rem;
     }
 }
 
 @media (min-height: 1050px) {
-    .coloana-noutati-stanga, .coloana-noutati-dreapta {
-        height: 44rem;
+    .coloana-noutati-stanga, .coloana-noutati-dreapta, .coloana-GDPR {
+        --inaltime-coloana-noutati: 44rem;
     }
 }
 
 @media (min-height: 1180px) {
-    .coloana-noutati-stanga, .coloana-noutati-dreapta {
-        height: 54rem;
+    .coloana-noutati-stanga, .coloana-noutati-dreapta, .coloana-GDPR {
+        --inaltime-coloana-noutati: 54rem;
     }
 }
 
 @media (min-height: 1300px) {
-    .coloana-noutati-stanga, .coloana-noutati-dreapta {
-        height: 63rem;
+    .coloana-noutati-stanga, .coloana-noutati-dreapta, .coloana-GDPR {
+        --inaltime-coloana-noutati: 63rem;
     }
 }
 
 @media (min-height: 1460px) {
-    .coloana-noutati-stanga, .coloana-noutati-dreapta {
-        height: 72rem;
+    .coloana-noutati-stanga, .coloana-noutati-dreapta, .coloana-GDPR {
+        --inaltime-coloana-noutati: 72rem;
     }
 }
 
 @media (min-height: 1600px) {
-    .coloana-noutati-stanga, .coloana-noutati-dreapta {
-        height: 82rem;
+    .coloana-noutati-stanga, .coloana-noutati-dreapta, .coloana-GDPR {
+        --inaltime-coloana-noutati: 82rem;
     }
 }
 
 @media (min-height: 2000px) {
-    .coloana-noutati-stanga, .coloana-noutati-dreapta {
-        height: 100%;
+    .coloana-noutati-stanga, .coloana-noutati-dreapta, .coloana-GDPR {
+        --inaltime-coloana-noutati: 100%;
     }
 }

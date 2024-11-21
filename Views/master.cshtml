@@ -8,6 +8,7 @@
     var home = (Home)Model.Root();
     var font =home.Font;
     var colorTheme = home.ColorTheme;
+    string culoareText = ("Noutăți,Evenimente,Pagina de stiri,Fii voluntar!,Logare,Termene si conditii,Politica de confidentialitate si GDPR".Contains(Model.Name) ? "text-negru" : "text-alb");
 }
 
 <!doctype html>
@@ -112,7 +113,7 @@
         @RenderBody()
     </main>
     
-    <footer class="footer-container-fixed-bottom ph-20px @("Noutăți,Evenimente,Pagina de stiri,Fii voluntar!,Logare".Contains(Model.Name)?"text-negru":"text-alb") @("Contact,Biblioteca".Contains(Model.Name)?"d-none":"")">
+    <footer class="footer-container-fixed-bottom ph-20px @culoareText @("Contact,Biblioteca".Contains(Model.Name)?"d-none":"")">
         <span class="ms-4">
             Contact 
             <a href="" class="logo-contact"><img src="/media/k5ejw3wk/fb1.svg" alt="Link facebook" /></a>
@@ -124,8 +125,8 @@
             TOATE DREPTURILE REZERVATE @home.FooterAddress.ToUpper()
         </span>
         <span class="me-4">
-            <a href="" class="logo-contact"><img src="/media/gzell3g0/info1.svg" alt="Link Termene Și Condiții" /></a>
-            Termene și condiții
+            <a href="../Termene-si-conditii" class="logo-contact text-nedecorat @culoareText"><img src="/media/gzell3g0/info1.svg" alt="Link Termene Și Condiții" class="me-2"/><span>Termene și condiții</span></a>
+            
         </span>
     </footer>
 

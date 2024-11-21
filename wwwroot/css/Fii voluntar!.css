@@ -22,8 +22,8 @@ div.row{
     margin-right:0;
 }
 .input-mic {
-    height: var(--inaltime-butane-voluntar) !important;
-    border-radius: calc(var(--inaltime-butane-voluntar) / 2) !important;
+    height: var(--inaltime-butoane-voluntar) !important;
+    border-radius: calc(var(--inaltime-butoane-voluntar) / 2) !important;
     border-style: solid;
     border-color: black;
     border-width: 0.1rem;
@@ -34,7 +34,7 @@ div.row{
 }
 .input-mare {
     margin-left:15%;
-    border-radius: calc(var(--inaltime-butane-voluntar) / 2) !important;
+    border-radius: calc(var(--inaltime-butoane-voluntar) / 2) !important;
     border-style: solid;
     border-color: black;
     border-width: 0.1rem;
@@ -45,8 +45,8 @@ div.row{
 }
 
 button {
-    height: var(--inaltime-butane-voluntar) !important;
-    border-radius: calc(var(--inaltime-butane-voluntar) / 2) !important;
+    height: var(--inaltime-butoane-voluntar) !important;
+    border-radius: calc(var(--inaltime-butoane-voluntar) / 2) !important;
     border-style: solid;
     border-color: black;
     border-width:0.1rem;

@@ -7,8 +7,8 @@
 }
 
 button, input[type=text], input[type=email], input[type=password] {
-    height: var(--inaltime-butane-login) !important;
-    border-radius: calc(var(--inaltime-butane-login) / 2) !important;
+    height: var(--inaltime-butoane-login) !important;
+    border-radius: calc(var(--inaltime-butoane-login) / 2) !important;
     border-style: solid;
     border-color: black;
     border-width: 0.125rem;
