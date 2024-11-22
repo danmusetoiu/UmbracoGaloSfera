@@ -5,25 +5,25 @@
     background-position: center;
     background-repeat: no-repeat;
 }
-.text-termene-mare {
+.text-GDPR-mare {
     display: flex;
-    font-size: 5rem;
+    /*font-size: 3vw;*/
     text-align: start;
     font-weight: 900;
-    margin-left: -10rem;
     color: black;
     line-height: 1;
 }
-.text-termene-mic {
+.text-GDPR-mic {
     display: flex;
-    font-size: 2rem;
+    /*font-size: 2vw;*/
     text-align: start;
     font-weight: 600;
-    margin-left: -10rem;
     color: black;
     line-height: 1;
 }
-
+.w-max-content{
+    width:max-content;
+}
 .col-6 .row {
     margin-left: 0 !important;
     margin-right: 0 !important;
@@ -38,4 +38,23 @@
     text-justify:inter-word;
     font-weight:500;
     line-height:1.2;
+}
+button {
+    height: var(--inaltime-butoane-voluntar) !important;
+    border-radius: calc(var(--inaltime-butoane-voluntar) / 2) !important;
+    border-style: solid;
+    border-color: black;
+    border-width: 0.1rem;
+    text-align: center !important;
+    width: 100% !important;
+    color: white;
+    font-weight: 600;
+}
+
+button {
+    border-style: none !important;
+    background-color: gray;
+}
+button img{
+    width:2rem;
 }

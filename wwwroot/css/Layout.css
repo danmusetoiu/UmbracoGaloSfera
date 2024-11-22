@@ -3,7 +3,9 @@
     --inaltime-butoane-login:4rem;
     --inaltime-butoane-voluntar:3rem;
     --inaltime-coloana-noutati:40rem;
+    --adaugare-inaltime:0rem;
 }
+
 /* <uniquifier > : Use a unique and descriptive class name
  <weight > : Use a value from 100 to 900*/
 
@@ -26,6 +28,9 @@ main{
 }
 header{
     top:0;
+}
+.btn-primary{
+    background-color:var(--culoare-albastra) !important;
 }
 .nav-bar{
     margin-right:15%;
@@ -208,8 +213,11 @@ nav a{
 }
 
 .coloana-GDPR {
-    height: calc(var(--inaltime-coloana-noutati)/2);
+    height: calc(var(--inaltime-coloana-noutati)/2 + var(--adaugare-inaltime));
     overflow-y: scroll;
+    text-align:justify;
+    text-justify:inter-word;
+    font-weight:400;
 }
 .coloana-noutati-stanga, .coloana-noutati-dreapta {
     height: var(--inaltime-coloana-noutati);
@@ -268,7 +276,9 @@ nav a{
         height:1rem;
         width:1rem;
     }
-
+.w-max-content{
+    width:max-content;
+}
 .ta-start{
     text-align:start;
 }
@@ -319,59 +329,69 @@ nav a{
 @media (min-height: 630px) {
     .coloana-noutati-stanga, .coloana-noutati-dreapta, .coloana-GDPR {
         --inaltime-coloana-noutati: 20rem;
+        --adaugare-inaltime: 2rem;
     }
 }
 
 @media (min-height: 740px) {
     .coloana-noutati-stanga, .coloana-noutati-dreapta, .coloana-GDPR {
         --inaltime-coloana-noutati: 29rem;
+        --adaugare-inaltime: 3rem;
     }
 }
 
 @media (min-height: 840px) {
     .coloana-noutati-stanga, .coloana-noutati-dreapta, .coloana-GDPR {
         --inaltime-coloana-noutati: 35rem;
+        --adaugare-inaltime: 4rem;
     }
 }
 
 @media (min-height: 940px) {
     .coloana-noutati-stanga, .coloana-noutati-dreapta, .coloana-GDPR {
         --inaltime-coloana-noutati: 40rem;
+        --adaugare-inaltime: 6rem;
     }
 }
 
 @media (min-height: 1050px) {
     .coloana-noutati-stanga, .coloana-noutati-dreapta, .coloana-GDPR {
         --inaltime-coloana-noutati: 44rem;
+        --adaugare-inaltime: 10rem;
     }
 }
 
 @media (min-height: 1180px) {
     .coloana-noutati-stanga, .coloana-noutati-dreapta, .coloana-GDPR {
         --inaltime-coloana-noutati: 54rem;
+        --adaugare-inaltime: 16rem;
     }
 }
 
 @media (min-height: 1300px) {
     .coloana-noutati-stanga, .coloana-noutati-dreapta, .coloana-GDPR {
         --inaltime-coloana-noutati: 63rem;
+        --adaugare-inaltime: 25rem;
     }
 }
 
 @media (min-height: 1460px) {
     .coloana-noutati-stanga, .coloana-noutati-dreapta, .coloana-GDPR {
         --inaltime-coloana-noutati: 72rem;
+        --adaugare-inaltime: 36rem;
     }
 }
 
 @media (min-height: 1600px) {
     .coloana-noutati-stanga, .coloana-noutati-dreapta, .coloana-GDPR {
         --inaltime-coloana-noutati: 82rem;
+        --adaugare-inaltime: 41rem;
     }
 }
 
 @media (min-height: 2000px) {
     .coloana-noutati-stanga, .coloana-noutati-dreapta, .coloana-GDPR {
         --inaltime-coloana-noutati: 100%;
+        --adaugare-inaltime: 50%;
     }
 }
