@@ -44,14 +44,14 @@
 }
 else
 {
-
+   @*  loginModel.RedirectUrl *@
 
 <div class="login-form">
 
     @using (Html.BeginUmbracoForm<UmbLoginController>(
-        "HandleLogin", new { RedirectUrl = loginModel.RedirectUrl })) {
+        "HandleLogin", new { RedirectUrl = "/" })) {
 
-            <h4>Log in with a local account.</h4>
+            <h4>Logheaza-te cu contul tau local</h4>
             <hr />
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="mb-3">
