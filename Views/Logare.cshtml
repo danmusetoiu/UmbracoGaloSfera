@@ -34,7 +34,9 @@
             </div>
             <div class="col-lg-1"></div>
             <div class="col-lg-4">
-                @Model.Value("continutPagina")
+               @*  @Model.Value("continutPagina") *@
+               @await Html.PartialAsync("Login")
+               @await Html.PartialAsync("Register")
             </div>
             <div class="col-lg-1"></div>
         </div>
