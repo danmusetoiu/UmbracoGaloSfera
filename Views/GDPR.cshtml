@@ -1,35 +1,22 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.GDpr>
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.Security;
+@inject IMemberManager _memberManager;
+
 @{
     Layout = "master.cshtml";
+
+    // Obține membrul curent
+    var currentMember = await _memberManager.GetCurrentMemberAsync();
 }
-
-
-@* @{
-	var selection = Umbraco.Content(Guid.Parse("0c5a631b-2376-41f2-833e-4e4650c2526e"))
-    .Children()
-    .Where(x => x.IsVisible());
-}
-<ul>
-	@foreach (var item in selection)
-	{
-		<li>
-			<a href="@item.Url()">@item.Name()</a>
-		</li>
-	}
-</ul> *@
-
 
 <link rel="stylesheet" href="@Url.Content("~/css/umbraco-starterkit-style.css")" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 @Html.Partial("~/Views/Partials/SectionHeader.cshtml")
 
-
 <section class="w-100 d-flex justify-content-center">
     <div class="container text-center m-0 w-100">
-
-
         <div class="row w-100">
             <div class="col-lg-2"></div>
             <div class="col-lg-8">
@@ -42,45 +29,78 @@
                         </div>
                     </div>
                 </div>
-                <div class="px-4 coloana-GDPR  d-flex flex-column align-items-center">
-                    &emsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ac quam cursus metus accumsan sollicitudin et vestibulum erat.
-                    Cras id arcu est. Nulla nec nisi at ex rutrum semper sed eleifend lacus. Fusce iaculis vestibulum mi, et ultricies nisl imperdiet in. Nullam rhon
-                    cus molestie mi, et sagittis nibh sodales maximus. Nam rutrum ipsum ac consectetur egestas. Vivamus lacinia tempus aliquam. Phasellus ac
-                    elit dignissim, lacinia ante id, vestibulum libero.<br /><br />
-                    Ut sagittis, lorem quis dictum faucibus, erat diam interdum dolor, et vulputate tellus metus vestibulum ante. Suspendisse vulputate dui id
-                    dignissim egestas. Sed sapien nibh, ultrices quis velit quis, blandit aliquet orci. Vivamus blandit, diam iaculis feugiat facilisis, ligula neque sus
-                    cipit libero, ac pretium quam risus ut neque. Praesent eu euismod lectus. Sed pharetra augue velit, vitae volutpat justo pellentesque eu. Etiam
-                    sit amet neque mi. Nunc dapibus vulputate ante eget tincidunt. Curabitur pellentesque efficitur dignissim. Fusce vestibulum, sem ut pretium
-                    dictum, turpis libero molestie libero, condimentum ultrices felis nunc sit amet nibh. Proin malesuada condimentum lectus. Sed euismod
-                    mauris sed nulla porttitor consequat. Nullam in accumsan risus. Fusce aliquam tellus pretium felis eleifend molestie. Etiam maximus eu justo
-                    a porttitor. Morbi sit amet massa varius, scelerisque sem ac, aliquam magna.<br /><br />
-                    Proin varius consequat orci eu iaculis. Aenean quis hendrerit ligula, quis egestas arcu. Aliquam est sapien, pretium quis turpis uti consectetur
-                    facilisis diam. Morbi sodales orci et massa euismod, in cursus metus scelerisque. Proin nibh lectus, laoreet non imperdiet sit amet, feugiat in
-                    ex. Morbi pretium neque in suscipit posuere. In sit amet lorem placerat, elementum odio ultricies, semper libero. Integer id nunc ac nibh so
-                    dales pretium. Mauris interdum scelerisque odio ac ullamcorper. Sed et nulla velit. Vivamus feugiat eros et purus hendrerit laoreet. Vestibulum
-                    ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Phasellus et odio quis purus condimentum commodo vitae sit amet
-                    massa. Donec lacinia consequat sem, id consequat libero imperdiet sed.<br /><br />
-                    Sed quis felis non metus ultrices condimentum. Donec est neque, tempor eget velit et, vehicula feugiat enim. Morbi vel eros maximus, eges
-                    tas arcu quis, commodo nisl. Proin et sodales magna. Morbi interdum nisi at mi dignissim, ac convallis leo ultricies. Maecenas posuere nibh
-                    sit amet justo convallis dictum. Morbi posuere ultrices hendrerit. Ut quis tempor est, eget vehicula lorem. Morbi nisi ligula, maximus id urna
-                    sit amet, pellentesque pretium risus. Proin finibus tellus vitae orci interdum sollicitudin. Curabitur vitae dolor molestie, semper enim tincidunt,
-                    imperdiet orci. Nunc dapibus, purus eget lacinia suscipit, nisi augue elementum felis, vel convallis justo diam sit amet mi. Aliquam congue dui
-                    id nulla euismod tempor.<br /><br />
-                    Integer posuere, sem vitae blandit consectetur, metus massa congue ipsum, lobortis hendrerit arcu augue ut ligula. Phasellus lobortis eros
-                    ex, maximus fringilla dolor malesuada id. In tincidunt volutpat cursus. Nullam sodales ut neque sed sollicitudin. Etiam malesuada non diam sit
-                    amet pretium. Aenean sit amet ipsum in elit venenatis facilisis. Aliquam erat volutpat. Nulla lobortis commodo cursus. Etiam quis leo non
-                    ipsum dapibus pretium. Nam eget dapibus mi. Nulla id odio non magna aliquam mollis at ac eros. Maecenas commodo a libero id efficitur.
-                    Quisque porta metus tortor, vel iaculis purus pretium sed. Mauris eleifend ultrices neque, eu porta nisi scelerisque eu. Vivamus vel sapien quis
-                    nisi ultrices bibendum.
+                <div class="px-4 coloana-GDPR d-flex flex-column align-items-center">
+                    <p>
+                        &emsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ac quam cursus metus accumsan sollicitudin et vestibulum erat.
+                        Cras id arcu est. Nulla nec nisi at ex rutrum semper sed eleifend lacus. Fusce iaculis vestibulum mi, et ultricies nisl imperdiet in. Nullam rhon
+                        cus molestie mi, et sagittis nibh sodales maximus. Nam rutrum ipsum ac consectetur egestas. Vivamus lacinia tempus aliquam. Phasellus ac
+                        elit dignissim, lacinia ante id, vestibulum libero.<br /><br />
+                        Ut sagittis, lorem quis dictum faucibus, erat diam interdum dolor, et vulputate tellus metus vestibulum ante. Suspendisse vulputate dui id
+                        dignissim egestas. Sed sapien nibh, ultrices quis velit quis, blandit aliquet orci. Vivamus blandit, diam iaculis feugiat facilisis, ligula neque sus
+                        cipit libero, ac pretium quam risus ut neque. Praesent eu euismod lectus. Sed pharetra augue velit, vitae volutpat justo pellentesque eu. Etiam
+                        sit amet neque mi. Nunc dapibus vulputate ante eget tincidunt. Curabitur pellentesque efficitur dignissim. Fusce vestibulum, sem ut pretium
+                        dictum, turpis libero molestie libero, condimentum ultrices felis nunc sit amet nibh. Proin malesuada condimentum lectus. Sed euismod
+                        mauris sed nulla porttitor consequat. Nullam in accumsan risus. Fusce aliquam tellus pretium felis eleifend molestie. Etiam maximus eu justo
+                        a porttitor. Morbi sit amet massa varius, scelerisque sem ac, aliquam magna.<br /><br />
+                        Proin varius consequat orci eu iaculis. Aenean quis hendrerit ligula, quis egestas arcu. Aliquam est sapien, pretium quis turpis uti consectetur
+                        facilisis diam. Morbi sodales orci et massa euismod, in cursus metus scelerisque. Proin nibh lectus, laoreet non imperdiet sit amet, feugiat in
+                        ex. Morbi pretium neque in suscipit posuere. In sit amet lorem placerat, elementum odio ultricies, semper libero. Integer id nunc ac nibh so
+                        dales pretium. Mauris interdum scelerisque odio ac ullamcorper. Sed et nulla velit. Vivamus feugiat eros et purus hendrerit laoreet. Vestibulum
+                        ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Phasellus et odio quis purus condimentum commodo vitae sit amet
+                        massa. Donec lacinia consequat sem, id consequat libero imperdiet sed.<br /><br />
+                        Sed quis felis non metus ultrices condimentum. Donec est neque, tempor eget velit et, vehicula feugiat enim. Morbi vel eros maximus, eges
+                        tas arcu quis, commodo nisl. Proin et sodales magna. Morbi interdum nisi at mi dignissim, ac convallis leo ultricies. Maecenas posuere nibh
+                        sit amet justo convallis dictum. Morbi posuere ultrices hendrerit. Ut quis tempor est, eget vehicula lorem. Morbi nisi ligula, maximus id urna
+                        sit amet, pellentesque pretium risus. Proin finibus tellus vitae orci interdum sollicitudin. Curabitur vitae dolor molestie, semper enim tincidunt,
+                        imperdiet orci. Nunc dapibus, purus eget lacinia suscipit, nisi augue elementum felis, vel convallis justo diam sit amet mi. Aliquam congue dui
+                        id nulla euismod tempor.<br /><br />
+                        Integer posuere, sem vitae blandit consectetur, metus massa congue ipsum, lobortis hendrerit arcu augue ut ligula. Phasellus lobortis eros
+                        ex, maximus fringilla dolor malesuada id. In tincidunt volutpat cursus. Nullam sodales ut neque sed sollicitudin. Etiam malesuada non diam sit
+                        amet pretium. Aenean sit amet ipsum in elit venenatis facilisis. Aliquam erat volutpat. Nulla lobortis commodo cursus. Etiam quis leo non
+                        ipsum dapibus pretium. Nam eget dapibus mi. Nulla id odio non magna aliquam mollis at ac eros. Maecenas commodo a libero id efficitur.
+                        Quisque porta metus tortor, vel iaculis purus pretium sed. Mauris eleifend ultrices neque, eu porta nisi scelerisque eu. Vivamus vel sapien quis
+                        nisi ultrices bibendum.
+                    </p>
+
                     <div class="d-flex flex-column align-items-center justify-content-center gap-2 mt-5 w-max-content mb-3">
-                        <button type="submit" class="btn btn-primary px-5">Sunt de acord</button>
-                        <button type="button" class="btn btn-secondary px-5"><img src="/media/sscj4k5y/check-iconita.svg" /></button>
+                        @if (currentMember != null)
+                        {
+                            <button id="agreeButton" type="submit" class="btn btn-primary px-5" onclick="agreeToTerms()">Sunt de acord</button>
+                            <button id="checkIcon" type="button" class="btn btn-secondary px-5" style="display:none;">
+                                <img src="/media/sscj4k5y/check-iconita.svg" alt="Check" />
+                            </button>
+                        }
+                        else
+                        {
+                            <script>
+                                window.location.href = "/logare"; // Redirecționare spre pagina de logare
+                            </script>
+                        }
                     </div>
                 </div>
             </div>
             <div class="col-lg-2"></div>
         </div>
-
-
     </div>
 </section>
+
+<script>
+   
+    document.addEventListener("DOMContentLoaded", function () {
+        const hasAgreed = document.cookie.split('; ').find(row => row.startsWith('HasAgreedTerms='));
+        if (hasAgreed && hasAgreed.split('=')[1] === 'true') {
+            document.getElementById('agreeButton').style.display = 'none';
+            document.getElementById('checkIcon').style.display = 'block';
+        }
+    });
+
+    
+    function agreeToTerms() {
+        // 30 de zile
+        document.cookie = "HasAgreedTerms=true; path=/; max-age=" + 60 * 60 * 24 * 30;
+
+        // ascund sunt de acord si afisez bifa
+        document.getElementById('agreeButton').style.display = 'none';
+        document.getElementById('checkIcon').style.display = 'block';
+    }
+</script>
