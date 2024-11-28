@@ -32,8 +32,8 @@
             {
 
                 <text>
-                    <input type="hidden" name="provider" value="@providerName"/>
-                    Input security code: <input name="code" value=""/><br/>
+                    <input type="hidden" name="provider" value="@providerName" />
+                    Input security code: <input name="code" value="" /><br />
                     <button type="submit" class="btn btn-primary">Validate</button>
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 </text>
@@ -44,66 +44,77 @@
 }
 else
 {
-   @*  loginModel.RedirectUrl *@
 
-<div class="login-form">
+    <div id="divLogin">
+        <div class="login-form text-center mx-3">
 
-    @using (Html.BeginUmbracoForm<UmbLoginController>(
-        "HandleLogin", new { RedirectUrl = "/" })) {
+            @using (Html.BeginUmbracoForm<UmbLoginController>(
+           "HandleLogin", new { RedirectUrl = "/" }))
+            {
 
-            <h4>Logheaza-te cu contul tau local</h4>
-            <hr />
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="mb-3">
-                <label asp-for="@loginModel.Username" class="form-label"></label>
-                <input asp-for="@loginModel.Username" class="form-control" />
-                <span asp-validation-for="@loginModel.Username" class="form-text text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label asp-for="@loginModel.Password" class="form-label"></label>
-                <input asp-for="@loginModel.Password" class="form-control" />
-                <span asp-validation-for="@loginModel.Password" class="form-text text-danger"></span>
-            </div>
-            <div class="mb-3 form-check">
-                <input asp-for="@loginModel.RememberMe" class="form-check-input">
-                <label asp-for="@loginModel.RememberMe" class="form-check-label">
-                    @Html.DisplayNameFor(m => loginModel.RememberMe)
-                </label>
-            </div>
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="mb-3">
+                    @* <label asp-for="@loginModel.Username" class="form-label"></label> *@
+                    <input asp-for="@loginModel.Username" class="form-control" placeholder="Email" />
+                    @* <span asp-validation-for="@loginModel.Username" class="form-text text-danger"></span> *@
+                </div>
+                <div class="mb-3">
+                    @* <label asp-for="@loginModel.Password" class="form-label"></label> *@
+                    <input asp-for="@loginModel.Password" class="form-control" placeholder="Parolă" />
+                    @* <span asp-validation-for="@loginModel.Password" class="form-text text-danger"></span> *@
+                </div>
+                <button type="submit" class="btn btn-primary">Conectează-te</button>
+                <div class="d-flex justify-content-between align-items-center mb-4 mt-4 textTineMinte">
+                    <div class="form-check">
+                        <input asp-for="@loginModel.RememberMe" class="form-check-input">
+                        <label asp-for="@loginModel.RememberMe" class="form-check-label m-0">
+                            <span class="textTineMinte">
+                                Ține-mă minte
+                            </span>
+                        </label>
+                    </div>
+                    <div>
+                        <a class="text-negru text-nedecorat" href="../">Ai uitat parola?</a>
+                    </div>
+                </div>
 
-            <button type="submit" class="btn btn-primary">Log in</button>
+            }
+                    @{
+        var loginProviders = await memberExternalLoginProviders.GetMemberProvidersAsync();
+        var externalSignInError = ViewData.GetExternalSignInProviderErrors();
 
-
-        }
-@{
-    var loginProviders = await memberExternalLoginProviders.GetMemberProvidersAsync();
-    var externalSignInError = ViewData.GetExternalSignInProviderErrors();
-
-    if (loginProviders.Any())
-    {
-        <hr/>
+        if (loginProviders.Any())
+        {
+        <hr />
         <h4>Or using external providers</h4>
         if (externalSignInError?.AuthenticationType is null && externalSignInError?.Errors.Any() == true)
         {
-            @Html.DisplayFor(x => externalSignInError.Errors);
+        @Html.DisplayFor(x => externalSignInError.Errors)
+        ;
         }
 
         @foreach (var login in await memberExternalLoginProviders.GetMemberProvidersAsync())
         {
 
-            @using (Html.BeginUmbracoForm<UmbExternalLoginController>(nameof(UmbExternalLoginController.ExternalLogin)))
-            {
-                <button type="submit" name="provider" value="@login.ExternalLoginProvider.AuthenticationType">
-                    Sign in with @login.AuthenticationScheme.DisplayName
-                </button>
+        @using (Html.BeginUmbracoForm<UmbExternalLoginController>(nameof(UmbExternalLoginController.ExternalLogin)))
+        {
+        <button type="submit" name="provider" value="@login.ExternalLoginProvider.AuthenticationType">
+        Sign in with @login.AuthenticationScheme.DisplayName
+        </button>
 
-                if (externalSignInError?.AuthenticationType == login.ExternalLoginProvider.AuthenticationType)
-                {
-                    @Html.DisplayFor(x => externalSignInError.Errors);
-                }
-            }
+        if (externalSignInError?.AuthenticationType == login.ExternalLoginProvider.AuthenticationType)
+        {
+        @Html.DisplayFor(x => externalSignInError.Errors)
+        ;
         }
-    }
-}
-</div>
+        }
+        }
+        }
+        }
+        </div>
+
+        <div class="mx-3">
+            <button class="btn btn-secondary" type="button" onclick="AscundeSiAfiseazaDivuri()">Creează un cont</button>
+        </div>
+    </div>
 }

@@ -14,7 +14,7 @@ button, input[type=text], input[type=email], input[type=password] {
     border-width: 0.125rem;
     text-align: center !important;
     width: 100% !important;
-    color: white;
+    color: black;
     font-weight: 600;
 }
 
