@@ -258,6 +258,10 @@ nav a{
     margin-top: 42px;
 }
 
+.mb-42px {
+    margin-bottom: 42px;
+}
+
 .d-block {
     display: block;
 }
