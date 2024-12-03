@@ -10,27 +10,48 @@
 
 @Html.Partial("~/Views/Partials/SectionHeader.cshtml")
 
-<section class="section--content-center">
-    <div>
-        <br />
-        <p class="fs-2 mt-0 mb-0">GENERAREA FORMULARULUI</p><br />
-        <p class="mt-0 mb-0" style="font-size:6.475em;"><b>ANAF 230</b></p>
-    </div>
-    <div>
+<section class="w-100 d-flex justify-content-center">
+    <div class="container text-center m-0 w-100">
+
+
+        <div class="row w-100">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-10">
+                <div class="row">
+                    <div class="coloana-noutati-stanga  d-flex align-items-center justify-content-center flex-column col-12">
+
+                        <div class="d-flex flex-column align-items-center">
+                            <div class="pb-3">
+                            <img src="/media/mywhcni0/logo-albastru-circular.svg" style="width:5rem;" />
+                            </div>
+                            <h4 class="mt-0 mb-0">GENERAREA FORMULARULUI</h4>
+                            <h1 class="mt-0 mb-3"><b>ANAF 230</b></h1>
+                        </div>
+                        <div class="w-33">
+                            <div class="text-align-start">
+                            <h5>Despre formular</h5>
+                            </div>
+                            <p class="lh-1">
+                                Acest formular permite contribuabililor să redirecționeze
+                                până Ia 3,5% din impozitul pe venit datorat statului către o
+                                organizație non-guvernamentală.
+                            </p>
+                        </div>
+                        <div>
+                        <button type="button" class="btn btn-primary rounded-pill btn-lg mb-3" onclick="downloadPDF()">Descarcă PDF</button>
+                        <button type="button" class="btn btn-secondary rounded-pill btn-lg">Încarcă formularul</button><br />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-1"></div>
+        </div>
+
 
     </div>
-    
 </section>
 
-<section class="section--content-center">
-    <div>
-    <p class="fs-4"><b>Despre formular</b></p><br />
-    <p class="fs-5" style="margin-inline:600px">Acest formular permite contribuabililor sa redirectioneze până la 3,5% din impozitul pe venit datorat statului către o organizație neguvernamentală</p>
-        <button type="button" class="btn btn-primary rounded-pill btn-lg" style="margin-top:20px; margin-bottom:20px">Incarca formularul</button><br />
-        <button type="button" class="btn btn-primary rounded-pill btn-lg" style="margin-top:20px; margin-bottom:20px" onclick="downloadPDF()">Descarcă PDF</button>
 
-    </div>
-</section>
 
 @* <script>
     // Obține valoarea configurată din appsettings.json

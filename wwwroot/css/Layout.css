@@ -1,5 +1,6 @@
 ﻿:root {
     --culoare-albastra: #0047BA;
+    --culoare-gri: #B3B3B3;
     --inaltime-butoane-login:4rem;
     --inaltime-butoane-voluntar:3rem;
     --inaltime-coloana-noutati:40rem;
@@ -31,6 +32,9 @@ header{
 }
 .btn-primary{
     background-color:var(--culoare-albastra) !important;
+}
+.btn-secondary {
+    background-color: var(--culoare-gri) !important;
 }
 .nav-bar{
     margin-right:15%;
@@ -282,6 +286,15 @@ nav a{
     }
 .w-max-content{
     width:max-content;
+}
+.w-60{
+    width:60%;
+}
+.w-40{
+    width:40%;
+}
+.w-33{
+    width:33%;
 }
 .ta-start{
     text-align:start;
