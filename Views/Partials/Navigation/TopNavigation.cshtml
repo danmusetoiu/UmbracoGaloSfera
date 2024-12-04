@@ -8,7 +8,7 @@
     var site = Model.Root();
     var selection = site.Children.Where(x => x.IsVisible()); 
     var currentMember = await _memberManager.GetCurrentMemberAsync();
-    string culoareText = ("Noutăți,Evenimente,Pagina de stiri,Fii voluntar!,Voluntar în România,Logare,Termene si conditii,Politica de confidentialitate si GDPR,Eroor page".Contains(Model.Name) ? "text-negru" : "text-alb");
+    string culoareText = ("Noutăți,Evenimente,Pagina de stiri,Fii voluntar!,Voluntar în România,Logare,Termene si conditii,Politica de confidentialitate si GDPR,Eroor page,Contact".Contains(Model.Name) ? "text-negru" : "text-alb");
     const string hrefLogoAlb = "/media/nahmze0n/galosfera-logo.svg";
     const string hrefLogoNegru = "/media/wwin4eeq/galosfera-logo-negru.svg";
     const string hrefLogoStiri = "/media/altlysil/galosfera-logo-stiri.svg";
@@ -33,9 +33,13 @@ else if (Model.Name == "Fii voluntar!")
 {
     <img src="@hrefLogoAlbastru" style="height:180px; width:180px" />
 }
-else if ("Contact,Voluntar în România,Biblioteca,Termene si conditii,Politica de confidentialitate si GDPR,Eroor page".Contains(Model.Name))
+else if ("Contact,Voluntar în România,Biblioteca,Termene si conditii,Politica de confidentialitate si GDPR".Contains(Model.Name))
 {
     <img src="@hrefLogoNegru" style="height:180px; width:180px; visibility:hidden;" />
+}
+else if ("Eroor page".Contains(Model.Name))
+{
+    <img src="@hrefLogoNegru" style="height:180px; width:180px;" />
 }
 else
 {

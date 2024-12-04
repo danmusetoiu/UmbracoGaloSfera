@@ -20,7 +20,7 @@
         </div>
         <div class="mb-4">
             <h4 class="d-flex fw-bold">Mesajul</h4>
-            @Html.TextAreaFor(m => m.Message, new { @class = "form-control", placeholder = Html.DisplayNameFor(m => m.Message), rows = "7" })
+            @Html.TextAreaFor(m => m.Message, new { @class = "form-control", placeholder = Html.DisplayNameFor(m => m.Message), rows = "6" })
             @Html.ValidationMessageFor(m => m.Message)
         </div>
         <button type="button" class="btn rounded-pill btn-lg text-alb" style="margin-top:20px; margin-bottom:20px; width:80%; height:4rem; background-color:var(--culoare-albastra)">Trimite mesajul!</button>
