@@ -39,7 +39,12 @@
                         </div>
                         <div>
                         <button type="button" class="btn btn-primary rounded-pill btn-lg mb-3" onclick="downloadPDF()">Descarcă PDF</button>
-                        <button type="button" class="btn btn-secondary rounded-pill btn-lg">Încarcă formularul</button><br />
+                        @* <button type="button" class="btn btn-secondary rounded-pill btn-lg">Încarcă formularul</button><br /> *@
+                            <form id="uploadForm">
+                                <input type="file" id="fileInput" name="file" accept=".pdf" class="form-control mb-3">
+                                <button type="button" class="btn btn-secondary rounded-pill btn-lg" onclick="uploadFile()">Încarcă formularul</button>
+                            </form>
+                            <p id="uploadMessage" style="margin-top: 20px; color: green;"></p>
                         </div>
                     </div>
                 </div>
@@ -76,5 +81,38 @@
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
+    }
+</script>
+
+<script>
+    async function uploadFile() {
+        const fileInput = document.getElementById('fileInput');
+        const file = fileInput.files[0];
+
+        if (!file) {
+            alert("Vă rugăm să selectați un fișier înainte de a încărca.");
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append('file', file);
+
+        try {
+            const response = await fetch('https://localhost:44323/umbraco/api/FileUpload/UploadFile', {
+                method: 'POST',
+                body: formData,
+            });
+
+            if (response.ok) {
+                const result = await response.json();
+                document.getElementById('uploadMessage').innerText = `Fișierul a fost încărcat cu succes: ${result.path}`;
+            } else {
+                const error = await response.text();
+                document.getElementById('uploadMessage').innerText = `Eroare la încărcare: ${error}`;
+            }
+        } catch (error) {
+            console.error("Eroare:", error);
+            document.getElementById('uploadMessage').innerText = "Eroare la conectare cu serverul.";
+        }
     }
 </script>
