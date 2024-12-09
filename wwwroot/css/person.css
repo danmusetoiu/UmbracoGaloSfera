@@ -1,0 +1,99 @@
+﻿body {
+    background-image: url("/media/tkslekng/wall-profil-voluntar3.png");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.textProfilVoluntar {
+    display: flex;
+    font-size: 5rem;
+    text-align: start;
+    font-weight: 900;
+    color: black;
+    line-height: 1;
+}
+
+.col-6 .row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+.linkPersoana {
+    text-decoration: none;
+    color: var(--culoare-albastra);
+}
+/* Wrapper for the toggle switch */
+.toggle-switch {
+    position: relative;
+    right: 0;
+    width: 4rem; /* Adjust the width as needed */
+    height: 40px; /* Adjust the height as needed */
+}
+
+    /* Hide the default checkbox */
+    .toggle-switch input {
+        display: none;
+    }
+
+/* Background of the slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: gray; /* Default background */
+    border-radius: 25px; /* Make the background fully rounded */
+    transition: background-color 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -moz-box-shadow: 0 0 5px #777;
+    -webkit-box-shadow: 0 0 5px #777;
+    box-shadow: 0 0 5px #777;
+}
+
+    /* Slider circle */
+    .slider::before {
+        content: "";
+        position: absolute;
+        height: 32px; /* Slightly smaller than the container height */
+        width: 32px; /* Same as height for a perfect circle */
+        left: -1px;
+        bottom: -1px;
+        background-color: white; /* Color of the circle */
+        border-radius: 20px; /* Make it round */
+        transition: transform 0.3s;
+    }
+
+/* When the checkbox is checked */
+input:checked + .slider {
+    background-color: var(--culoare-albastra); /* Background changes to green when true */
+}
+
+    input:checked + .slider::before {
+        transform: translateX(2.2rem); /* Move the circle to the right */
+    }
+
+.mb-10px {
+    margin-bottom: 10px;
+    white-space: nowrap
+}
+
+.mt-168px {
+    margin-top: 168px;
+}
+
+.linieVerticala{
+    height:100%;
+    min-width:0.2rem;
+    width:0.2rem;
+    background-color:var(--culoare-gri);
+    border-radius:0.1rem;
+}
+span{
+    font-weight:400;
+}
