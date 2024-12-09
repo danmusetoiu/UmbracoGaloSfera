@@ -42,3 +42,57 @@
         </div>
     </div>
 </div>
+<div class="container">
+<form id="contactForm">
+    <div>
+        <label for="name">Nume:</label>
+        <input type="text" id="name" name="name" required />
+    </div>
+    <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+    </div>
+    <div>
+        <label for="message">Mesaj:</label>
+        <textarea id="message" name="message" required></textarea>
+    </div>
+    <button type="submit">Trimite</button>
+</form>
+</div>
+<script>
+    document.getElementById('contactForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        // Creăm un obiect JavaScript din datele formularului
+        var formData = new FormData(this);
+        var formObj = {};
+        formData.forEach(function (value, key) {
+            formObj[key] = value;
+        });
+
+        console.log(formObj);  // Logăm datele trimise pentru a verifica structura
+
+        // Trimitem cererea cu datele în format JSON
+        fetch('/Contact/SendEmail', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json', // Setăm Content-Type la JSON
+            },
+            body: JSON.stringify(formObj), // Convertim obiectul în JSON
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data); // Logăm răspunsul complet
+                if (data.success) {
+                    alert(data.message);
+                } else {
+                    alert(data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error); // Logăm orice eroare apărută
+                alert('A apărut o eroare. Încercați din nou.');
+            });
+    });
+</script>
+

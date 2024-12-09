@@ -18,6 +18,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Mvc.TagHelpers" Version="2.2.0" />
     <PackageReference Include="Our.Umbraco.GMaps" Version="3.0.2" />
     <PackageReference Include="Our.Umbraco.SuperEasyRss" Version="1.0.0" />
+    <PackageReference Include="SendGrid" Version="9.29.3" />
     <PackageReference Include="Umbraco.Cms" Version="13.3.1" />
   </ItemGroup>
 
