@@ -8,6 +8,17 @@ WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 builder.Services.AddTransient<EmailService>();
 builder.Services.AddControllersWithViews();
 
+// Configurăm CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowSpecificOrigin", builder =>
+    {
+        builder.WithOrigins("https://galosfera.go.ro")  // Permite cereri de la acest domeniu
+               .AllowAnyMethod()  // Permite orice metodă HTTP (GET, POST, etc.)
+               .AllowAnyHeader(); // Permite orice antet
+    });
+});
+
 // Configurăm aplicația pentru a utiliza Umbraco
 builder.CreateUmbracoBuilder()
     .AddBackOffice()  // Adaugă back office
@@ -18,6 +29,10 @@ builder.CreateUmbracoBuilder()
 
 // Construim aplicația
 WebApplication app = builder.Build();
+
+// Aplicăm CORS înainte de orice alt middleware
+app.UseCors("AllowSpecificOrigin");
+
 // Asigură-te că rutele MVC sunt configurate corect
 app.MapControllerRoute(
     name: "default",
