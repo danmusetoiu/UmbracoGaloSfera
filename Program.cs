@@ -15,7 +15,8 @@ builder.Services.AddCors(options =>
     {
         builder.WithOrigins("https://galosfera.go.ro")  // Permite cereri de la acest domeniu
                .AllowAnyMethod()  // Permite orice metodă HTTP (GET, POST, etc.)
-               .AllowAnyHeader(); // Permite orice antet
+               .AllowAnyHeader() // Permite orice antet
+               .AllowCredentials();
     });
 });
 
@@ -34,9 +35,9 @@ WebApplication app = builder.Build();
 app.UseCors("AllowSpecificOrigin");
 
 // Asigură-te că rutele MVC sunt configurate corect
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+//app.MapControllerRoute(
+//    name: "default",
+//    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 // Asigurăm că Umbraco este inițializat corect
 await app.BootUmbracoAsync();
