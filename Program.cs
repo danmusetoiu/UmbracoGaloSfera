@@ -34,9 +34,9 @@ WebApplication app = builder.Build();
 app.UseCors("AllowSpecificOrigin");
 
 // Asigură-te că rutele MVC sunt configurate corect
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+//app.MapControllerRoute(
+//    name: "default",
+//    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 // Asigurăm că Umbraco este inițializat corect
 await app.BootUmbracoAsync();

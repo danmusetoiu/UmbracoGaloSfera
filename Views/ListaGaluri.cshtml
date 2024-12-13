@@ -1,6 +1,102 @@
-﻿@using Umbraco.Cms.Web.Common.PublishedModels;
-@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.ListaGaluri>
-@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+﻿@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Newtonsoft.Json
+@using Umbraco.Extensions;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.ListaGaluri>;
+
+
 @{
-	Layout = null;
+    Layout = "master.cshtml";
 }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Leaflet Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+          integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+          crossorigin="">
+    <link rel="stylesheet" href="~/css/Layout.css">
+    <link rel="stylesheet" href="~/css/Noutati.css">
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
+</head>
+@Html.Partial("~/Views/Partials/SectionHeader.cshtml")
+
+<body>
+    <div class="container text-center">
+
+        @* <h1>Ultimele stiri</h1> *@
+
+
+        <div class="row">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-5 col-md-6 coloana-noutati-stanga">
+                @foreach (Gal gal in Model.Children<Gal>())
+                {
+                    <div class="row d-none stire-@gal.Id">
+
+                        <div class="col-12">
+                            <div class="container d-flex ph-20px">
+                                <h3 class="text-albastru"> @gal.Name </h3>
+                            </div>
+                        </div>
+                        
+                    </div>
+                }
+            </div>
+            <div class="col-lg-1"></div>
+            <div class="col-lg-4 col-md-6 coloana-noutati-dreapta">
+                @foreach (Gal gal in Model.Children<Gal>())
+                {
+                    <div class="col-8 d-flex">
+                        <div class="container text-align-start">
+                            <h3 class="text-albastru col-12"> @gal.Name </h3>
+                            <span class="col-12 text-justify-interword">@gal.WebsiteGal</span>
+                            <span class="col-12 text-justify-interword">@gal.EmailGal</span>
+                            <span class="col-12 d-block">@gal.UpdateDate.ToString("dd.MM.yyyy") | @gal.UpdateDate.ToString("HH:mm")</span>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="col-lg-1"></div>
+        </div>
+
+
+    </div>
+
+    <script>
+        function AfiseazaStireaSelectata(elementApasat) {
+            if (elementApasat === undefined) {
+                return;
+            }
+            const coloanaStanga = document.querySelector('.coloana-noutati-stanga');
+            coloanaStanga.scrollTop = 0;
+            const randuriStanga = coloanaStanga.querySelectorAll('.row');
+            const stireAfisata = coloanaStanga.querySelectorAll('.row:not(.d-none)')[0];
+            stireAfisata.classList.add('d-none');
+            const identificatorStire = Array.from(elementApasat.classList).find(classname => classname.startsWith('stire-'));
+            const stireDeAfisat = coloanaStanga.querySelectorAll('.row.' + identificatorStire)[0];
+            stireDeAfisat.classList.remove('d-none');
+        }
+        window.addEventListener("load", (event) => {
+            const coloanaStanga = document.querySelector('.coloana-noutati-stanga');
+            const randuriStanga = coloanaStanga.querySelectorAll('.row');
+            randuriStanga[0].classList.remove('d-none');
+            const coloanaDreapta = document.querySelector('.coloana-noutati-dreapta');
+            const randuriDreapta = coloanaDreapta.querySelectorAll('.row');
+            randuriDreapta.forEach((element) => element.addEventListener('click', () => AfiseazaStireaSelectata(element)));
+        });
+    </script>
+
+
+</body>
+</html>
