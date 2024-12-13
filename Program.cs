@@ -15,7 +15,8 @@ builder.Services.AddCors(options =>
     {
         builder.WithOrigins("https://galosfera.go.ro")  // Permite cereri de la acest domeniu
                .AllowAnyMethod()  // Permite orice metodă HTTP (GET, POST, etc.)
-               .AllowAnyHeader(); // Permite orice antet
+               .AllowAnyHeader() // Permite orice antet
+               .AllowCredentials();
     });
 });
 
