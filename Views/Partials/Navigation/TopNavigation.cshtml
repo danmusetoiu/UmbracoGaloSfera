@@ -22,6 +22,7 @@
     const string hrefLogoAlbastru = "/media/ertboifj/logo-albastru.svg";
 }
 <!-- comment out the following line if you want to remove the root node name from the top navigation -->
+<a href="../">
 @if (numePaginaSauPaginaParinte == "Noutăți")
 {
     <img src="@hrefLogoStiri" style="height:180px; width:180px" />
@@ -50,6 +51,7 @@ else
 {
     <img src="@hrefLogoAlb" style="height:180px; width:180px" />
 }
+</a>
 
 @* <a class="nav-link @Html.Raw(Model.Id == site.Id ? "navi-link--active" : "")" href="@site.Url()"><font color="black !important">@site.Name</font></a> *@
  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

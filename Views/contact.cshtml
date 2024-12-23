@@ -42,7 +42,7 @@
         </div>
     </div>
 </div>
-<div class="container">
+@* <div class="container">
 <form id="contactForm">
     <div>
         <label for="name">Nume:</label>
@@ -58,9 +58,9 @@
     </div>
     <button type="submit">Trimite</button>
 </form>
-</div>
+</div> *@
 <script>
-    document.getElementById('contactForm').addEventListener('submit', function (e) {
+    document.getElementsByTagName('form')[0].addEventListener('submit', function (e) {
         e.preventDefault();
 
         // Creăm un obiect JavaScript din datele formularului
