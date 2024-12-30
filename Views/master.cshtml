@@ -10,11 +10,11 @@
     var font =home.Font;
     var colorTheme = home.ColorTheme;
     string numePaginaSauPaginaParinte = Model.Name;
-    if(Model.ContentType.Alias == "person")
+    if (Model.ContentType.Alias == "person" || Model.ContentType.Alias == "contentPage")
     {
         numePaginaSauPaginaParinte = Model.ContentType.Alias;
     }
-    string culoareText = ("Noutăți,Evenimente,Pagina de stiri,Fii voluntar!,Logare,Termene si conditii,Politica de confidentialitate si GDPR,Eroor page,person,GALURI".Contains(numePaginaSauPaginaParinte) ? "text-negru" : "text-alb");
+    string culoareText = ("Noutăți,Evenimente,Pagina de stiri,Fii voluntar!,Logare,Termene si conditii,Politica de confidentialitate si GDPR,Eroor page,person,GALURI,contentPage".Contains(numePaginaSauPaginaParinte) ? "text-negru" : "text-alb");
 }
 
 <!doctype html>
