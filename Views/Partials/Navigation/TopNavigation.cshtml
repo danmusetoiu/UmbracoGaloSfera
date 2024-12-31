@@ -6,7 +6,7 @@
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
 @{
     var site = Model.Root();
-    var selection = site.Children.Where(x => x.IsVisible()); 
+    var selection = site.Children.Where(x => x.IsVisible());
     var currentMember = await _memberManager.GetCurrentMemberAsync();
     string numePaginaSauPaginaParinte = Model.Name;
     if (Model.ContentType.Alias == "person" || Model.ContentType.Alias == "contentPage")
@@ -22,36 +22,48 @@
     const string hrefLogoAlbastru = "/media/ertboifj/logo-albastru.svg";
 }
 <!-- comment out the following line if you want to remove the root node name from the top navigation -->
-<a href="../">
 @if (numePaginaSauPaginaParinte == "Noutăți")
 {
-    <img src="@hrefLogoStiri" style="height:180px; width:180px" />
+    <a href="../">
+        <img src="@hrefLogoStiri" style="height:180px; width:180px" />
+    </a>
 }
 else if (numePaginaSauPaginaParinte == "Evenimente")
 {
-    <img src="@hrefLogoEvenimente" style="height:180px; width:180px" />
+    <a href="../">
+        <img src="@hrefLogoEvenimente" style="height:180px; width:180px" />
+    </a>
 }
 else if (numePaginaSauPaginaParinte == "Pagina de stiri")
 {
-    <img src="@hrefLogoRSS" style="height:180px; width:180px" />
+    <a href="../">
+        <img src="@hrefLogoRSS" style="height:180px; width:180px" />
+    </a>
 }
 else if (numePaginaSauPaginaParinte == "Fii voluntar!")
 {
-    <img src="@hrefLogoAlbastru" style="height:180px; width:180px" />
+    <a href="../">
+        <img src="@hrefLogoAlbastru" style="height:180px; width:180px" />
+    </a>
 }
 else if ("Contact,Voluntar în România,Biblioteca,Termene si conditii,Politica de confidentialitate si GDPR,person".Contains(numePaginaSauPaginaParinte))
 {
-    <img src="@hrefLogoNegru" style="height:180px; width:180px; visibility:hidden;" />
+    <a href="../">
+        <img src="@hrefLogoNegru" style="height:180px; width:180px; visibility:hidden;" />
+    </a>
 }
-    else if ("contentPage".Contains(numePaginaSauPaginaParinte))
+else if ("contentPage".Contains(numePaginaSauPaginaParinte))
 {
-    <img src="@hrefLogoNegru" style="height:180px; width:180px;" />
+    <a href="../">
+        <img src="@hrefLogoNegru" style="height:180px; width:180px;" />
+    </a>
 }
 else
 {
-    <img src="@hrefLogoAlb" style="height:180px; width:180px" />
+    <a href="../">
+        <img src="@hrefLogoAlb" style="height:180px; width:180px" />
+    </a>
 }
-</a>
 
 @* <a class="nav-link @Html.Raw(Model.Id == site.Id ? "navi-link--active" : "")" href="@site.Url()"><font color="black !important">@site.Name</font></a> *@
  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
