@@ -38,6 +38,7 @@ header{
 }
 .nav-bar{
     margin-right:15%;
+    align-items:end !important;
 }
 .nav-link{
     font-weight:600 !important;
