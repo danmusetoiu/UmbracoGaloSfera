@@ -55,55 +55,60 @@
 
         <div class="row">
             <div class="col-lg-1"></div>
-            <div class="col-lg-5 col-md-6 coloana-noutati-stanga">
-                @foreach (Product stire in Model.Children<Product>())
-                {
-                    <div class="row d-none stire-@stire.Id">
+            <div class="col-lg-10 coloana-noutati">
+                <div class="row">
+                    <div class="col-6 coloana-noutati-stanga">
+                        @foreach (Product stire in Model.Children<Product>())
+                        {
+                            <div class="row d-none stire-@stire.Id">
 
-                        <div class="col-12">
-                            <div class="container d-flex ph-20px">
-                                <h3 class="text-albastru">@stire.ProductName </h3>
+                                <div class="col-12">
+                                    <div class="container d-flex p-0">
+                                        <h3 class="text-albastru">@stire.ProductName </h3>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="container p-0 text-justify-interword">
+                                        @stire.Description
+                                    </div>
+                                </div>
+                                @* <div class="col-12">
+                            @if (stire.FotoStire != null)
+                            {
+                            <img src="@stire.FotoStire.Url()" alt="@stire.Name" class="blog-image mh-20px" />
+                            }
+                            </div> *@
+                                <div class="container text-justify-interword">
+                                    @await Html.GetBlockGridHtmlAsync(stire, "bodyText")
+                                </div>
+                                <br />
                             </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="container text-justify-interword">
-                                @stire.Description
-                            </div>
-                        </div>
-                        @* <div class="col-12">
-                    @if (stire.FotoStire != null)
-                    {
-                    <img src="@stire.FotoStire.Url()" alt="@stire.Name" class="blog-image mh-20px" />
-                    }
-                    </div> *@
-                        <div class="container text-justify-interword">
-                            @await Html.GetBlockGridHtmlAsync(stire, "bodyText")
-                        </div>
-                        <br />
+                        }
                     </div>
-                }
-            </div>
-            <div class="col-lg-1"></div>
-            <div class="col-lg-4 col-md-6 coloana-noutati-dreapta">
-                @foreach (Product stire in Model.Children<Product>())
-                {
-                    <div class="row stire-@stire.Id mb-42px">
-                        <div class="col-12  d-flex">
-                            <div class="container text-align-start">
-                                <h3 class="text-albastru col-12"> @stire.ProductName </h3>
-                                    <div class="col-12 text-justify-interword">@stire.AdresaEveniment</div>
-                                    <div class="col-12">@stire.UpdateDate.ToString("dd.MM.yyyy") | @stire.UpdateDate.ToString("HH:mm")</div>
+                    <div class="col-1"></div>
+                    <div class="col-4 coloana-noutati-dreapta">
+                        @foreach (Product stire in Model.Children<Product>())
+                        {
+                            <div class="row stire-@stire.Id mb-42px me-4">
+                                <div class="col-12  d-flex">
+                                    <div class="container text-align-start p-0">
+                                        <h3 class="text-albastru col-12"> @stire.ProductName </h3>
+                                        <div class="col-12 text-justify-interword p-0">@stire.AdresaEveniment</div>
+                                        <div class="col-12 p-0">@stire.UpdateDate.ToString("dd.MM.yyyy") | @stire.UpdateDate.ToString("HH:mm")</div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+                        }
                     </div>
-                }
+                    <div class="col-1"></div>
+                </div>
+                <div id="map" class="m-0 w-100" style="min-height:300px;"></div>
             </div>
             <div class="col-lg-1"></div>
         </div>
 
 
     </div>
-    <div id="map"></div>
 </section>
 
 <script>
