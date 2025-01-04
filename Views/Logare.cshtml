@@ -1,11 +1,19 @@
-﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+﻿@using Umbraco.Cms.Web.Common.Security
+@using UmbracoGaloSfera.Controllers
+@using Umbraco.Cms.Core.Security
+@inject IMemberManager memberManager
+@{
+    var isAuthenticated = User.Identity.IsAuthenticated;
+}
+
+@using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Logare>
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @{
     Layout = "master.cshtml";
 }
-<div class="row m-0 h-100">
 
+<div class="row m-0 h-100">
     <div class="top-icon-logare d-flex justify-content-center">
         <div class="icon-circle-logare">
             <span class="icon">
@@ -20,29 +28,38 @@
         <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-lg-1"></div>
             <div class="col-lg-5">
-                <h1 class="bolder big-text lh-1">Bine <br/> ai venit!</h1>
+                <h1 class="bolder big-text lh-1">Bine <br /> ai venit!</h1>
                 <p class="justify-text lh-1">
-                    Acest site se angajează să asigure siguranța datelor dumneavoastră cu caracter personal. Utilizăm tehnologii avansate de securitate și măsuri stricte de protecție pentru a preveni accesul neautorizat, utilizarea necorespunzătoare sau divulgarea informațiilor personale. Prin respectarea reglementărilor legale și prin adoptarea celor mai bune practici în domeniul protecției datelor, vă garantăm că informațiile dumneavoastră sunt în siguranță pe platforma noastră.
+                    Acest site se angajează să asigure siguranța datelor dumneavoastră cu caracter personal...
                 </p>
                 <div class="d-flex">
-                <span style="width:1rem; height:1rem;margin-right:1rem;background-color:black;border-radius:50%;"></span>
-                <span style="width:1rem; height:1rem;margin-right:1rem;background-color:orange;border-radius:50%;"></span>
-                <span style="width:1rem; height:1rem;margin-right:1rem;background-color:darkred;border-radius:50%;"></span>
-                <span style="width:1rem; height:1rem;margin-right:1rem;background-color:var(--culoare-albastra);border-radius:50%;"></span>
-                <br/>
+                    <span style="width:1rem; height:1rem;margin-right:1rem;background-color:black;border-radius:50%;"></span>
+                    <span style="width:1rem; height:1rem;margin-right:1rem;background-color:orange;border-radius:50%;"></span>
+                    <span style="width:1rem; height:1rem;margin-right:1rem;background-color:darkred;border-radius:50%;"></span>
+                    <span style="width:1rem; height:1rem;margin-right:1rem;background-color:var(--culoare-albastra);border-radius:50%;"></span>
                 </div>
             </div>
             <div class="col-lg-1"></div>
             <div class="col-lg-4">
-               @*  @Model.Value("continutPagina") *@
-               @await Html.PartialAsync("Login")
-               @await Html.PartialAsync("Register")
+                @if (isAuthenticated)
+                {
+                    <h3 class="text-center">Ești autentificat!</h3>
+                    <form asp-controller="UmbLogin" asp-action="Logout" method="post">
+                        <button type="submit" class="btn btn-primary">Logout</button>
+                    </form>
+                }
+                else
+                {
+                    @await Html.PartialAsync("Login")
+                    @await Html.PartialAsync("Register")
+                }
             </div>
             <div class="col-lg-1"></div>
         </div>
     </div>
     <div class="col-1"></div>
 </div>
+
 <script>
     function AscundeSiAfiseazaDivuri() {
         document.getElementById("divLogin").classList.toggle("d-none");
