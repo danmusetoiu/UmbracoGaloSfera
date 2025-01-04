@@ -46,6 +46,15 @@ header{
 nav a{
     border-bottom:none !important;
 }
+.logouriMinister{
+    position:absolute;
+    top:5%;
+    left:0;
+    width:100%;
+    height:auto;
+    display:flex;
+    justify-content:center;
+}
 .text-alb {
     color: white !important;
 }
