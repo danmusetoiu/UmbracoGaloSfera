@@ -224,28 +224,28 @@ nav a{
     text-justify:inter-word;
     font-weight:400;
 }
-.coloana-noutati-stanga, .coloana-noutati-dreapta {
-    height: var(--inaltime-coloana-noutati);
+.coloana-noutati-stanga, .coloana-noutati-dreapta, .coloana-noutati {
+    max-height: var(--inaltime-coloana-noutati);
     overflow-y: scroll;
 }
 
-    .coloana-noutati-stanga::-webkit-scrollbar, .coloana-noutati-dreapta::-webkit-scrollbar, .coloana-GDPR::-webkit-scrollbar {
+    .coloana-noutati-stanga::-webkit-scrollbar, .coloana-noutati-dreapta::-webkit-scrollbar, .coloana-noutati::-webkit-scrollbar, .coloana-GDPR::-webkit-scrollbar {
         width: 10px;
     }
 
     /* Track */
-        .coloana-noutati-stanga::-webkit-scrollbar-track, .coloana-noutati-dreapta::-webkit-scrollbar-track, .coloana-GDPR::-webkit-scrollbar-track {
+        .coloana-noutati-stanga::-webkit-scrollbar-track, .coloana-noutati-dreapta::-webkit-scrollbar-track, .coloana-noutati::-webkit-scrollbar-track, .coloana-GDPR::-webkit-scrollbar-track {
             background: transparent;
         }
 
     /* Handle */
-        .coloana-noutati-stanga::-webkit-scrollbar-thumb, .coloana-noutati-dreapta::-webkit-scrollbar-thumb, .coloana-GDPR::-webkit-scrollbar-thumb {
+        .coloana-noutati-stanga::-webkit-scrollbar-thumb, .coloana-noutati-dreapta::-webkit-scrollbar-thumb, .coloana-noutati::-webkit-scrollbar-thumb, .coloana-GDPR::-webkit-scrollbar-thumb {
             background: #888;
             border-radius: 10px;
         }
 
         /* Handle on hover */
-            .coloana-noutati-stanga::-webkit-scrollbar-thumb:hover, .coloana-noutati-dreapta::-webkit-scrollbar-thumb:hover, .coloana-GDPR::-webkit-scrollbar-thumb:hover {
+            .coloana-noutati-stanga::-webkit-scrollbar-thumb:hover, .coloana-noutati-dreapta::-webkit-scrollbar-thumb:hover, .coloana-noutati::-webkit-scrollbar-thumb:hover, .coloana-GDPR::-webkit-scrollbar-thumb:hover {
                 background: #666;
             }
 
@@ -334,81 +334,81 @@ nav a{
 }
 
 @media (min-height: 490px) {
-    .coloana-noutati-stanga, .coloana-noutati-dreapta, .coloana-GDPR {
+    .coloana-noutati-stanga, .coloana-noutati-dreapta, .coloana-noutati, .coloana-noutati, .coloana-GDPR {
         --inaltime-coloana-noutati: 8rem;
     }
 }
 
 @media (min-height: 550px) {
-    .coloana-noutati-stanga, .coloana-noutati-dreapta, .coloana-GDPR {
+    .coloana-noutati-stanga, .coloana-noutati-dreapta, .coloana-noutati, .coloana-GDPR {
         --inaltime-coloana-noutati: 14rem;
     }
 }
 @media (min-height: 630px) {
-    .coloana-noutati-stanga, .coloana-noutati-dreapta, .coloana-GDPR {
+    .coloana-noutati-stanga, .coloana-noutati-dreapta, .coloana-noutati, .coloana-GDPR {
         --inaltime-coloana-noutati: 20rem;
         --adaugare-inaltime: 2rem;
     }
 }
 
 @media (min-height: 740px) {
-    .coloana-noutati-stanga, .coloana-noutati-dreapta, .coloana-GDPR {
+    .coloana-noutati-stanga, .coloana-noutati-dreapta, .coloana-noutati, .coloana-GDPR {
         --inaltime-coloana-noutati: 29rem;
         --adaugare-inaltime: 3rem;
     }
 }
 
 @media (min-height: 840px) {
-    .coloana-noutati-stanga, .coloana-noutati-dreapta, .coloana-GDPR {
+    .coloana-noutati-stanga, .coloana-noutati-dreapta, .coloana-noutati, .coloana-GDPR {
         --inaltime-coloana-noutati: 35rem;
         --adaugare-inaltime: 4rem;
     }
 }
 
 @media (min-height: 940px) {
-    .coloana-noutati-stanga, .coloana-noutati-dreapta, .coloana-GDPR {
+    .coloana-noutati-stanga, .coloana-noutati-dreapta, .coloana-noutati, .coloana-GDPR {
         --inaltime-coloana-noutati: 40rem;
         --adaugare-inaltime: 6rem;
     }
 }
 
 @media (min-height: 1050px) {
-    .coloana-noutati-stanga, .coloana-noutati-dreapta, .coloana-GDPR {
+    .coloana-noutati-stanga, .coloana-noutati-dreapta, .coloana-noutati, .coloana-GDPR {
         --inaltime-coloana-noutati: 44rem;
         --adaugare-inaltime: 10rem;
     }
 }
 
 @media (min-height: 1180px) {
-    .coloana-noutati-stanga, .coloana-noutati-dreapta, .coloana-GDPR {
+    .coloana-noutati-stanga, .coloana-noutati-dreapta, .coloana-noutati, .coloana-GDPR {
         --inaltime-coloana-noutati: 54rem;
         --adaugare-inaltime: 16rem;
     }
 }
 
 @media (min-height: 1300px) {
-    .coloana-noutati-stanga, .coloana-noutati-dreapta, .coloana-GDPR {
+    .coloana-noutati-stanga, .coloana-noutati-dreapta, .coloana-noutati, .coloana-GDPR {
         --inaltime-coloana-noutati: 63rem;
         --adaugare-inaltime: 25rem;
     }
 }
 
 @media (min-height: 1460px) {
-    .coloana-noutati-stanga, .coloana-noutati-dreapta, .coloana-GDPR {
+    .coloana-noutati-stanga, .coloana-noutati-dreapta, .coloana-noutati, .coloana-GDPR {
         --inaltime-coloana-noutati: 72rem;
         --adaugare-inaltime: 36rem;
     }
 }
 
 @media (min-height: 1600px) {
-    .coloana-noutati-stanga, .coloana-noutati-dreapta, .coloana-GDPR {
+    .coloana-noutati-stanga, .coloana-noutati-dreapta, .coloana-noutati, .coloana-GDPR {
         --inaltime-coloana-noutati: 82rem;
         --adaugare-inaltime: 41rem;
     }
 }
 
 @media (min-height: 2000px) {
-    .coloana-noutati-stanga, .coloana-noutati-dreapta, .coloana-GDPR {
+    .coloana-noutati-stanga, .coloana-noutati-dreapta, .coloana-noutati, .coloana-GDPR {
         --inaltime-coloana-noutati: 100%;
         --adaugare-inaltime: 50%;
     }
