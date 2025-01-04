@@ -1,10 +1,9 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
-@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Chatbot>
-@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @{
-	Layout = "master.cshtml";
+    Layout = "master.cshtml";
 }
+@Html.Partial("~/Views/Partials/SectionHeader.cshtml")
 
-<section>
-	<iframe src="http://localhost:8501/" width="600" height="400"></iframe>
+<section class="container-fluid d-flex justify-content-center ">
+    <iframe src="http://localhost:8501/" width="600" height="400"></iframe>
 </section>

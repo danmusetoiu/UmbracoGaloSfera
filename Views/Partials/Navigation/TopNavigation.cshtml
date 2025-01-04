@@ -13,7 +13,7 @@
     {
         numePaginaSauPaginaParinte = Model.ContentType.Alias;
     }
-    string culoareText = ("Noutăți,Evenimente,Pagina de stiri,Fii voluntar!,Voluntar în România,Logare,Termene si conditii,Politica de confidentialitate si GDPR,Eroor page,Contact,person,GALURI,contentPage".Contains(numePaginaSauPaginaParinte) ? "text-negru" : "text-alb");
+    string culoareText = ("Noutăți,Evenimente,Pagina de stiri,Fii voluntar!,Voluntar în România,Logare,Termene si conditii,Politica de confidentialitate si GDPR,Eroor page,Contact,person,GALURI,contentPage,Chatbot".Contains(numePaginaSauPaginaParinte) ? "text-negru" : "text-alb");
     const string hrefLogoAlb = "/media/nahmze0n/galosfera-logo.svg";
     const string hrefLogoNegru = "/media/wwin4eeq/galosfera-logo-negru.svg";
     const string hrefLogoStiri = "/media/altlysil/galosfera-logo-stiri.svg";
@@ -47,7 +47,7 @@ else if (numePaginaSauPaginaParinte == "Fii voluntar!")
         <img src="@hrefLogoAlbastru" style="height:180px; width:180px" />
     </a>
 }
-else if ("Contact,Voluntar în România,Biblioteca,Termene si conditii,Politica de confidentialitate si GDPR,person,Home".Contains(numePaginaSauPaginaParinte))
+else if ("Contact,Voluntar în România,Biblioteca,Termene si conditii,Politica de confidentialitate si GDPR,person,Home,Chatbot".Contains(numePaginaSauPaginaParinte))
 {
     <a href="../" style=" visibility:hidden;">
         <img src="@hrefLogoNegru" style="height:180px; width:180px;" />
