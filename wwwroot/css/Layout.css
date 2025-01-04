@@ -64,7 +64,7 @@ nav a{
 .text-nedecorat{
     text-decoration:none;
 }
-.text-negru img{
+.text-negru a>img{
     filter: invert(1);
 }
 @media (min-width: 1500px) {
