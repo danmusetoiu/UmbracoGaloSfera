@@ -26,6 +26,14 @@
             height: 100vh;
         }
     </style>
+    <style>
+        #map {
+            width: 50%;
+            height: 200px; 
+            margin-top: 20px; 
+            margin-left: 50px;
+        }
+    </style>
 </head>
 
 @Html.Partial("~/Views/Partials/SectionHeader.cshtml")
@@ -95,6 +103,7 @@
 
 
     </div>
+    <div id="map"></div>
 </section>
 
 <script>
@@ -118,5 +127,32 @@
         const coloanaDreapta = document.querySelector('.coloana-noutati-dreapta');
         const randuriDreapta = coloanaDreapta.querySelectorAll('.row');
         randuriDreapta.forEach((element) => element.addEventListener('click', () => AfiseazaStireaSelectata(element)));
+    });
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Inițializează harta
+        const map = L.map('map').setView([45.9432, 24.9668], 6); // Centru pe România (poți ajusta coordonatele)
+
+        // Adaugă un strat de hartă OpenStreetMap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Lista de locații din variabila `list` definită în Razor
+        const locations = @Html.Raw(JsonConvert.SerializeObject(list));
+
+        // Adaugă marcaje pentru fiecare locație
+        locations.forEach(location => {
+            if (location.Latitude && location.Longitude) {
+                const marker = L.marker([location.Latitude, location.Longitude]).addTo(map);
+
+                // Popup cu detalii despre eveniment
+                marker.bindPopup(`
+                        <b>${location.Name}</b><br>
+                        <a href="${location.WebsiteEveniment}" target="_blank">${location.WebsiteEveniment}</a>
+                    `);
+            }
+        });
     });
 </script>
