@@ -14,7 +14,8 @@
     {
         numePaginaSauPaginaParinte = Model.ContentType.Alias;
     }
-    string culoareText = ("Noutăți,Evenimente,Pagina de stiri,Fii voluntar!,Logare,Termene si conditii,Politica de confidentialitate si GDPR,Eroor page,person,GALURI,contentPage".Contains(numePaginaSauPaginaParinte) ? "text-negru" : "text-alb");
+    // string culoareText = ("Noutăți,Evenimente,Pagina de stiri,Fii voluntar!,Logare,Termene si conditii,Politica de confidentialitate si GDPR,Eroor page,person,GALURI,contentPage,Chatbot".Contains(numePaginaSauPaginaParinte) ? "text-negru" : "text-alb");
+    string culoareText = "text-alb";
 }
 
 <!doctype html>
@@ -113,7 +114,7 @@
                     }
              
             </div>
-                <div class="top-icon @(numePaginaSauPaginaParinte=="Home"?"v-hidden":"")">
+                <div class="top-icon @(numePaginaSauPaginaParinte=="Home"?"d-none":"")">
                 <div class="icon-circle">
                     <span class="icon"><a href="../">
                         <img src="/media/ftfn2ljm/icon-galosfera-circle.svg" alt="Galosfera" />
@@ -137,21 +138,27 @@
         }
         @RenderBody()
     </main>
-    
-    <footer class="footer-container-fixed-bottom ph-20px @culoareText @("Contact,Biblioteca".Contains(numePaginaSauPaginaParinte)?"d-none":"")">
-        <span class="ms-4">
+    <div class="container-galai">
+        <a href="#" onclick="catrePaginaChatbot()"><img alt="Chatbot GalAI, asistentul tău virtual" src="/media/vesbmv0o/logo-chatbot-cu-text.svg" /></a>
+    </div>
+    @* <footer class="footer-container-fixed-bottom ph-20px @culoareText @("Contact,Biblioteca".Contains(numePaginaSauPaginaParinte)?"d-none":"")" style="font-size:0.9rem"> *@
+    <footer class="footer-container-fixed-bottom ph-20px @culoareText " style="font-size:0.9rem">
+        <span>
             Contact 
             <a href="" class="logo-contact"><img src="/media/k5ejw3wk/fb1.svg" alt="Link facebook" /></a>
             <a href="" class="logo-contact"><img src="/media/f5qjtpld/ig1.svg" alt="Link instagram" /></a>
             <a href="" class="logo-contact"><img src="/media/4rmat0x1/wp1.svg" alt="Link whatsapp" /></a>
             <a href="" class="logo-contact"><img src="/media/qo4brthu/x1.svg" alt="Link X" /></a>
         </span>
-        <span>
+        <span class="d-flex justify-content-center">
             @* TOATE DREPTURILE REZERVATE @home.FooterAddress.ToUpper() *@
-            <img src="/media/s0gdy4el/logouri-jos-trei.png" alt="Asociația Pro Unesco, SA Expert DConsulting, JTM Centru de formare profesională pentru adulți" />
+            <img style="width:75%; height:auto" src="/media/s0gdy4el/logouri-jos-trei.png" alt="Asociația Pro Unesco, SA Expert DConsulting, JTM Centru de formare profesională pentru adulți" />
         </span>
-        <span class="me-4">
+        <span>
             <a href="../Termene-si-conditii" class="logo-contact text-nedecorat @culoareText"><img src="/media/gzell3g0/info1.svg" alt="Link Termene Și Condiții" class="me-2"/><span>Termene și condiții</span></a>
+            | 
+            <a href="../GDPR" class="logo-contact text-nedecorat @culoareText"><span>Politica de confidențialitate</span></a>
+            
             
         </span>
     </footer>
@@ -167,6 +174,16 @@
    @*  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     *@ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 
+    <script>
+        function catrePaginaPrincipala() {
+            const origin = window.location.origin;
+            window.location.href = origin;
+        }
+        function catrePaginaChatbot() {
+            const origin = window.location.origin;
+            window.location.href = origin + '/chatbot';
+        }
+    </script>
 </body>
 
 </html>

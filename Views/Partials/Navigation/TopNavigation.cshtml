@@ -21,9 +21,11 @@
     const string hrefLogoRSS = "/media/od3dmbfs/rss-logo.svg";
     const string hrefLogoAlbastru = "/media/ertboifj/logo-albastru.svg";
 }
-<div class="logouriMinister"><img src="/media/alclqp1w/logouri-sus-doua.png" alt="Uniunea Europeană și Guvernul României" /></div>
+<div class="d-flex align-items-center">
+    <img src="/media/levovae2/logouri-sus-trei.png" alt="Uniunea Europeană și Guvernul României, Galosfera" style="height:auto; width:280px" />
+@* <div class="logouriMinister"><img src="/media/alclqp1w/logouri-sus-doua.png" alt="Uniunea Europeană și Guvernul României" /></div> *@
 <!-- comment out the following line if you want to remove the root node name from the top navigation -->
-@if (numePaginaSauPaginaParinte == "Noutăți")
+@* @if (numePaginaSauPaginaParinte == "Noutăți")
 {
     <a href="../">
         <img src="@hrefLogoStiri" style="height:180px; width:180px" />
@@ -64,16 +66,17 @@ else
     <a href="../">
         <img src="@hrefLogoAlb" style="height:180px; width:180px" />
     </a>
-}
+} *@
 
 @* <a class="nav-link @Html.Raw(Model.Id == site.Id ? "navi-link--active" : "")" href="@site.Url()"><font color="black !important">@site.Name</font></a> *@
  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
+            <a class="@(culoareText) nav-link" href="#" onclick="catrePaginaPrincipala()">Acasă</a>
 @if (currentMember is not null)
 {
     foreach (var item in selection)
     {
-        if (!"Doneaza!,Pagina de stiri,Noutăți,Evenimente,Termene si conditii,Politica de confidentialitate si GDPR".Contains(item.Name))@*  && item.Name != "GALURI" && item.Name != "Fii voluntar!" *@
+        if (!"Doneaza!,Pagina de stiri,Noutăți,Evenimente,Termene si conditii,Politica de confidentialitate si GDPR,Logare,Chatbot".Contains(item.Name))@*  && item.Name != "GALURI" && item.Name != "Fii voluntar!" *@
         {
             <a class="@(culoareText) nav-link @(item.IsAncestorOrSelf(Model) ? "nav-link--active" : null)" href="@item.Url()">@item.Name</a>
         }
@@ -87,7 +90,7 @@ else
 {
     foreach (var item in selection)
     {
-        if (!"Doneaza!,Pagina de stiri,Noutăți,Evenimente,Termene si conditii,Politica de confidentialitate si GDPR".Contains(item.Name))@*  && item.Name != "GALURI" && item.Name != "Fii voluntar!" *@
+        if (!"Doneaza!,Pagina de stiri,Noutăți,Evenimente,Termene si conditii,Politica de confidentialitate si GDPR, Logare, Chatbot".Contains(item.Name))@*  && item.Name != "GALURI" && item.Name != "Fii voluntar!" *@
         {
             <a class="@(culoareText) nav-link @(item.IsAncestorOrSelf(Model) ? "nav-link--active" : null)" href="@item.Url()">@item.Name</a>
         }
@@ -97,5 +100,6 @@ else
 
     @* <img src="~/media/gw5lsq4a/iconita_profil.svg" style="width:30px; height:30px"> *@
 }
+</div>
 
 @* <img src="~/media/mwanpbnk/avatar-icon.svg" style="width:50px; height:50px"> *@

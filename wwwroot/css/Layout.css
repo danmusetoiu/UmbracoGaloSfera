@@ -41,7 +41,9 @@ header{
     align-items:end !important;
 }
 .nav-link{
-    font-weight:600 !important;
+    font-weight:300 !important;
+    padding-left:0;
+    padding-right:0;
 }
 nav a{
     border-bottom:none !important;
@@ -187,17 +189,24 @@ nav a{
     }
 .container-initiala-profil{
     position:fixed;
-    top:80px;
-    margin-top:0;
-    height:40px;
-    width:40px;
+    top:13px;
+    margin-top:.5rem;
+    height:35px;
+    width:35px;
 }
 .initiala-profil{
     color:var(--culoare-albastra);
     font-size:1.7rem;
     font-weight: 900;
 }
-
+.container-galai {
+    position: fixed;
+    bottom: 4rem;
+    right: 2.5rem;
+    margin:0;
+    height:auto;
+    width:150px;
+}
 .text-albastru {
     color: var(--culoare-albastra);
     font-weight: bold;
@@ -287,8 +296,10 @@ nav a{
     position: fixed;
     width: 100%;
     bottom: 0;
-    padding-bottom: 1rem;
+    padding-bottom: 0.6rem;
+    padding-top:0.6rem;
     font-weight:400;
+    background:black;
 }
     .footer-container-fixed-bottom .logo-contact img {
         height:1rem;
