@@ -477,3 +477,4 @@ appsettings-schema.*.json
 
 # Media files
 # /wwwroot/media/
+/uSync/v9/Media/document-1.pdf.config
