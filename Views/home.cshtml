@@ -1,5 +1,4 @@
-﻿
-@using Umbraco.Extensions
+﻿@using Umbraco.Extensions
 @using Umbraco.Cms.Web.Common.PublishedModels
 @using Umbraco.Cms.Core.Security;
 @inject IMemberManager _memberManager;
@@ -8,57 +7,120 @@
     Layout = "master.cshtml";
     var backgroundImage = Model.HeroBackgroundImage != null ? Model.HeroBackgroundImage.Url() : String.Empty;
 }
-    <div class="container text-center">
-        <div class="justify-content-center ta-center" style="margin-top:15%;">
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    /* Stil pentru fundalul pop-up-ului */
+    .popup-overlay {
+        display: block; /* Afișează pop-up-ul automat */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+    }
+
+    /* Stil pentru conținutul pop-up-ului */
+    .popup-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Buton de închidere */
+    .close-btn {
+        margin-top: 10px;
+        padding: 10px 20px;
+        background-color: red;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+</style>
+@* <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const popup = document.getElementById("popup");
+        const closePopup = document.getElementById("closePopup");
+
+        // Închide pop-up-ul când se apasă pe butonul de închidere
+        closePopup.addEventListener("click", () => {
+            popup.style.display = "none";
+        });
+    });
+</script> *@
 
 
-            <img style="width:80%" src="/media/ih4kqrbz/text-mare-galosfera.svg" />
-
-            <br /><br /><br />
-
-            <div class="ta-center" style="margin-left:20%;margin-right:20%">
-                <font color="white">@Model.HeroDescription</font>
-            </div>
-            <div class="ta-center" style="margin-left:20%;margin-right:20%">
-                <font color="white">@Model.FooterDescription</font>
-            </div>
-            <br /><br />
-
-
-
-            <div class="container-fluid">
-                <div class="ta-center" ">
-                @{
-                    var currentMember = await _memberManager.GetCurrentMemberAsync();
-                }
-                @if (currentMember is not null)
-                {
-
-                }
-                else
-                {
-                        <a href="logare">
-                            <img src="/media/eiqb5ero/login_bun.svg" style="height:200px; width:200px" />
-                        </a>
-                }
-                </div>
-            </div>
-
-
-        </div>
+@* <div id="popup" class="popup-overlay">
+    <div class="popup-content">
+        <h2>Salut!</h2>
+        <p>Acest website este încă în proces de dezvoltare! Va cerem scuze pentru eventualele inconveniente</p>
+        <button class="close-btn" id="closePopup">Închide</button>
     </div>
+</div> *@
+
+<div class="container text-center">
+    <div class="justify-content-center ta-center" style="margin-top:15%;">
+
+
+        <img style="width:80%" src="/media/ih4kqrbz/text-mare-galosfera.svg" />
+
+        <br /><br /><br />
+
+        <div class="ta-center" style="margin-left:20%;margin-right:20%">
+            <font color="white">@Model.HeroDescription</font>
+        </div>
+        <div class="ta-center" style="margin-left:20%;margin-right:20%">
+            <font color="white">@Model.FooterDescription</font>
+        </div>
+        <br /><br />
+
+
+
+        <div class="container-fluid">
+            <div class="ta-center" ">
+            @{
+                var currentMember = await _memberManager.GetCurrentMemberAsync();
+            }
+            @if (currentMember is not null)
+            {
+
+            }
+            else
+            {
+                    <a href="logare">
+                        <img src="/media/eiqb5ero/login_bun.svg" style="height:200px; width:200px" />
+                    </a>
+            }
+            </div>
+        </div>
+
+
+    </div>
+</div>
 
 
 
 
-@* <section class="section section--content-center">
+            @* <section class="section section--content-center">
     <div class="container">
         <h2>Ultimele știri</h2>
         <hr>
      </div>
 </section>
 <section class="section section">
-  
+
     @await Html.GetBlockGridHtmlAsync(Model, "bodyText")
 </section>
 
@@ -74,7 +136,7 @@
                 <a class="button button--border--light_solid" href="@Model.FooterCtalink.Url()">
                     @Model.FooterCtacaption
                 </a>
-                
+
 
             </div>
 
