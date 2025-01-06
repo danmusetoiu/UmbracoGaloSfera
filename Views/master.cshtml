@@ -134,13 +134,22 @@
             <div class="icon-button @(numePaginaSauPaginaParinte== "Evenimente"?"icon-albastru":"")">
                 <span class="icon"><a href="/Evenimente"><img src="/media/ja1d354d/calendar2.svg" alt="Calendar" /></a></span>
             </div>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
         </div>
         }
         @RenderBody()
     </main>
+    @if (Model.Name == "Home")
+    {
     <div class="container-galai">
         <a href="#" onclick="catrePaginaChatbot()"><img alt="Chatbot GalAI, asistentul tău virtual" src="/media/vesbmv0o/logo-chatbot-cu-text.svg" /></a>
+        <div class="shadow"></div>
     </div>
+    }
     @* <footer class="footer-container-fixed-bottom ph-20px @culoareText @("Contact,Biblioteca".Contains(numePaginaSauPaginaParinte)?"d-none":"")" style="font-size:0.9rem"> *@
     <footer class="footer-container-fixed-bottom ph-20px @culoareText " style="font-size:0.9rem">
         <span>

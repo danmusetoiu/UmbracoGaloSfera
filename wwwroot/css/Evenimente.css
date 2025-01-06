@@ -5,3 +5,135 @@
     background-position: center;
     background-repeat: no-repeat;
 }
+#calendar {
+    width: 100%;
+    border: 1px solid #ccc;
+    padding: 10px;
+    display:flex;
+    justify-content:center;
+    flex-direction:column;
+}
+
+#calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+    #calendar-header button {
+    border-style:none;
+    }
+
+#calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 5px;
+}
+
+.day {
+    text-align: center;
+    padding: 5px;
+    border: 1px solid #eee;
+}
+
+    .day.weekend {
+        background-color: #f0f0f0; /* Light gray for weekends */
+    }
+
+    .day.current-day {
+        background-color: lightblue;
+    }
+    .day.highlighted {
+        color: red; 
+        font-weight:900;
+    }
+/*ul {
+    list-style-type: none;
+}
+
+.month {
+    padding: 0px 5px;
+    width: 100%;
+    text-align: center;
+}
+
+    .month ul {
+        margin: 0;
+        padding: 0;
+    }
+
+        .month ul li {
+            color: black;
+            font-size: 10px;
+            text-transform: uppercase;
+        }
+
+    .month .prev {
+        float: left;
+        padding-top: 5px;
+    }
+
+    .month .next {
+        float: right;
+        padding-top: 5px;
+    }
+
+.weekdays {
+    margin: 0;
+    padding: 2px 0;
+    background-color: #ddd;
+}
+
+    .weekdays li {
+        display: inline-block;
+        width: 11.5%;
+        color: #666;
+        text-align: center;
+        font-size: 10px;
+    }
+
+.days {
+    padding: 3px 0;
+    background: #eee;
+    margin: 0;
+}
+
+    .days li {
+        list-style-type: none;
+        display: inline-block;
+        width: 11.5%;
+        text-align: center;
+        margin-bottom: 2px;
+        font-size: 10px;
+        color: #777;
+    }
+
+        .days li .active {
+            color: red !important
+        }
+
+.container-calendar {
+    position: fixed;
+    width: 200px;
+    right: 1%;
+    bottom: 4rem;
+}
+*/
+/* Add media queries for smaller screens */
+/*@media screen and (max-width:720px) {
+    .weekdays li, .days li {
+        width: 12.2%;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .weekdays li, .days li {
+        width: 10%;
+    }
+}
+
+@media screen and (max-width: 290px) {
+    .weekdays li, .days li {
+        width: 10%;
+    }
+}*/

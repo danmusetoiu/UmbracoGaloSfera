@@ -53,7 +53,7 @@
         @* <h1>Ultimele stiri</h1> *@
 
 
-        <div class="row">
+        <div class="row pe-5">
             <div class="col-lg-1"></div>
             <div class="col-lg-10 coloana-noutati">
                 <div class="row">
@@ -103,6 +103,22 @@
                     <div class="col-1"></div>
                 </div>
                 <div id="map" class="m-0 w-100" style="min-height:300px;"></div>
+                <div id="calendar">
+                    <div id="calendar-header">
+                        <button onclick="changeMonth(-1)">&#10094;</button>
+                        <span id="month-year"></span>
+                        <button onclick="changeMonth(1)">&#10095;</button>
+                    </div>
+                    <div id="calendar-days">
+                        <div class="day">Duminică</div>
+                        <div class="day">Luni</div>
+                        <div class="day">Marți</div>
+                        <div class="day">Miercuri</div>
+                        <div class="day">Joi</div>
+                        <div class="day">Vineri</div>
+                        <div class="day">Sâmbătă</div>
+                    </div>
+                </div>
             </div>
             <div class="col-lg-1"></div>
         </div>
@@ -111,6 +127,64 @@
     </div>
 </section>
 
+@* 
+<div class="container-calendar">
+    <div class="month">
+        <ul>
+            <li class="prev">&#10094;</li>
+            <li class="next">&#10095;</li>
+            <li>
+                August<br>
+                <span style="font-size:10px">2021</span>
+            </li>
+        </ul>
+    </div>
+
+    <ul class="weekdays">
+        <li>Mo</li>
+        <li>Tu</li>
+        <li>We</li>
+        <li>Th</li>
+        <li>Fr</li>
+        <li>Sa</li>
+        <li>Su</li>
+    </ul>
+
+    <ul class="days">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li><span class="active">10</span></li>
+        <li>11</li>
+        <li>12</li>
+        <li>13</li>
+        <li>14</li>
+        <li>15</li>
+        <li>16</li>
+        <li>17</li>
+        <li>18</li>
+        <li>19</li>
+        <li>20</li>
+        <li>21</li>
+        <li>22</li>
+        <li>23</li>
+        <li>24</li>
+        <li>25</li>
+        <li>26</li>
+        <li>27</li>
+        <li>28</li>
+        <li>29</li>
+        <li>30</li>
+        <li>31</li>
+    </ul>
+
+</div> *@
 <script>
     function AfiseazaStireaSelectata(elementApasat) {
         if (elementApasat === undefined) {
@@ -160,4 +234,75 @@
             }
         });
     });
+</script>
+<script>
+    const dateEvenimente = '@(string.Join(",",((Products)Model).Children().Select(p => p.CreateDate.ToString("yyyy-MM-dd")).ToArray()))';
+    const dateArray = dateEvenimente.split(',');
+    const monthNamesRo = [
+        "Ianuarie", "Februarie", "Martie", "Aprilie", "Mai", "Iunie",
+        "Iulie", "August", "Septembrie", "Octombrie", "Noiembrie", "Decembrie"
+    ];
+    let currentMonth = new Date();
+
+    function generateCalendar(date) {
+        const monthYear = document.getElementById("month-year");
+        const calendarDays = document.getElementById("calendar-days");
+        calendarDays.innerHTML = `
+          <div class="day">Duminică</div>
+          <div class="day">Luni</div>
+          <div class="day">Marți</div>
+          <div class="day">Miercuri</div>
+          <div class="day">Joi</div>
+          <div class="day">Vineri</div>
+              <div class="day">Sâmbătă</div>
+      `;
+
+        const year = date.getFullYear();
+        const month = date.getMonth();
+        const firstDay = new Date(year, month, 1).getDay();
+        const lastDay = new Date(year, month + 1, 0).getDate();
+        const today = new Date();
+
+        monthYear.textContent = monthNamesRo[date.getMonth()] + " " + date.getFullYear();
+
+
+        for (let i = 0; i < firstDay; i++) {
+            const emptyDay = document.createElement("div");
+            calendarDays.appendChild(emptyDay);
+        }
+
+        for (let i = 1; i <= lastDay; i++) {
+            const day = document.createElement("div");
+            day.classList.add("day");
+            day.textContent = i;
+
+            const dayOfWeek = new Date(year, month, i).getDay();
+            // if (dayOfWeek === 0 || dayOfWeek === 6) {
+            //     day.classList.add("weekend");
+            // }
+            if (today.getFullYear() === year && today.getMonth() === month && today.getDate() === i) {
+                day.classList.add("current-day");
+            }
+
+            const formattedDate = year + "-" + (month + 1).toString().padStart(2, '0') + "-" + i.toString().padStart(2, '0');
+            if (dateArray.includes(formattedDate)) {
+                day.classList.add("highlighted");
+            }
+
+            calendarDays.appendChild(day);
+        }
+    } 
+    function changeMonth(delta) {
+        currentMonth.setMonth(currentMonth.getMonth() + delta);
+        generateCalendar(currentMonth);
+    }
+
+    function getDatesFromAspNet() {
+        // This is a placeholder. In your ASP.NET code, you'll need to
+        // render this JavaScript code with the actual dates from your
+        // object list. See the ASP.NET example below.
+        return [/* Dates will be inserted here by ASP.NET */];
+    }
+
+    generateCalendar(currentMonth); // Initial calendar generation
 </script>
