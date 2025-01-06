@@ -144,7 +144,16 @@
         @RenderBody()
     </main>
     <div class="container-galai">
-        <a href="#" onclick="catrePaginaChatbot()"><img alt="Chatbot GalAI, asistentul tău virtual" src="/media/it0o4jef/logo-chat-alb-negru.svg" /></a>
+        <a href="#" onclick="catrePaginaChatbot()">
+            @if(Model.Name == "Home")
+            {
+                <img alt="Chatbot GalAI, asistentul tău virtual" src="/media/ak5hctze/logo-chatbot-text-alb.svg" />
+            }
+            else
+            {
+            <img alt="Chatbot GalAI, asistentul tău virtual" src="/media/it0o4jef/logo-chat-alb-negru.svg" />
+            }
+            </a>
     </div>
     
     @* <footer class="footer-container-fixed-bottom ph-20px @culoareText @("Contact,Biblioteca".Contains(numePaginaSauPaginaParinte)?"d-none":"")" style="font-size:0.9rem"> *@
