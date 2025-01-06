@@ -399,68 +399,68 @@ nav a{
 
 @media (min-height: 550px) {
     .coloana-noutati-stanga, .coloana-noutati-dreapta, .coloana-noutati, .coloana-GDPR {
-        --inaltime-coloana-noutati: 17rem;
+        --inaltime-coloana-noutati: 15rem;
     }
 }
 @media (min-height: 630px) {
     .coloana-noutati-stanga, .coloana-noutati-dreapta, .coloana-noutati, .coloana-GDPR {
-        --inaltime-coloana-noutati: 25rem;
+        --inaltime-coloana-noutati: 22rem;
         --adaugare-inaltime: 2rem;
     }
 }
 
 @media (min-height: 740px) {
     .coloana-noutati-stanga, .coloana-noutati-dreapta, .coloana-noutati, .coloana-GDPR {
-        --inaltime-coloana-noutati: 36rem;
+        --inaltime-coloana-noutati: 32rem;
         --adaugare-inaltime: 3rem;
     }
 }
 
 @media (min-height: 840px) {
     .coloana-noutati-stanga, .coloana-noutati-dreapta, .coloana-noutati, .coloana-GDPR {
-        --inaltime-coloana-noutati: 42rem;
+        --inaltime-coloana-noutati: 39rem;
         --adaugare-inaltime: 4rem;
     }
 }
 
 @media (min-height: 940px) {
     .coloana-noutati-stanga, .coloana-noutati-dreapta, .coloana-noutati, .coloana-GDPR {
-        --inaltime-coloana-noutati: 50rem;
+        --inaltime-coloana-noutati: 45rem;
         --adaugare-inaltime: 6rem;
     }
 }
 
 @media (min-height: 1050px) {
     .coloana-noutati-stanga, .coloana-noutati-dreapta, .coloana-noutati, .coloana-GDPR {
-        --inaltime-coloana-noutati: 62rem;
+        --inaltime-coloana-noutati: 50rem;
         --adaugare-inaltime: 10rem;
     }
 }
 
 @media (min-height: 1180px) {
     .coloana-noutati-stanga, .coloana-noutati-dreapta, .coloana-noutati, .coloana-GDPR {
-        --inaltime-coloana-noutati: 64rem;
+        --inaltime-coloana-noutati: 60rem;
         --adaugare-inaltime: 16rem;
     }
 }
 
 @media (min-height: 1300px) {
     .coloana-noutati-stanga, .coloana-noutati-dreapta, .coloana-noutati, .coloana-GDPR {
-        --inaltime-coloana-noutati: 77rem;
+        --inaltime-coloana-noutati: 70rem;
         --adaugare-inaltime: 25rem;
     }
 }
 
 @media (min-height: 1460px) {
     .coloana-noutati-stanga, .coloana-noutati-dreapta, .coloana-noutati, .coloana-GDPR {
-        --inaltime-coloana-noutati: 90rem;
+        --inaltime-coloana-noutati: 80rem;
         --adaugare-inaltime: 36rem;
     }
 }
 
 @media (min-height: 1600px) {
     .coloana-noutati-stanga, .coloana-noutati-dreapta, .coloana-noutati, .coloana-GDPR {
-        --inaltime-coloana-noutati: 100rem;
+        --inaltime-coloana-noutati: 90rem;
         --adaugare-inaltime: 41rem;
     }
 }
