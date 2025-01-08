@@ -2,5 +2,161 @@
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Contractori>
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @{
-	Layout = null;
+    Layout = "master.cshtml";
 }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Leaflet Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+          integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+          crossorigin="">
+    <link rel="stylesheet" href="~/css/Layout.css">
+    <link rel="stylesheet" href="~/css/Noutati.css">
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
+</head>
+@Html.Partial("~/Views/Partials/SectionHeader.cshtml")
+
+<body>
+    <div class="container text-center">
+
+        @* <h1>Ultimele stiri</h1> *@
+
+
+        <div class="row">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-3 col-md-6 coloana-noutati-stanga">
+
+                <div class="col-12 d-flex">
+                    <span class="text-mare-coloana-galuri">
+                        LISTĂ CONTRACTORI
+                    </span>
+                </div>
+                @foreach (Contractor contractor in Model.Children<Contractor>())
+                {
+                    <div class="col-12 d-flex">
+                        <div class="container text-align-start p-0">
+                            <h3 class="text-albastru col-12"> @contractor.DenumireContractor </h3>
+                            <span class="col-12 text-justify-interword">@contractor.Email</span>
+                            <span class="col-12 text-justify-interword">@contractor.Localitate</span>
+                            <span class="col-12 d-block">@contractor.UpdateDate.ToString("dd.MM.yyyy") | @contractor.UpdateDate.ToString("HH:mm")</span>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="col-lg-7 col-md-6 coloana-noutati-dreapta">
+                <div class="col-12 d-flex">
+                    <span class="text-mare-coloana-galuri ">
+                        DETALII
+                    </span>
+                </div>
+
+                @foreach (Contractor contractor in Model.Children<Contractor>())
+                {
+                    <div class="row d-none stire-@contractor.Id">
+
+                        <div class="col-12">
+                            <div class="container d-flex ph-20px ps-0">
+                                <h3 class="fw-bold"> @contractor.DenumireContractor </h3>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="container d-flex ph-20px ps-0 flex-column align-items-start detalii-gal pe-0 me-0">
+                               @*  <span class="text"> NUME PERSOANĂ DE CONTACT </span> *@
+                                @* <h3 class="pb-3"> @gal.PersoanaDeContact </h3>
+                                <span class="text-albastru"> TELEFON </span>
+                                <span class="pb-3"> @gal.TelefonPersoanaDeContact </span> *@
+                                <span class="text-albastru"> STRADĂ </span>
+                                <span class="pb-3"> @contractor.Strada </span>
+                                <div class="d-flex flex-row w-100 p-0 pb-3 m-0 justify-content-between">
+                                    <div class="d-flex flex-column align-items-start ps-0">
+                                        <span class="text-albastru">NR</span>
+                                        <span>@contractor.NumarStrada</span>
+                                    </div>
+                                    <div class=" d-flex flex-column align-items-start ps-0">
+                                        <span class="text-albastru">BL</span>
+                                        <span>@contractor.Bloc</span>
+                                    </div>
+                                    <div class=" d-flex flex-column align-items-start ps-0">
+                                        <span class="text-albastru">SC</span>
+                                        <span>@contractor.Scara</span>
+                                    </div>
+                                    <div class=" d-flex flex-column align-items-start ps-0">
+                                        <span class="text-albastru">ET</span>
+                                        <span>@contractor.Etaj</span>
+                                    </div>
+                                    @* <div class=" d-flex flex-column align-items-start ps-0">
+                                        <span class="text-albastru">COD POSTAL</span>
+                                        <span>@contractor.CodPostal</span>
+                                    </div> *@
+                                    <div class=" d-flex flex-column align-items-start ps-0">
+                                        <span class="text-albastru">SECT/JUD</span>
+                                        <span>@contractor.JudetSector</span>
+                                    </div>
+                                    <div class=" d-flex flex-column align-items-start ps-0">
+                                        <span class="text-albastru">COD POȘTAL</span>
+                                        <span>@contractor.CodPostal</span>
+                                    </div>
+                                    <div class=" d-flex flex-column align-items-start ps-0">
+                                        <span class="text-albastru">LOC</span>
+                                        <span>@contractor.Localitate</span>
+                                    </div>
+                                </div>
+                                <span class="text-albastru"> EMAIL </span>
+                                <span class="pb-3"> @contractor.Email </span>
+                                @* <span class="text-albastru"> WEBSITE </span>
+                                <span class="pb-3"> @gal.WebsiteGal </span> *@
+                                @* <span class="text-albastru"> COD DE IDENTIFICARE FISCALĂ </span>
+                                <span class="pb-3"> @contractor.co </span>
+                                <span class="text-albastru"> CONT BANCAR </span>
+                                <span class="pb-3"> @gal.IBan </span> *@
+                            </div>
+                        </div>
+
+                    </div>
+                }
+            </div>
+            <div class="col-lg-1"></div>
+        </div>
+
+
+    </div>
+
+    <script>
+        function AfiseazaStireaSelectata(elementApasat) {
+            if (elementApasat === undefined) {
+                return;
+            }
+            const coloanaDreapta = document.querySelector('.coloana-noutati-dreapta');
+            coloanaDreapta.scrollTop = 0;
+            const randuriDreapta = coloanaDreapta.querySelectorAll('.row');
+            const stireAfisata = coloanaDreapta.querySelectorAll('.row:not(.d-none)')[0];
+            stireAfisata.classList.add('d-none');
+            const identificatorStire = Array.from(elementApasat.classList).find(classname => classname.startsWith('stire-'));
+            const stireDeAfisat = coloanaDreapta.querySelectorAll('.row.' + identificatorStire)[0];
+            stireDeAfisat.classList.remove('d-none');
+        }
+        window.addEventListener("load", (event) => {
+            const coloanaDreapta = document.querySelector('.coloana-noutati-dreapta');
+            const randuriDreapta = coloanaDreapta.querySelectorAll('.row');
+            randuriDreapta[0].classList.remove('d-none');
+            const coloanaStanga = document.querySelector('.coloana-noutati-stanga');
+            const randuriStanga = coloanaStanga.querySelectorAll('.row');
+            randuriStanga.forEach((element) => element.addEventListener('click', () => AfiseazaStireaSelectata(element)));
+        });
+    </script>
+
+
+</body>
+</html>
