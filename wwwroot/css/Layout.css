@@ -390,7 +390,11 @@ nav a{
 .h-99{
     height:99% !important;
 }
-
+.bb-1{
+    border-bottom:0.2rem;
+    border-bottom-style:solid;
+    border-color:var(--culoare-gri);
+}
 @media (min-height: 490px) {
     .coloana-noutati-stanga, .coloana-noutati-dreapta, .coloana-noutati, .coloana-noutati, .coloana-GDPR {
         --inaltime-coloana-noutati: 8rem;

@@ -39,13 +39,13 @@
             <div class="col-lg-3 col-md-6 coloana-noutati-stanga">
 
                 <div class="col-12 d-flex">
-                    <span class="text-mare-coloana-galuri">
+                    <span class="text-mare-coloana-galuri ta-start">
                         LISTĂ CONTRACTORI
-                    </span>
+                    </span>                    
                 </div>
                 @foreach (Contractor contractor in Model.Children<Contractor>())
                 {
-                    <div class="col-12 d-flex">
+                    <div class="rand rand-@contractor.Id col-12 d-flex bb-1 mb-3">
                         <div class="container text-align-start p-0">
                             <h3 class="text-albastru col-12"> @contractor.DenumireContractor </h3>
                             <span class="col-12 text-justify-interword">@contractor.Email</span>
@@ -64,11 +64,11 @@
 
                 @foreach (Contractor contractor in Model.Children<Contractor>())
                 {
-                    <div class="row d-none stire-@contractor.Id">
+                    <div class="rand d-none rand-@contractor.Id">
 
                         <div class="col-12">
                             <div class="container d-flex ph-20px ps-0">
-                                <h3 class="fw-bold"> @contractor.DenumireContractor </h3>
+                                <h3 class="fw-bold ta-start"> @contractor.DenumireContractor </h3>
                             </div>
                         </div>
                         <div class="col-12">
@@ -140,19 +140,19 @@
             }
             const coloanaDreapta = document.querySelector('.coloana-noutati-dreapta');
             coloanaDreapta.scrollTop = 0;
-            const randuriDreapta = coloanaDreapta.querySelectorAll('.row');
-            const stireAfisata = coloanaDreapta.querySelectorAll('.row:not(.d-none)')[0];
+            const randuriDreapta = coloanaDreapta.querySelectorAll('.rand');
+            const stireAfisata = coloanaDreapta.querySelectorAll('.rand:not(.d-none)')[0];
             stireAfisata.classList.add('d-none');
-            const identificatorStire = Array.from(elementApasat.classList).find(classname => classname.startsWith('stire-'));
-            const stireDeAfisat = coloanaDreapta.querySelectorAll('.row.' + identificatorStire)[0];
+            const identificatorStire = Array.from(elementApasat.classList).find(classname => classname.startsWith('rand-'));
+            const stireDeAfisat = coloanaDreapta.querySelectorAll('.rand.' + identificatorStire)[0];
             stireDeAfisat.classList.remove('d-none');
         }
         window.addEventListener("load", (event) => {
             const coloanaDreapta = document.querySelector('.coloana-noutati-dreapta');
-            const randuriDreapta = coloanaDreapta.querySelectorAll('.row');
+            const randuriDreapta = coloanaDreapta.querySelectorAll('.rand');
             randuriDreapta[0].classList.remove('d-none');
             const coloanaStanga = document.querySelector('.coloana-noutati-stanga');
-            const randuriStanga = coloanaStanga.querySelectorAll('.row');
+            const randuriStanga = coloanaStanga.querySelectorAll('.rand');
             randuriStanga.forEach((element) => element.addEventListener('click', () => AfiseazaStireaSelectata(element)));
         });
     </script>
