@@ -58,12 +58,44 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual string Apartament => this.Value<string>(_publishedValueFallback, "apartament");
 
 		///<summary>
+		/// apartament membru juridic
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.1+5f24de3")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("apartamentMembruJuridic")]
+		public virtual string ApartamentMembruJuridic => this.Value<string>(_publishedValueFallback, "apartamentMembruJuridic");
+
+		///<summary>
+		/// apartament persoana fizica
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.1+5f24de3")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("apartamentPersoanaFizica")]
+		public virtual string ApartamentPersoanaFizica => this.Value<string>(_publishedValueFallback, "apartamentPersoanaFizica");
+
+		///<summary>
 		/// Bloc
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.1+5f24de3")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("bloc")]
 		public virtual string Bloc => this.Value<string>(_publishedValueFallback, "bloc");
+
+		///<summary>
+		/// bloc membru juridic
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.1+5f24de3")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("blocMembruJuridic")]
+		public virtual string BlocMembruJuridic => this.Value<string>(_publishedValueFallback, "blocMembruJuridic");
+
+		///<summary>
+		/// bloc persoana fizica
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.1+5f24de3")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("blocPersoanaFizica")]
+		public virtual string BlocPersoanaFizica => this.Value<string>(_publishedValueFallback, "blocPersoanaFizica");
 
 		///<summary>
 		/// CIFGAL
@@ -74,12 +106,44 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual string CIfgal => this.Value<string>(_publishedValueFallback, "cIFGAL");
 
 		///<summary>
+		/// cif membru juridic
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.1+5f24de3")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("cifMembruJuridic")]
+		public virtual string CifMembruJuridic => this.Value<string>(_publishedValueFallback, "cifMembruJuridic");
+
+		///<summary>
+		/// cnp persoana fizica
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.1+5f24de3")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("cnpPersoanaFizica")]
+		public virtual string CnpPersoanaFizica => this.Value<string>(_publishedValueFallback, "cnpPersoanaFizica");
+
+		///<summary>
 		/// CodPostal
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.1+5f24de3")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("codPostal")]
 		public virtual string CodPostal => this.Value<string>(_publishedValueFallback, "codPostal");
+
+		///<summary>
+		/// cod postal membru juridic
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.1+5f24de3")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("codPostalMembruJuridic")]
+		public virtual string CodPostalMembruJuridic => this.Value<string>(_publishedValueFallback, "codPostalMembruJuridic");
+
+		///<summary>
+		/// cod postal persoana fizica
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.1+5f24de3")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("codPostalPersoanaFizica")]
+		public virtual string CodPostalPersoanaFizica => this.Value<string>(_publishedValueFallback, "codPostalPersoanaFizica");
 
 		///<summary>
 		/// Denumire GAL
@@ -90,12 +154,36 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual string DenumireGal => this.Value<string>(_publishedValueFallback, "denumireGAL");
 
 		///<summary>
+		/// Denumire membru juridic
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.1+5f24de3")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("denumireMembruJuridic")]
+		public virtual string DenumireMembruJuridic => this.Value<string>(_publishedValueFallback, "denumireMembruJuridic");
+
+		///<summary>
 		/// EmailGal
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.1+5f24de3")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("emailGal")]
 		public virtual string EmailGal => this.Value<string>(_publishedValueFallback, "emailGal");
+
+		///<summary>
+		/// email membru juridic
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.1+5f24de3")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("emailMembruJuridic")]
+		public virtual string EmailMembruJuridic => this.Value<string>(_publishedValueFallback, "emailMembruJuridic");
+
+		///<summary>
+		/// email persoana fizica
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.1+5f24de3")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("emailPersoanaFizica")]
+		public virtual string EmailPersoanaFizica => this.Value<string>(_publishedValueFallback, "emailPersoanaFizica");
 
 		///<summary>
 		/// Etaj
@@ -106,12 +194,44 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual string Etaj => this.Value<string>(_publishedValueFallback, "etaj");
 
 		///<summary>
+		/// etaj membru juridic
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.1+5f24de3")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("etajMembruJuridic")]
+		public virtual string EtajMembruJuridic => this.Value<string>(_publishedValueFallback, "etajMembruJuridic");
+
+		///<summary>
+		/// etaj persoana fizica
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.1+5f24de3")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("etajPersoanaFizica")]
+		public virtual string EtajPersoanaFizica => this.Value<string>(_publishedValueFallback, "etajPersoanaFizica");
+
+		///<summary>
 		/// IBAN
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.1+5f24de3")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("iBAN")]
 		public virtual string IBan => this.Value<string>(_publishedValueFallback, "iBAN");
+
+		///<summary>
+		/// iban membru juridic
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.1+5f24de3")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("ibanMembruJuridic")]
+		public virtual string IbanMembruJuridic => this.Value<string>(_publishedValueFallback, "ibanMembruJuridic");
+
+		///<summary>
+		/// initiala tatalui persoana fizica
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.1+5f24de3")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("initialaTataluiPersoanaFizica")]
+		public virtual string InitialaTataluiPersoanaFizica => this.Value<string>(_publishedValueFallback, "initialaTataluiPersoanaFizica");
 
 		///<summary>
 		/// Judet / Sector
@@ -122,6 +242,22 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual string JudetSector => this.Value<string>(_publishedValueFallback, "judetSector");
 
 		///<summary>
+		/// judet sector membru juridic
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.1+5f24de3")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("judetSectorMembruJuridic")]
+		public virtual string JudetSectorMembruJuridic => this.Value<string>(_publishedValueFallback, "judetSectorMembruJuridic");
+
+		///<summary>
+		/// judet sector persoana fizica
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.1+5f24de3")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("judetSectorPersoanaFizica")]
+		public virtual string JudetSectorPersoanaFizica => this.Value<string>(_publishedValueFallback, "judetSectorPersoanaFizica");
+
+		///<summary>
 		/// Localitate
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.1+5f24de3")]
@@ -130,12 +266,28 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual string Localitate => this.Value<string>(_publishedValueFallback, "localitate");
 
 		///<summary>
-		/// Membrii asociatie
+		/// localitate persoana fizica
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.1+5f24de3")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("membrii")]
-		public virtual global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent Membrii => this.Value<global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent>(_publishedValueFallback, "membrii");
+		[ImplementPropertyType("localitatePersoanaFizica")]
+		public virtual string LocalitatePersoanaFizica => this.Value<string>(_publishedValueFallback, "localitatePersoanaFizica");
+
+		///<summary>
+		/// numar membru juridic
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.1+5f24de3")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("numarMembruJuridic")]
+		public virtual string NumarMembruJuridic => this.Value<string>(_publishedValueFallback, "numarMembruJuridic");
+
+		///<summary>
+		/// numar persoana fizica
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.1+5f24de3")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("numarPersoanaFizica")]
+		public virtual string NumarPersoanaFizica => this.Value<string>(_publishedValueFallback, "numarPersoanaFizica");
 
 		///<summary>
 		/// NumarStrada
@@ -146,12 +298,28 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual string NumarStrada => this.Value<string>(_publishedValueFallback, "numarStrada");
 
 		///<summary>
+		/// nume persoana fizica
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.1+5f24de3")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("numePersoanaFizica")]
+		public virtual string NumePersoanaFizica => this.Value<string>(_publishedValueFallback, "numePersoanaFizica");
+
+		///<summary>
 		/// Persoana de contact
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.1+5f24de3")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("persoanaDeContact")]
 		public virtual string PersoanaDeContact => this.Value<string>(_publishedValueFallback, "persoanaDeContact");
+
+		///<summary>
+		/// prenume persoana fizica
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.1+5f24de3")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("prenumePersoanaFizica")]
+		public virtual string PrenumePersoanaFizica => this.Value<string>(_publishedValueFallback, "prenumePersoanaFizica");
 
 		///<summary>
 		/// Scara
@@ -162,12 +330,44 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual string Scara => this.Value<string>(_publishedValueFallback, "scara");
 
 		///<summary>
+		/// scara membru juridic
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.1+5f24de3")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("scaraMembruJuridic")]
+		public virtual string ScaraMembruJuridic => this.Value<string>(_publishedValueFallback, "scaraMembruJuridic");
+
+		///<summary>
+		/// scara persoana fizica
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.1+5f24de3")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("scaraPersoanaFizica")]
+		public virtual string ScaraPersoanaFizica => this.Value<string>(_publishedValueFallback, "scaraPersoanaFizica");
+
+		///<summary>
 		/// strada
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.1+5f24de3")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("strada")]
 		public virtual string Strada => this.Value<string>(_publishedValueFallback, "strada");
+
+		///<summary>
+		/// strada membru juridic
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.1+5f24de3")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("stradaMembruJuridic")]
+		public virtual string StradaMembruJuridic => this.Value<string>(_publishedValueFallback, "stradaMembruJuridic");
+
+		///<summary>
+		/// strada persoana fizica
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.1+5f24de3")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("stradaPersoanaFizica")]
+		public virtual string StradaPersoanaFizica => this.Value<string>(_publishedValueFallback, "stradaPersoanaFizica");
 
 		///<summary>
 		/// Telefon persoana de contact
