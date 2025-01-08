@@ -18,14 +18,14 @@ using Umbraco.Extensions;
 
 namespace Umbraco.Cms.Web.Common.PublishedModels
 {
-	/// <summary>Gal</summary>
-	[PublishedModel("gal")]
-	public partial class Gal : PublishedContentModel
+	/// <summary>MembruPJ</summary>
+	[PublishedModel("membruPJ")]
+	public partial class MembruPJ : PublishedContentModel
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.1+5f24de3")]
-		public new const string ModelTypeAlias = "gal";
+		public new const string ModelTypeAlias = "membruPJ";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.1+5f24de3")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.1+5f24de3")]
@@ -34,28 +34,20 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 			=> PublishedModelUtility.GetModelContentType(publishedSnapshotAccessor, ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.1+5f24de3")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<Gal, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<MembruPJ, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(publishedSnapshotAccessor), selector);
 #pragma warning restore 0109
 
 		private IPublishedValueFallback _publishedValueFallback;
 
 		// ctor
-		public Gal(IPublishedContent content, IPublishedValueFallback publishedValueFallback)
+		public MembruPJ(IPublishedContent content, IPublishedValueFallback publishedValueFallback)
 			: base(content, publishedValueFallback)
 		{
 			_publishedValueFallback = publishedValueFallback;
 		}
 
 		// properties
-
-		///<summary>
-		/// Adauga membrii
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.1+5f24de3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("adaugaMembrii")]
-		public virtual global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent> AdaugaMembrii => this.Value<global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent>>(_publishedValueFallback, "adaugaMembrii");
 
 		///<summary>
 		/// Apartament
@@ -74,15 +66,15 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual string Bloc => this.Value<string>(_publishedValueFallback, "bloc");
 
 		///<summary>
-		/// CIFGAL
+		/// CIF
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.1+5f24de3")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("cIFGAL")]
-		public virtual string CIfgal => this.Value<string>(_publishedValueFallback, "cIFGAL");
+		[ImplementPropertyType("cIF")]
+		public virtual string CIF => this.Value<string>(_publishedValueFallback, "cIF");
 
 		///<summary>
-		/// CodPostal
+		/// Cod postal
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.1+5f24de3")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
@@ -90,20 +82,20 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual string CodPostal => this.Value<string>(_publishedValueFallback, "codPostal");
 
 		///<summary>
-		/// Denumire GAL
+		/// Denumire
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.1+5f24de3")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("denumireGAL")]
-		public virtual string DenumireGal => this.Value<string>(_publishedValueFallback, "denumireGAL");
+		[ImplementPropertyType("denumire")]
+		public virtual string Denumire => this.Value<string>(_publishedValueFallback, "denumire");
 
 		///<summary>
-		/// EmailGal
+		/// Email
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.1+5f24de3")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("emailGal")]
-		public virtual string EmailGal => this.Value<string>(_publishedValueFallback, "emailGal");
+		[ImplementPropertyType("email")]
+		public virtual string Email => this.Value<string>(_publishedValueFallback, "email");
 
 		///<summary>
 		/// Etaj
@@ -122,7 +114,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual string IBan => this.Value<string>(_publishedValueFallback, "iBAN");
 
 		///<summary>
-		/// Judet / Sector
+		/// Judet sector
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.1+5f24de3")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
@@ -138,20 +130,12 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual string Localitate => this.Value<string>(_publishedValueFallback, "localitate");
 
 		///<summary>
-		/// NumarStrada
+		/// Numar
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.1+5f24de3")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("numarStrada")]
-		public virtual string NumarStrada => this.Value<string>(_publishedValueFallback, "numarStrada");
-
-		///<summary>
-		/// Persoana de contact
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.1+5f24de3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("persoanaDeContact")]
-		public virtual string PersoanaDeContact => this.Value<string>(_publishedValueFallback, "persoanaDeContact");
+		[ImplementPropertyType("numar")]
+		public virtual string Numar => this.Value<string>(_publishedValueFallback, "numar");
 
 		///<summary>
 		/// Scara
@@ -162,27 +146,11 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual string Scara => this.Value<string>(_publishedValueFallback, "scara");
 
 		///<summary>
-		/// strada
+		/// Strada
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.1+5f24de3")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("strada")]
 		public virtual string Strada => this.Value<string>(_publishedValueFallback, "strada");
-
-		///<summary>
-		/// Telefon persoana de contact
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.1+5f24de3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("telefonPersoanaDeContact")]
-		public virtual string TelefonPersoanaDeContact => this.Value<string>(_publishedValueFallback, "telefonPersoanaDeContact");
-
-		///<summary>
-		/// WebsiteGal
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.3.1+5f24de3")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("websiteGal")]
-		public virtual string WebsiteGal => this.Value<string>(_publishedValueFallback, "websiteGal");
 	}
 }
