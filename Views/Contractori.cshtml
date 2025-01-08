@@ -50,7 +50,7 @@
                             <h3 class="text-albastru col-12"> @contractor.DenumireContractor </h3>
                             <span class="col-12 text-justify-interword">@contractor.Email</span>
                             <span class="col-12 text-justify-interword">@contractor.Localitate</span>
-                            <span class="col-12 d-block">@contractor.UpdateDate.ToString("dd.MM.yyyy") | @contractor.UpdateDate.ToString("HH:mm")</span>
+                            @* <span class="col-12 d-block">@contractor.UpdateDate.ToString("dd.MM.yyyy") | @contractor.UpdateDate.ToString("HH:mm")</span> *@
                         </div>
                     </div>
                 }
@@ -77,6 +77,8 @@
                                 @* <h3 class="pb-3"> @gal.PersoanaDeContact </h3>
                                 <span class="text-albastru"> TELEFON </span>
                                 <span class="pb-3"> @gal.TelefonPersoanaDeContact </span> *@
+                                @if(!contractor.Strada.IsNullOrWhiteSpace())
+                                {
                                 <span class="text-albastru"> STRADĂ </span>
                                 <span class="pb-3"> @contractor.Strada </span>
                                 <div class="d-flex flex-row w-100 p-0 pb-3 m-0 justify-content-between">
@@ -113,6 +115,7 @@
                                         <span>@contractor.Localitate</span>
                                     </div>
                                 </div>
+                                }
                                 <span class="text-albastru"> EMAIL </span>
                                 <span class="pb-3"> @contractor.Email </span>
                                 @* <span class="text-albastru"> WEBSITE </span>
