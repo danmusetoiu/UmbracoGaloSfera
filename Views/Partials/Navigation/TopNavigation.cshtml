@@ -76,7 +76,7 @@ else
 {
     foreach (var item in selection)
     {
-        if (!"Doneaza!,Pagina de stiri,Noutăți,Evenimente,Termene si conditii,Politica de confidentialitate si GDPR,Logare,Chatbot".Contains(item.Name))@*  && item.Name != "GALURI" && item.Name != "Fii voluntar!" *@
+            if (!"Doneaza!,Pagina de stiri,Noutăți,Evenimente,Termene si conditii,Politica de confidentialitate si GDPR,Logare,Chatbot, Contractori, Formatori, Membrii asociatie, Membrii asociatie peroane juridice".Contains(item.Name))@*  && item.Name != "GALURI" && item.Name != "Fii voluntar!" *@
         {
             <a class="@(culoareText) nav-link @(item.IsAncestorOrSelf(Model) ? "nav-link--active" : null)" href="@item.Url()">@item.Name</a>
         }
@@ -90,7 +90,7 @@ else
 {
     foreach (var item in selection)
     {
-        if (!"Doneaza!,Pagina de stiri,Noutăți,Evenimente,Termene si conditii,Politica de confidentialitate si GDPR, Logare, Chatbot".Contains(item.Name))@*  && item.Name != "GALURI" && item.Name != "Fii voluntar!" *@
+        if (!"Doneaza!,Pagina de stiri,Noutăți,Evenimente,Termene si conditii,Politica de confidentialitate si GDPR, Logare, Chatbot, Contractori, Formatori, Membrii asociatie, Membrii asociatie peroane juridice".Contains(item.Name))@*  && item.Name != "GALURI" && item.Name != "Fii voluntar!" *@
         {
             <a class="@(culoareText) nav-link @(item.IsAncestorOrSelf(Model) ? "nav-link--active" : null)" href="@item.Url()">@item.Name</a>
         }
