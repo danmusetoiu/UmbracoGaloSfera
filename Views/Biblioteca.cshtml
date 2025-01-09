@@ -1,4 +1,6 @@
-﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+﻿@using HtmlAgilityPack
+@using Umbraco.Cms.Core.Strings
+@using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Biblioteca>
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @{
@@ -30,20 +32,55 @@
         </div>
         <div class="col-12 col-lg-5 lh-15 fw-bold h-100  d-flex flex-column justify-content-between pb-5" id="item-container">
             <div>
-            @foreach (var item in Model.Children.ToList())
-            {
-                <div class="row item" style="display: none;">
-                    <div class="col-1 p-2 pt-1">
-                        <img src="/media/asxdhspf/iconita-carte4.svg" />
+                @foreach (var item in Model.Children.ToList())
+                {
+                    <div class="row item" style="display: none;">
+                        <div class="col-1 p-2 pt-1">
+                            <img src="/media/asxdhspf/iconita-carte4.svg" />
+                        </div>
+                        <div class="col-11">
+                            @{
+                                var richText = item.Value<IHtmlEncodedString>("carteContinut");
+
+                                string href = string.Empty;
+                                if (richText != null)
+                                {
+                                    var htmlDoc = new HtmlDocument();
+                                    htmlDoc.LoadHtml(richText.ToString());
+
+                                    var pdfLink = htmlDoc.DocumentNode.SelectSingleNode("//a[contains(@href, '.pdf')]");
+                                    if (pdfLink != null)
+                                    {
+                                        href = pdfLink.GetAttributeValue("href", "");
+                                    }
+                                }
+                                @if (href != string.Empty)
+                                    {
+                                    <a href="@href" class="text-nedecorat text-negru">
+                                        <h5 style="font-weight:900;" class="pb-1 text-nedecorat">
+                                    @item.Value("carteTitlu") 
+                                        <img alt="Descărcare document" src="/media/ahjontgf/icon-download.svg" style="height:1.5rem;" />
+                                        </h5>
+                                    </a>
+                                }
+                                else
+                                {
+
+                                    <h5 style="font-weight:900;" class="pb-1">
+                                        @item.Value("carteTitlu")
+                                    </h5>
+                                }
+                            }
+                            <span>
+                                @{
+                                    string modifiedContent = System.Text.RegularExpressions.Regex.Replace(item.Value<IHtmlEncodedString>("carteContinut").ToString(), "<a.*?>.*?</a>", "", System.Text.RegularExpressions.RegexOptions.IgnoreCase);
+                                    @Html.Raw(modifiedContent)
+                                    ;
+                                }
+                            </span>
+                        </div>
                     </div>
-                    <div class="col-11">
-                        <h5 style="font-weight:900;" class="pb-1">@item.Value("carteTitlu")</h5>
-                        <span>
-                            @item.Value("carteContinut")
-                        </span>
-                    </div>
-                </div>
-            }
+                }
             </div>
 
 
