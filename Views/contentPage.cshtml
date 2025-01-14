@@ -1,9 +1,12 @@
 ﻿@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels
 @using Umbraco.Extensions
 @using Umbraco.Cms.Core.Security;
-@inject IMemberManager _memberManager;
-@inject Microsoft.Extensions.Configuration.IConfiguration Configuration;
-@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.ContentPage>
+@using UmbracoGaloSfera.Controllers;
+@inject IMemberManager _memberManager
+@inject Microsoft.Extensions.Configuration.IConfiguration Configuration
+@model Umbraco.Cms.Web.Common.PublishedModels.ContentPage
+@* @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentAndListaGaluriViewModel> *@
+
 @{
     Layout = "master.cshtml";
 }
@@ -12,66 +15,69 @@
 
 <section class="w-100 d-flex justify-content-center">
     <div class="container text-center m-0 w-100">
-
-
         <div class="row w-100">
             <div class="col-lg-1"></div>
             <div class="col-lg-10">
                 <div class="row">
                     <div class="coloana-noutati-stanga  d-flex align-items-center flex-column col-12">
-
                         <div class="d-flex flex-column align-items-center">
                             <div class="pb-3">
-                            <img src="/media/mywhcni0/logo-albastru-circular.svg" style="width:5rem;" />
+                                <img src="/media/mywhcni0/logo-albastru-circular.svg" style="width:5rem;" />
                             </div>
                             <h4 class="mt-0 mb-0">GENERAREA FORMULARULUI</h4>
                             <h1 class="mt-0 mb-3"><b>ANAF 230</b></h1>
                         </div>
+
                         <div class="w-33">
                             <div class="text-align-start">
-                            <h5>Despre formular</h5>
+                                <h5>Despre formular</h5>
                             </div>
                             <p class="lh-1">
                                 Acest formular permite contribuabililor să redirecționeze
-                                până Ia 3,5% din impozitul pe venit datorat statului către o
+                                până la 3,5% din impozitul pe venit datorat statului către o
                                 organizație non-guvernamentală.
                             </p>
                         </div>
-                        <div>
-                        <button type="button" class="btn btn-primary rounded-pill btn-lg mb-3" onclick="downloadPDF()">Descarcă PDF</button>
-                        @* <button type="button" class="btn btn-secondary rounded-pill btn-lg">Încarcă formularul</button><br /> *@
-                            <form id="uploadForm">
-                                <input type="file" id="fileInput" name="file" accept=".pdf" class="form-control mb-3">
-                                <button type="button" class="btn btn-secondary rounded-pill btn-lg" onclick="uploadFile()">Încarcă formularul</button>
-                            </form>
-                            <p id="uploadMessage" style="margin-top: 20px; color: green;"></p>
+
+                        <!-- Selectarea GAL-ului -->
+                        <div class="w-33 mb-4">
+                            <label for="galSelect">Selectați GAL-ul:</label>
+                            <select id="galSelect" class="form-control">
+                                <option value="">Alegeți un GAL</option>
+                                @* @foreach (var gal in Model.ListaGaluri.Children<Gal>())  // Accesăm ListaGaluri din ViewModel *@
+                                @foreach (var gal in (ViewData["ListaGaluri"] as ListaGaluri).Children<Gal>())
+                                {
+                                    <option value="@gal.Name">@gal.Name</option>
+                                    // Numele GAL-ului
+                                }
+                            </select>
                         </div>
+
+                        <!-- Buton pentru descărcarea PDF-ului -->
+                        <div>
+                            <button type="button" class="btn btn-primary rounded-pill btn-lg mb-3" onclick="downloadPDF()">Descarcă PDF</button>
+                        </div>
+
+                       @*  <!-- Buton nou -->
+                        <button type="button" class="btn btn-primary rounded-pill btn-lg mb-3" onclick="downloadPDF()">Descarcă PDF</button> *@
+
+
+
+                        <!-- Formularul de încărcare a fișierului -->
+                        <form id="uploadForm">
+                            <input type="file" id="fileInput" name="file" accept=".pdf" class="form-control mb-3">
+                            <button type="button" class="btn btn-secondary rounded-pill btn-lg" onclick="uploadFile()">Încarcă formularul</button>
+                        </form>
+                        <p id="uploadMessage" style="margin-top: 20px; color: green;"></p>
                     </div>
                 </div>
             </div>
             <div class="col-lg-1"></div>
         </div>
-
-
     </div>
 </section>
 
-
-
 @* <script>
-    // Obține valoarea configurată din appsettings.json
-    const documentePath = '@Configuration["Media:DocumentePath"]';
-
-    function downloadPDF() {
-        const link = document.createElement('a');
-        link.href = `media/ibeh0jph/230-var1.pdf`; // Numele fișierului
-        link.download = 'document.pdf'; // Numele fișierului la descărcare
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-    }
-</script> *@
-<script>
     const documentePath = '@Configuration["Media:DocumentePath"]' || ''; // Valoarea configurată
 
     function downloadPDF() {
@@ -82,9 +88,26 @@
         link.click();
         document.body.removeChild(link);
     }
-</script>
+</script> *@
 
 <script>
+    // Funcția pentru descărcarea PDF-ului completat
+    function downloadPDF() {
+        const galName = document.getElementById('galSelect').value;  // Obținem valoarea selectată din dropdown
+
+        if (!galName) {
+            alert("Vă rugăm să selectați un GAL.");
+            return;
+        }
+
+        // Generăm URL-ul care va apela controller-ul pentru a genera PDF-ul
+        const url = `/umbraco/api/ContentPage/GeneratePdf?galName=${encodeURIComponent(galName)}`;
+
+        // Redirecționăm către URL-ul respectiv pentru a genera și descărca PDF-ul
+        window.location.href = url; // Acesta va descărca PDF-ul generat
+    }
+
+    // Funcția pentru încărcarea fișierului
     async function uploadFile() {
         const fileInput = document.getElementById('fileInput');
         const file = fileInput.files[0];
@@ -116,3 +139,38 @@
         }
     }
 </script>
+
+@* <script>
+function downloadPDF() {
+    const galName = document.getElementById('galSelect').value;  // Obținem valoarea selectată din dropdown
+
+    if (!galName) {
+        alert("Vă rugăm să selectați un GAL.");
+        return;
+    }
+
+    // Generăm URL-ul corect care va apela controller-ul pentru a genera PDF-ul precompletat
+    const url = `/umbraco/api/ContentPage/GeneratePdf?galName=${encodeURIComponent(galName)}`;
+
+    // Realizează un apel fetch la API-ul de generare PDF
+    fetch(url)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('PDF-ul nu a putut fi generat.');
+            }
+            return response.blob(); // Citește răspunsul ca un blob
+        })
+        .then(blob => {
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob); // Crează un URL temporar pentru fișierul PDF
+            link.download = `${galName}_230.pdf`;  // Numele fișierului la descărcare
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        })
+        .catch(error => {
+            alert(error);
+        });
+}
+</script> *@
+
