@@ -2,6 +2,10 @@
 using Microsoft.Extensions.Configuration; // Pentru a adăuga configurările în builder
 using Microsoft.AspNetCore.Builder; // Pentru a configura aplicația
 using Microsoft.Extensions.Hosting; // Pentru configurarea mediului
+using Umbraco.Cms.Core.Notifications;
+using Microsoft.AspNetCore.Http;
+using UmbracoGaloSfera.Handlers; // Importă handler-ul
+
 
 // Creăm builder-ul aplicației
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
@@ -32,7 +36,8 @@ builder.CreateUmbracoBuilder()
     .AddBackOffice()  // Adaugă back office
     .AddWebsite()     // Adaugă partea de website
     .AddDeliveryApi() // Adaugă Delivery API
-    .AddComposers()   // Adaugă componenetele Umbraco
+    .AddComposers()
+    .AddNotificationHandler<ContentSavingNotification, RestrictGalEditingHandler>()
     .Build();
 
 // Construim aplicația
