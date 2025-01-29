@@ -1,4 +1,4 @@
-﻿namespace UmbracoGaloSfera.Composers // Asigură-te că se potrivește cu structura ta de foldere
+﻿namespace UmbracoGaloSfera.Composers 
 {
     using Microsoft.Extensions.DependencyInjection;
     using Umbraco.Cms.Core.DependencyInjection;
@@ -12,6 +12,7 @@
         {
             builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             builder.AddNotificationHandler<ContentSavingNotification, RestrictGalEditingHandler>();
+            builder.AddNotificationHandler<ContentDeletingNotification, RestrictGalEditingHandler>();
         }
     }
 }

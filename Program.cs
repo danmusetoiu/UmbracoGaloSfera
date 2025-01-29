@@ -38,6 +38,7 @@ builder.CreateUmbracoBuilder()
     .AddDeliveryApi() // Adaugă Delivery API
     .AddComposers()
     .AddNotificationHandler<ContentSavingNotification, RestrictGalEditingHandler>()
+    .AddNotificationHandler<ContentDeletingNotification, RestrictGalEditingHandler>()
     .Build();
 
 // Construim aplicația
