@@ -22,7 +22,7 @@
 
             foreach (var content in notification.SavedEntities)
             {
-                if (content.ContentType.Alias == "gal" || content.ContentType.Alias == "Blogpost" || content.ContentType.Alias == "product")
+                if (content.ContentType.Alias == "gal" || content.ContentType.Alias == "blogpost" || content.ContentType.Alias == "product")
                 {
                     var emailProperty = content.GetValue<string>("EmailGal");
 
